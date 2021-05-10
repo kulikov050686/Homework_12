@@ -6,13 +6,10 @@
         xmlns:local="clr-namespace:Homework_12"
         xmlns:vm="clr-namespace:ViewModels"
         mc:Ignorable="d"
+        DataContext="{Binding MainWindowVM, Source={StaticResource Locator}}"
         Title="{Binding Title}" 
         Height="450" 
-        Width="800">
-
-    <Window.DataContext>
-        <vm:MainWindowViewModel/>
-    </Window.DataContext>
+        Width="800">    
 
     <Grid>
         <Button Content="Button" 
