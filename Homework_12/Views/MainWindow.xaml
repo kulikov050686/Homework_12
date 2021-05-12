@@ -3,21 +3,30 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Homework_12"
-        xmlns:vm="clr-namespace:ViewModels"
-        mc:Ignorable="d"
+        xmlns:uc="clr-namespace:UserControls"
+        mc:Ignorable="d"        
         DataContext="{Binding MainWindowVM, Source={StaticResource Locator}}"
         Title="{Binding Title}" 
         Height="450" 
-        Width="800">    
+        Width="800">
 
     <Grid>
-        <Button Content="Button" 
-                HorizontalAlignment="Left" 
-                Margin="108,274,0,0" 
-                VerticalAlignment="Top" 
-                Height="41" 
-                Width="165"/>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <uc:DateUserControl/>
 
     </Grid>
 </Window>
