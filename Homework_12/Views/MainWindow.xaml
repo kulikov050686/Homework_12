@@ -11,22 +11,7 @@
         Width="800">
 
     <Grid>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-
-        <uc:DateUserControl/>
-
+        <uc:PersonUserControl VerticalAlignment="Center" 
+                              HorizontalAlignment="Center"/>
     </Grid>
 </Window>

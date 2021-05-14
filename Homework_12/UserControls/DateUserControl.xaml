@@ -5,65 +5,52 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="100" 
-             d:DesignWidth="450">
-    <GroupBox Header="Дата рождения" 
-              Background="White" 
+             d:DesignHeight="60" 
+             d:DesignWidth="215">
+    <GroupBox Header="{Binding TitleUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"               
               Padding="3">
-        <Grid Background="White">
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="40"/>
-            </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            
+            <!-- Выбор числа -->
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Число"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="60"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="90"/>
-            </Grid.ColumnDefinitions>
+                <ComboBox Margin="3"
+                          FontSize="14"
+                          Height="25"
+                          ItemsSource="{Binding Numbers, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"
+                          SelectedIndex="{Binding NumberUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"/>
+            </StackPanel>
+            
+            <!-- Выбор месяца -->
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Месяц"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
 
-            <TextBlock Grid.Row="0" 
-                       Grid.Column="0"  
-                       Text="Число" 
-                       VerticalAlignment="Center" 
-                       HorizontalAlignment="Center" 
-                       FontSize="16"/>
+                <ComboBox Margin="3"
+                          FontSize="14"
+                          Height="25"
+                          Width="80"
+                          ItemsSource="{Binding Months, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"
+                          SelectedIndex="{Binding MonthUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"/>
+            </StackPanel>
+            
+            <!-- Выбор годв -->
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Год"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
 
-            <TextBlock Grid.Row="0" 
-                       Grid.Column="1"  
-                       Text="Месяц" 
-                       VerticalAlignment="Center" 
-                       HorizontalAlignment="Center" 
-                       FontSize="16"/>
-
-            <TextBlock Grid.Row="0" 
-                       Grid.Column="2"  
-                       Text="Год" 
-                       VerticalAlignment="Center" 
-                       HorizontalAlignment="Center" 
-                       FontSize="16"/>
-
-            <ComboBox Grid.Row="1" 
-                      Grid.Column="0"
-                      Margin="3"
-                      FontSize="14"
-                      ItemsSource="{Binding Numbers, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"
-                      SelectedIndex="{Binding NumberUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"/>
-
-            <ComboBox Grid.Row="1" 
-                      Grid.Column="1"
-                      Margin="3"
-                      FontSize="14"
-                      ItemsSource="{Binding Months, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"
-                      SelectedIndex="{Binding MonthUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"/>
-
-            <ComboBox Grid.Row="1" 
-                      Grid.Column="2"
-                      Margin="3"
-                      FontSize="14"
-                      ItemsSource="{Binding Years, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}" 
-                      SelectedIndex="{Binding YearUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"/>
-        </Grid>
+                <ComboBox Margin="3"
+                          FontSize="14"
+                          Height="25"
+                          ItemsSource="{Binding Years, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}" 
+                          SelectedIndex="{Binding YearUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"/>
+            </StackPanel>
+        </StackPanel>       
     </GroupBox>
 </UserControl>
