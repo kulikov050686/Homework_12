@@ -4,6 +4,9 @@ using System.Windows;
 using System.Collections.Generic;
 using System;
 using System.Runtime.CompilerServices;
+using Services;
+using System.Windows.Input;
+using Commands;
 
 namespace UserControls
 {
@@ -11,13 +14,8 @@ namespace UserControls
     {
         #region Закрытые поля
 
-        private static List<string> _months;
-        private static List<int> _years;
-        private static List<int> _numbers;
-        private static int _startYear = 1900;
-        private static int _startNumber = 1;
-        private static int _maxNumber = 31;
-        private static int _maxNumberInFebruary = 28;
+        static bool _leapYear = false;
+        static int _monthNumber = 0;
 
         #endregion
 
@@ -41,10 +39,7 @@ namespace UserControls
         #region Месяцы
 
         [Description("Месяцы")]
-        public List<string> Months
-        {
-            get => _months;
-        }
+        public List<string> Months { get; set; }        
 
         #endregion
 
@@ -76,73 +71,8 @@ namespace UserControls
         /// <param name="baseValue"> Установленное значение </param>        
         private static object OnCorrectionMonth(DependencyObject d, object baseValue)
         {
-            var value = (int)baseValue;
-
-            switch (value)
-            {
-                case 0:
-                    // январь
-                    _maxNumber = 31;
-                    //InitNumber();
-                    break;
-                case 1:
-                    // февраль
-                    _maxNumber = _maxNumberInFebruary;
-                    //InitNumber();
-                    break;
-                case 2:
-                    // март
-                    _maxNumber = 31;
-                    //InitNumber();
-                    break;
-                case 3:
-                    // апрель
-                    _maxNumber = 30;
-                    //InitNumber();
-                    break;
-                case 4:
-                    // май
-                    _maxNumber = 31;
-                    //InitNumber();
-                    break;
-                case 5:
-                    // июнь
-                    _maxNumber = 30;
-                    //InitNumber();
-                    break;
-                case 6:
-                    // июль
-                    _maxNumber = 31;
-                    //InitNumber();
-                    break;
-                case 7:
-                    // август
-                    _maxNumber = 31;
-                    //InitNumber();
-                    break;
-                case 8:
-                    // сентябрь
-                    _maxNumber = 30;
-                    //InitNumber();
-                    break;
-                case 9:
-                    // октябрь
-                    _maxNumber = 31;
-                    //InitNumber();
-                    break;
-                case 10:
-                    // ноябрь
-                    _maxNumber = 30;
-                    //InitNumber();
-                    break;
-                case 11:
-                    // декабрь
-                    _maxNumber = 31;
-                    //InitNumber();
-                    break;
-            }
-
-            return value;            
+            _monthNumber = (int)baseValue;
+            return baseValue;                      
         }
 
         /// <summary>
@@ -153,9 +83,6 @@ namespace UserControls
         {
             //Если данный метод возвращает false, то привязка не сработает
             //Если данный метод возвращает true, то новое значение становится значением этого свойства
-
-            var temp = (int)value;
-            if (temp < 0 || temp > 11) return false;
             return true;
         }
 
@@ -170,15 +97,11 @@ namespace UserControls
 
         #region Числа месяца
 
+        List<int> _numbers;
         public List<int> Numbers
         {
             get => _numbers;
-
-            set
-            {
-                InitNumber();
-                Set(ref _numbers, value); 
-            }            
+            set => Set(ref _numbers, value); 
         }
 
         #endregion
@@ -202,11 +125,8 @@ namespace UserControls
 
         #region Годы
 
-        public List<int> Years
-        {
-            get => _years;
-        }
-
+        public List<int> Years { get; set; }
+        
         #endregion
 
         #region Выбор года
@@ -228,56 +148,43 @@ namespace UserControls
 
         #endregion
 
-        public DateUserControl() 
+        #region Команда Выбора месяца 
+
+        ICommand _OnSelectedMonth;
+        public ICommand OnSelectedMonth
+        {
+            get => _OnSelectedMonth ?? (_OnSelectedMonth = new RelayCommand((obj) =>
+            {
+                SettingDays();
+            }));
+        }
+
+        #endregion
+
+        #region Команда выбранный год
+
+        ICommand _OnSelectedYear;
+        public ICommand OnSelectedYear
+        {
+            get => _OnSelectedYear ?? (_OnSelectedYear = new RelayCommand((obj) => 
+            {
+                int year = Years[YearUC];
+                _leapYear = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+                SettingDays();
+            }));
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        public DateUserControl()
         { 
             InitializeComponent();
-            InitMonths();
-            InitYears();            
-        }
-
-        /// <summary>
-        /// Инициализация месяцев
-        /// </summary>
-        private static void InitMonths()
-        {
-            _months = new List<string> { "январь",
-                                         "февраль",
-                                         "март",
-                                         "апрель",
-                                         "май",
-                                         "июнь",
-                                         "июль",
-                                         "август",
-                                         "сентябрь",
-                                         "октябрь",
-                                         "ноябрь",
-                                         "декабрь" };
-        }
-
-        /// <summary>
-        /// Инициализация годов
-        /// </summary>
-        private static void InitYears()
-        {
-            _years = new List<int>();
-
-            for(int i = 0; i < 130; i++)
-            {
-                _years.Add(_startYear + i);                
-            }            
-        }
-
-        /// <summary>
-        /// Инициализация чисел
-        /// </summary>
-        private void InitNumber()
-        {
-            _numbers = new List<int>();
-
-            for (int i = 0; i < _maxNumber; i++)
-            {
-                _numbers.Add(_startNumber + i);
-            }            
+            Years = DaysMonthsYears.Years(1950, 2020);
+            Months = DaysMonthsYears.Months();
+            Numbers = DaysMonthsYears.Days(31);
         }
 
         /// <summary>
@@ -309,6 +216,40 @@ namespace UserControls
             OnPropertyChanged(property);
 
             return true;
+        }
+
+        /// <summary>
+        /// Установить количество дней в месяце
+        /// </summary>
+        private void SettingDays()
+        {
+            if (_monthNumber == 1)
+            {
+                if (_leapYear)
+                {
+                    Numbers = DaysMonthsYears.Days(29);
+                    _leapYear = false;
+                }
+                else
+                {
+                    Numbers = DaysMonthsYears.Days(28);
+                }
+
+            }
+            else if (_monthNumber == 0 ||
+                    _monthNumber == 2 ||
+                    _monthNumber == 4 ||
+                    _monthNumber == 6 ||
+                    _monthNumber == 7 ||
+                    _monthNumber == 9 ||
+                    _monthNumber == 11)
+            {
+                Numbers = DaysMonthsYears.Days(31);
+            }
+            else
+            {
+                Numbers = DaysMonthsYears.Days(30);
+            }
         }
     }
 }

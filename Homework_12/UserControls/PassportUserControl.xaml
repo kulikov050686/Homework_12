@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="190" 
-             d:DesignWidth="350">
+             d:DesignWidth="375">
     <GroupBox Background="White">
         <StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -16,7 +16,8 @@
                              Width="50"/>
                 </GroupBox>
 
-                <GroupBox Header="Номер">
+                <GroupBox Header="Номер" 
+                          Margin="25 0 0 0">
                     <TextBox Height="25" 
                              Width="80"/>
                 </GroupBox>

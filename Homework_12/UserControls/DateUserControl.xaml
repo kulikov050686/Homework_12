@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:UserControls"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
              d:DesignHeight="60" 
              d:DesignWidth="215">
@@ -21,8 +22,9 @@
                 <ComboBox Margin="3"
                           FontSize="14"
                           Height="25"
-                          ItemsSource="{Binding Numbers, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"
-                          SelectedIndex="{Binding NumberUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"/>
+                          Width="45"
+                          ItemsSource="{Binding Numbers, RelativeSource={RelativeSource AncestorType=local:DateUserControl}, Mode=TwoWay}"
+                          SelectedIndex="{Binding NumberUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}, Mode=TwoWay}"/>
             </StackPanel>
             
             <!-- Выбор месяца -->
@@ -34,12 +36,20 @@
                 <ComboBox Margin="3"
                           FontSize="14"
                           Height="25"
-                          Width="80"
+                          Width="85"                          
                           ItemsSource="{Binding Months, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"
-                          SelectedIndex="{Binding MonthUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"/>
+                          SelectedIndex="{Binding MonthUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}">
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding OnSelectedMonth, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    
+                </ComboBox>
             </StackPanel>
             
-            <!-- Выбор годв -->
+            <!-- Выбор года -->
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="Год"
                            VerticalAlignment="Center"
@@ -49,7 +59,14 @@
                           FontSize="14"
                           Height="25"
                           ItemsSource="{Binding Years, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}" 
-                          SelectedIndex="{Binding YearUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"/>
+                          SelectedIndex="{Binding YearUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}">
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding OnSelectedYear, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
             </StackPanel>
         </StackPanel>       
     </GroupBox>

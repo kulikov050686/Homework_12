@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="300" 
-             d:DesignWidth="270">
+             d:DesignWidth="292">
     <GroupBox>
         <StackPanel>
             
