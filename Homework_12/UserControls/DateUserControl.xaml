@@ -8,6 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="60" 
              d:DesignWidth="215">
+    
     <GroupBox Header="{Binding TitleUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"               
               Padding="3">
 
@@ -22,9 +23,9 @@
                 <ComboBox Margin="3"
                           FontSize="14"
                           Height="25"
-                          Width="45"
-                          ItemsSource="{Binding Numbers, RelativeSource={RelativeSource AncestorType=local:DateUserControl}, Mode=TwoWay}"
-                          SelectedIndex="{Binding NumberUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}, Mode=TwoWay}"/>
+                          Width="45"                          
+                          ItemsSource="{Binding Days, RelativeSource={RelativeSource AncestorType=local:DateUserControl}, Mode=TwoWay}"
+                          SelectedIndex="{Binding SelectedIndexDayUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}, Mode=TwoWay}"/>
             </StackPanel>
             
             <!-- Выбор месяца -->
@@ -38,7 +39,7 @@
                           Height="25"
                           Width="85"                          
                           ItemsSource="{Binding Months, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}"
-                          SelectedIndex="{Binding MonthUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}">
+                          SelectedIndex="{Binding SelectedIndexDayUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}">
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
@@ -59,7 +60,7 @@
                           FontSize="14"
                           Height="25"
                           ItemsSource="{Binding Years, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}" 
-                          SelectedIndex="{Binding YearUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}">
+                          SelectedIndex="{Binding SelectedIndexYearUC, RelativeSource={RelativeSource AncestorType=local:DateUserControl}}">
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">

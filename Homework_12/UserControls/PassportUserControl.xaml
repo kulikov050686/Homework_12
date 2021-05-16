@@ -7,18 +7,25 @@
              mc:Ignorable="d" 
              d:DesignHeight="190" 
              d:DesignWidth="375">
-    <GroupBox Background="White">
+    
+    <GroupBox>
         <StackPanel>
+            
+            <!-- Серия и номер паспорта -->
             <StackPanel Orientation="Horizontal">
-
+                
+                <!-- Серия паспорта -->
                 <GroupBox Header="Серия">
-                    <TextBox Height="25" 
+                    <TextBox FontSize="16"
+                             Height="25" 
                              Width="50"/>
                 </GroupBox>
-
+                
+                <!-- Номер паспорта -->
                 <GroupBox Header="Номер" 
                           Margin="25 0 0 0">
-                    <TextBox Height="25" 
+                    <TextBox FontSize="16"
+                             Height="25" 
                              Width="80"/>
                 </GroupBox>
 
@@ -26,31 +33,40 @@
 
             <StackPanel Orientation="Horizontal">
                 
+                <!-- Дата выдачи паспорта -->
                 <local:DateUserControl TitleUC="Дата Выдачи"/>
-
+                
+                <!-- Код подразделения выдавший паспорт -->
                 <StackPanel>
 
                     <GroupBox Header="Код подразделения" Height="80">
                         <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
-                            <TextBox Height="25"
+                            <TextBox FontSize="16"
+                                     Height="25"
                                      Width="50"
                                      Margin="5"/>
 
                             <TextBlock Text="-"
+                                       FontSize="16"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"/>
 
-                            <TextBox Height="25" 
+                            <TextBox Text=""
+                                     FontSize="16" 
+                                     Height="25" 
                                      Width="50" 
                                      Margin="5"/>
                         </StackPanel>
                     </GroupBox>
                 </StackPanel>
             </StackPanel>
-
+            
+            <!-- Место выдачи паспорта -->
             <GroupBox Header="Место выдачи" >
-                <TextBlock Text=""                           
-                           Height="30"/>
+                <TextBox Text=""
+                         TextWrapping="Wrap"                         
+                         FontSize="16"
+                         Height="30"/>
             </GroupBox>            
         </StackPanel>
     </GroupBox>

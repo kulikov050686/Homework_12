@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="UserControls.AddressUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="340" 
+             d:DesignWidth="300">
+    
+    <GroupBox Header="{Binding TitleUC, RelativeSource={RelativeSource AncestorType=local:AddressUserControl}}">
+        <StackPanel>
+            
+            <!-- Область и край -->
+            <GroupBox Header="Область или край">
+                <TextBox Text="{Binding RegionUC, RelativeSource={RelativeSource AncestorType=local:AddressUserControl}}" 
+                         FontSize="16"/>
+            </GroupBox>
+            
+            <!-- Город -->
+            <GroupBox Header="Город">
+                <TextBox Text="{Binding CityUC, RelativeSource={RelativeSource AncestorType=local:AddressUserControl}}" 
+                         FontSize="16"/>
+            </GroupBox>
+            
+            <!-- Район -->
+            <Expander Header="Район">
+                <TextBox Text="{Binding DistrictUC, RelativeSource={RelativeSource AncestorType=local:AddressUserControl}}" 
+                         FontSize="16"/>
+            </Expander>
+            
+            <!-- Улица -->
+            <GroupBox Header="Улица">
+                <TextBox Text="{Binding StreetUC, RelativeSource={RelativeSource AncestorType=local:AddressUserControl}}" 
+                         FontSize="16"/>
+            </GroupBox>
+            
+            <!-- Номер дома -->
+            <GroupBox Header="Дом">
+                <TextBox Text="" 
+                         FontSize="16"/>
+            </GroupBox>
+            
+            <!-- Корпус -->
+            <Expander Header="Корпус">
+                <TextBox Text="{Binding HousingUC, RelativeSource={RelativeSource AncestorType=local:AddressUserControl}}" 
+                         FontSize="16"/>
+            </Expander>
+            
+            <!-- Номер квартиры -->
+            <Expander Header="Квартира">
+                <TextBox Text="" 
+                         FontSize="16"/>
+            </Expander>
+            
+            <!-- Дата регистрации -->
+            <local:DateUserControl TitleUC="Дата регистрации"
+                                   SelectedIndexDayUC="{Binding DayNumberUC, RelativeSource={RelativeSource AncestorType=local:AddressUserControl}}"/>
+
+        </StackPanel>
+    </GroupBox>
+</UserControl>

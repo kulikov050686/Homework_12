@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Windows;
 using System.Collections.Generic;
-using System;
 using System.Runtime.CompilerServices;
 using Services;
 using System.Windows.Input;
@@ -39,14 +38,31 @@ namespace UserControls
         #region Месяцы
 
         [Description("Месяцы")]
-        public List<string> Months { get; set; }        
+        public List<string> Months { get; set; }
 
         #endregion
 
-        #region Выбор месяца
+        #region Годы
 
-        public static readonly DependencyProperty MonthUCProperty =
-            DependencyProperty.Register(nameof(MonthUC),
+        public List<int> Years { get; set; }
+
+        #endregion
+
+        #region Дни месяца
+
+        List<int> _days;
+        public List<int> Days
+        {
+            get => _days;
+            set => Set(ref _days, value);
+        }
+
+        #endregion
+
+        #region Выбор индекса месяца
+
+        public static readonly DependencyProperty SelectedIndexMonthUCProperty =
+            DependencyProperty.Register(nameof(SelectedIndexMonthUC),
                                         typeof(int),
                                         typeof(DateUserControl),
                                         new PropertyMetadata(default(int), 
@@ -61,7 +77,6 @@ namespace UserControls
         /// <param name="e"> Объект который содержит информацию о том как это свойство меняется </param>
         private static void OnMonthPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-
         }
 
         /// <summary>
@@ -86,64 +101,47 @@ namespace UserControls
             return true;
         }
 
-        [Description("Выбранный месяц")]
-        public int MonthUC
+        [Description("Выбранный индекс месяца")]
+        public int SelectedIndexMonthUC
         {
-            get => (int)GetValue(MonthUCProperty);
-            set => SetValue(MonthUCProperty, value);
+            get => (int)GetValue(SelectedIndexMonthUCProperty);
+            set => SetValue(SelectedIndexMonthUCProperty, value);
         }
 
         #endregion
+        
+        #region Выбор индекса дня
 
-        #region Числа месяца
-
-        List<int> _numbers;
-        public List<int> Numbers
-        {
-            get => _numbers;
-            set => Set(ref _numbers, value); 
-        }
-
-        #endregion
-
-        #region Выбор числа
-
-        public static readonly DependencyProperty NumberUCProperty =
-            DependencyProperty.Register(nameof(NumberUC),
+        public static readonly DependencyProperty SelectedIndexDayUCProperty =
+            DependencyProperty.Register(nameof(SelectedIndexDayUC),
                                         typeof(int),
                                         typeof(DateUserControl),
                                         new PropertyMetadata(default(int)));
 
-        [Description("Выбранное число месяца")]
-        public int NumberUC
+        [Description("Выбранный индекс дня")]
+        public int SelectedIndexDayUC
         {
-            get => (int)GetValue(NumberUCProperty);
-            set => SetValue(NumberUCProperty, value);
+            get => (int)GetValue(SelectedIndexDayUCProperty);
+            set => SetValue(SelectedIndexDayUCProperty, value);
         }
 
         #endregion
 
-        #region Годы
+        #region Выбор индекса года
 
-        public List<int> Years { get; set; }
-        
-        #endregion
-
-        #region Выбор года
-
-        public static readonly DependencyProperty YearUCProperty =
-            DependencyProperty.Register(nameof(YearUC),
+        public static readonly DependencyProperty SelectedIndexYearUCroperty =
+            DependencyProperty.Register(nameof(SelectedIndexYearUC),
                                         typeof(int),
                                         typeof(DateUserControl),
                                         new PropertyMetadata(default(int)));
 
         
 
-        [Description("Выбранный год")]
-        public int YearUC
+        [Description("Выбранный индекс года")]
+        public int SelectedIndexYearUC
         {
-            get => (int)GetValue(YearUCProperty);
-            set => SetValue(YearUCProperty, value);
+            get => (int)GetValue(SelectedIndexYearUCroperty);
+            set => SetValue(SelectedIndexYearUCroperty, value);
         }
 
         #endregion
@@ -168,7 +166,7 @@ namespace UserControls
         {
             get => _OnSelectedYear ?? (_OnSelectedYear = new RelayCommand((obj) => 
             {
-                int year = Years[YearUC];
+                int year = Years[SelectedIndexYearUC];
                 _leapYear = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
                 SettingDays();
             }));
@@ -184,7 +182,7 @@ namespace UserControls
             InitializeComponent();
             Years = DaysMonthsYears.Years(1950, 2020);
             Months = DaysMonthsYears.Months();
-            Numbers = DaysMonthsYears.Days(31);
+            SettingDays();
         }
 
         /// <summary>
@@ -227,12 +225,12 @@ namespace UserControls
             {
                 if (_leapYear)
                 {
-                    Numbers = DaysMonthsYears.Days(29);
+                    Days = DaysMonthsYears.Days(29);
                     _leapYear = false;
                 }
                 else
                 {
-                    Numbers = DaysMonthsYears.Days(28);
+                    Days = DaysMonthsYears.Days(28);
                 }
 
             }
@@ -244,11 +242,11 @@ namespace UserControls
                     _monthNumber == 9 ||
                     _monthNumber == 11)
             {
-                Numbers = DaysMonthsYears.Days(31);
+                Days = DaysMonthsYears.Days(31);
             }
             else
             {
-                Numbers = DaysMonthsYears.Days(30);
+                Days = DaysMonthsYears.Days(30);
             }
         }
     }
