@@ -1,6 +1,7 @@
 ﻿using System.Windows.Controls;
 using System.ComponentModel;
 using System.Windows;
+using System;
 
 namespace UserControls
 {    
@@ -40,7 +41,7 @@ namespace UserControls
 
         #endregion
 
-        #region Номер
+        #region Номер паспорта
 
         public static readonly DependencyProperty NumberUCProperty =
            DependencyProperty.Register(nameof(NumberUC),
@@ -108,7 +109,21 @@ namespace UserControls
 
         #endregion
 
-        #region
+        #region Дата выдачи паспорта
+
+        public static readonly DependencyProperty DateOfIssueUCProperty =
+           DependencyProperty.Register(nameof(DateOfIssueUC),
+                                       typeof(DateTime),
+                                       typeof(PassportUserControl),
+                                       new PropertyMetadata(default(DateTime)));
+
+        [Description("Дата выдачи паспорта")]
+        public DateTime DateOfIssueUC
+        {
+            get => (DateTime)GetValue(DateOfIssueUCProperty);
+            set => SetValue(DateOfIssueUCProperty, value);
+        }
+
         #endregion
 
         public PassportUserControl() => InitializeComponent();        

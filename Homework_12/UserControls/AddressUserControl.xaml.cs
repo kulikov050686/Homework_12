@@ -1,6 +1,7 @@
 ﻿using System.Windows.Controls;
 using System.ComponentModel;
 using System.Windows;
+using System;
 
 namespace UserControls
 {
@@ -142,19 +143,19 @@ namespace UserControls
 
         #endregion
 
-        #region Выбор номера дня
+        #region Дата регистрации
 
-        public static readonly DependencyProperty DayNumberUCProperty =
-            DependencyProperty.Register(nameof(DayNumberUC),
-                                        typeof(int),
+        public static readonly DependencyProperty RegistrationDateUCProperty =
+            DependencyProperty.Register(nameof(RegistrationDateUC),
+                                        typeof(DateTime),
                                         typeof(AddressUserControl),
-                                        new PropertyMetadata(default(int)));
+                                        new PropertyMetadata(default(DateTime)));
 
-        [Description("Выбор номера дня")]
-        public int DayNumberUC
+        [Description("Дата регистрации")]
+        public DateTime RegistrationDateUC
         {
-            get => (int)GetValue(DayNumberUCProperty);
-            set => SetValue(DayNumberUCProperty, value);
+            get => (DateTime)GetValue(RegistrationDateUCProperty);
+            set => SetValue(RegistrationDateUCProperty, value);
         }
 
         #endregion

@@ -34,8 +34,11 @@
             <StackPanel Orientation="Horizontal">
                 
                 <!-- Дата выдачи паспорта -->
-                <local:DateUserControl TitleUC="Дата Выдачи"/>
-                
+                <GroupBox Header="Дата выдачи">
+                    <DatePicker FontSize="16"
+                                SelectedDate="{Binding DateOfIssueUC, RelativeSource={RelativeSource AncestorType=local:PassportUserControl}}"/>
+                </GroupBox>
+
                 <!-- Код подразделения выдавший паспорт -->
                 <StackPanel>
 

@@ -52,11 +52,12 @@
                 <TextBox Text="" 
                          FontSize="16"/>
             </Expander>
-            
-            <!-- Дата регистрации -->
-            <local:DateUserControl TitleUC="Дата регистрации"
-                                   SelectedIndexDayUC="{Binding DayNumberUC, RelativeSource={RelativeSource AncestorType=local:AddressUserControl}}"/>
 
+            <!--Дата регистрации-->
+            <GroupBox Header="Дата регистрации">
+                <DatePicker FontSize="16" 
+                            SelectedDate="{Binding RegistrationDateUC, RelativeSource={RelativeSource AncestorType=local:AddressUserControl}}"/>
+            </GroupBox>
         </StackPanel>
     </GroupBox>
 </UserControl>

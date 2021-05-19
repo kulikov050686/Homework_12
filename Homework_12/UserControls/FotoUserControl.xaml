@@ -8,7 +8,7 @@
              d:DesignHeight="300" 
              d:DesignWidth="300">
 
-    <GroupBox>
+    <GroupBox Header="">
         
         <Grid>
             <Grid.RowDefinitions>
@@ -16,15 +16,20 @@
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
-            <Image Grid.Row="0" 
-                   Margin="5" 
-                   Source="{Binding ImageSourceUC, RelativeSource={RelativeSource AncestorType=local:FotoUserControl}}"/>
+            <Border Grid.Row="0" 
+                    BorderBrush="Black"                    
+                    BorderThickness="3"
+                    CornerRadius="3">
+                <Image Margin="5" 
+                       Source="{Binding ImageSourceUC, RelativeSource={RelativeSource AncestorType=local:FotoUserControl}}"/>
+            </Border>
+
 
             <Button Grid.Row="1"
                     Command="{Binding CommandReviewUC, RelativeSource={RelativeSource AncestorType=local:FotoUserControl}}"
                     Content="Обзор..." 
                     HorizontalAlignment="Right" 
-                    Margin="0 5 5 0"/>   
+                    Margin="0 5 5 0"/>
 
         </Grid>        
     </GroupBox>

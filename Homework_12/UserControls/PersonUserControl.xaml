@@ -34,9 +34,12 @@
             
             <!-- Дата рождения и пол -->
             <StackPanel Orientation="Horizontal">
-                
-                <!-- Контрол выбора даты -->
-                <local:DateUserControl TitleUC="Дата рождения"/>
+
+                <!-- Дата рождения -->
+                <GroupBox Header="Дата рождения">
+                    <DatePicker FontSize="16"
+                                SelectedDate="{Binding DateOfBirthrUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}"/>
+                </GroupBox>
                 
                 <!-- Пол -->
                 <GroupBox Header="Пол" Margin="15 0 0 0">

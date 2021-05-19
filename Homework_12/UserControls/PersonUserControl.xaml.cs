@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows;
 using System.Collections.Generic;
+using System;
 
 namespace UserControls
 {    
@@ -129,6 +130,23 @@ namespace UserControls
         {
             get => (string)GetValue(SelectedItemGenderUCProperty);
             set => SetValue(SelectedItemGenderUCProperty, value);
+        }
+
+        #endregion
+
+        #region Дата рождения
+
+        public static readonly DependencyProperty DateOfBirthrUCProperty =
+            DependencyProperty.Register(nameof(DateOfBirthrUC),
+                                        typeof(DateTime),
+                                        typeof(PersonUserControl),
+                                        new PropertyMetadata(default(DateTime)));
+
+        [Description("Дата рождения")]
+        public DateTime DateOfBirthrUC
+        {
+            get => (DateTime)GetValue(DateOfBirthrUCProperty);
+            set => SetValue(DateOfBirthrUCProperty, value);
         }
 
         #endregion
