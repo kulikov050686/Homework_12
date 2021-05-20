@@ -1,16 +1,17 @@
-﻿using System;
+﻿using Interfaces;
+using System;
 
 namespace Models
 {
     /// <summary>
     /// Базавый класс банковский счёт
     /// </summary>
-    public class BankAccountBaseClass
+    public class BankAccountBaseClass : IEntity
     {
         /// <summary>
         /// Идентификатор
         /// </summary>
-        public ulong Id { get; set; }
+        public int Id { get; set; }
         
         /// <summary>
         /// Сумма на счёте
@@ -33,15 +34,25 @@ namespace Models
         public BankCustomerBaseClass BankCustomer { get; }
 
         /// <summary>
+        /// конструктор
+        /// </summary>
+        /// <param name="id"> Идентификатор </param>
+        /// <param name="bankCustomer"> Клиент банка </param>
+        /// <param name="accountStatus"> Статус счёта </param>
+        public BankAccountBaseClass(int id, BankCustomerBaseClass bankCustomer, AccountStatus accountStatus) : this(bankCustomer, accountStatus)
+        {
+            if(id < 0) throw new ArgumentException("");
+
+            Id = id;
+        }
+
+        /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="bankCustomer"> Клиент банка </param>
         /// <param name="accountStatus"> Статус счёта </param>
-        public BankAccountBaseClass(BankCustomerBaseClass bankCustomer, AccountStatus accountStatus)
-        {
-            if (bankCustomer is null) throw new ArgumentException("");
-
-            BankCustomer = bankCustomer;
+        public BankAccountBaseClass(BankCustomerBaseClass bankCustomer, AccountStatus accountStatus) : this(bankCustomer)
+        {          
             AccountStatus = accountStatus;
         }
 

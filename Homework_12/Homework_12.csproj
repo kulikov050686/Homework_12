@@ -10,7 +10,6 @@
   <ItemGroup>
     <Folder Include="Assets\" />
     <Folder Include="Infrastructure\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Behaviors\" />
   </ItemGroup>
 

@@ -1,16 +1,18 @@
-﻿using System.Collections.ObjectModel;
+﻿using Interfaces;
+using System.Collections.Generic;
 
 namespace Models
 {
     /// <summary>
     /// Класс департамент
     /// </summary>
-    public class Department<T> where T : BankCustomerBaseClass
+    public class Department<T> : IEntity 
+        where T : BankCustomerBaseClass
     {
         /// <summary>
         /// Идентификатор
         /// </summary>
-        public ulong Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Название
@@ -20,7 +22,12 @@ namespace Models
         /// <summary>
         /// Лист клиентов банка
         /// </summary>
-        public ObservableCollection<T> BankCustomers { get; set; }
+        public IList<T> BankCustomers { get; set; }
+
+        /// <summary>
+        /// Описание
+        /// </summary>
+        public string Description { get; set; }
 
         /// <summary>
         /// Конструктор 
@@ -36,7 +43,7 @@ namespace Models
         /// </summary>
         /// <param name="id"> Идентификатор </param>
         /// <param name="name"> Название </param>
-        public Department(ulong id, string name) : this(name)
+        public Department(int id, string name) : this(name)
         {            
             Id = id;
         }

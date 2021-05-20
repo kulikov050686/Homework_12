@@ -5,49 +5,57 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="190" 
-             d:DesignWidth="375">
-    
+             d:DesignWidth="400" 
+             d:DesignHeight="250">
+
     <GroupBox>
         <StackPanel>
-            
+
             <!-- Серия и номер паспорта -->
             <StackPanel Orientation="Horizontal">
-                
+
                 <!-- Серия паспорта -->
-                <GroupBox Header="Серия">
-                    <TextBox FontSize="16"
-                             Height="25" 
-                             Width="50"/>
+                <GroupBox Header="Серия" 
+                          Height="50" 
+                          Width="100">
+                    
+                    <TextBox FontSize="16"/>
                 </GroupBox>
-                
+
                 <!-- Номер паспорта -->
                 <GroupBox Header="Номер" 
-                          Margin="25 0 0 0">
-                    <TextBox FontSize="16"
-                             Height="25" 
-                             Width="80"/>
+                          Margin="25 0 0 0"
+                          Height="50" 
+                          Width="100">
+                    
+                    <TextBox FontSize="16"/>
                 </GroupBox>
 
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                
+
                 <!-- Дата выдачи паспорта -->
-                <GroupBox Header="Дата выдачи">
+                <GroupBox Header="Дата выдачи" 
+                          Height="60" 
+                          Width="200">
+                    
                     <DatePicker FontSize="16"
                                 SelectedDate="{Binding DateOfIssueUC, RelativeSource={RelativeSource AncestorType=local:PassportUserControl}}"/>
                 </GroupBox>
 
                 <!-- Код подразделения выдавший паспорт -->
-                <StackPanel>
+                <StackPanel Margin="25 0 0 0">
 
-                    <GroupBox Header="Код подразделения" Height="80">
-                        <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
-                            <TextBox FontSize="16"
-                                     Height="25"
-                                     Width="50"
-                                     Margin="5"/>
+                    <GroupBox Header="Код подразделения" 
+                              Height="60"
+                              Width="150">
+                        <StackPanel Orientation="Horizontal" 
+                                    HorizontalAlignment="Center">
+                            
+                            <TextBox FontSize="16"                                     
+                                     Margin="5"
+                                     Width="60"/>
 
                             <TextBlock Text="-"
                                        FontSize="16"
@@ -55,22 +63,22 @@
                                        HorizontalAlignment="Center"/>
 
                             <TextBox Text=""
-                                     FontSize="16" 
-                                     Height="25" 
-                                     Width="50" 
-                                     Margin="5"/>
+                                     FontSize="16"                                       
+                                     Margin="5"
+                                     Width="60"/>
                         </StackPanel>
                     </GroupBox>
                 </StackPanel>
             </StackPanel>
-            
+
             <!-- Место выдачи паспорта -->
-            <GroupBox Header="Место выдачи" >
-                <TextBox Text=""
+            <GroupBox Header="Место выдачи" 
+                      Height="100">
+                
+                <TextBox Text="{Binding PlaceOfIssueUC, RelativeSource={RelativeSource AncestorType=local:PassportUserControl}}"
                          TextWrapping="Wrap"                         
-                         FontSize="16"
-                         Height="30"/>
-            </GroupBox>            
+                         FontSize="16"/>
+            </GroupBox>
         </StackPanel>
     </GroupBox>
 </UserControl>

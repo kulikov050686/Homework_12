@@ -1,16 +1,17 @@
-﻿using System;
+﻿using Interfaces;
+using System;
 
 namespace Models
 {
     /// <summary>
     /// Базовый класс Клиент Банка
     /// </summary>
-    public class BankCustomerBaseClass
+    public class BankCustomerBaseClass : IEntity
     {
         /// <summary>
         /// Идентификатор
         /// </summary>
-        public ulong Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Паспорт
@@ -35,7 +36,12 @@ namespace Models
         /// <summary>
         /// Адрес электронной почты
         /// </summary>
-        public string Email { get; set; }        
+        public string Email { get; set; }
+
+        /// <summary>
+        /// Описание
+        /// </summary>
+        public string Description { get; set; }
 
         /// <summary>
         /// Конструктор
@@ -102,7 +108,7 @@ namespace Models
         /// <param name="phoneNumber"> Номер телефон </param>
         /// <param name="reliability"> Надёжность </param>
         /// <param name="email"> Электронная почта </param>
-        public BankCustomerBaseClass(ulong id, 
+        public BankCustomerBaseClass(int id, 
                                      Passport passport, 
                                      ClientStatus clientStatus, 
                                      string phoneNumber, 
