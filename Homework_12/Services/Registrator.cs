@@ -9,10 +9,9 @@ namespace Services
     public static class Registrator
     {
         /// <summary>
-        /// 
+        /// Регистрация всех сервисов
         /// </summary>
-        /// <param name="services"></param>
-        /// <returns></returns>
+        /// <param name="services"></param>        
         public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
             services.AddSingleton<BankCustomerRepository>();
@@ -22,10 +21,9 @@ namespace Services
         }
 
         /// <summary>
-        /// 
+        /// Регистрация всех моделей-представления
         /// </summary>
-        /// <param name="services"></param>
-        /// <returns></returns>
+        /// <param name="services"></param>        
         public static IServiceCollection RegisterViewModels(this IServiceCollection services)
         {
             services.AddSingleton<MainWindowViewModel>();

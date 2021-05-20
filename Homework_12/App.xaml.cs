@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Services;
 using System;
 using System.Windows;
-using ViewModels;
 
 namespace Homework_12
 {    
@@ -20,8 +20,7 @@ namespace Homework_12
         /// </summary>        
         public static void ConfigureServices(HostBuilderContext host, IServiceCollection services)
         {
-            // Регистрируем Модель-Представление главного окна
-            services.AddSingleton<MainWindowViewModel>();
+            services.RegisterServices().RegisterViewModels();
         }
 
         /// <summary>
