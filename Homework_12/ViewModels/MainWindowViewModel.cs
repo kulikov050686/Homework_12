@@ -14,7 +14,7 @@
 
         public MainWindowViewModel()
         {
-            Title = "Банк";
+            Title = "Банк ";
         }
 
         #endregion
