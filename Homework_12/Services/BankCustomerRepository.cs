@@ -5,9 +5,9 @@ namespace Services
     /// <summary>
     /// 
     /// </summary>
-    public class BankCustomerRepository : RepositoryInMemory<BankCustomerBaseClass>
+    public class BankCustomerRepository : RepositoryInMemory<BankCustomer>
     {
-        protected override void Update(BankCustomerBaseClass source, BankCustomerBaseClass destination)
+        protected override void Update(BankCustomer source, BankCustomer destination)
         {
             destination.Id = source.Id;
             destination.Passport = source.Passport;

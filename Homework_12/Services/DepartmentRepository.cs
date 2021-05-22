@@ -5,9 +5,9 @@ namespace Services
     /// <summary>
     /// 
     /// </summary>
-    public class DepartmentRepository : RepositoryInMemory<Department<BankCustomerBaseClass>>
+    public class DepartmentRepository : RepositoryInMemory<Department<BankCustomer>>
     {
-        protected override void Update(Department<BankCustomerBaseClass> source, Department<BankCustomerBaseClass> destination)
+        protected override void Update(Department<BankCustomer> source, Department<BankCustomer> destination)
         {
             destination.BankCustomers = source.BankCustomers;
             destination.Description = source.Description;

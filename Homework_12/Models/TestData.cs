@@ -9,22 +9,22 @@ namespace Models
         /// <summary>
         /// Департаменты банка
         /// </summary>
-        public IEnumerable<Department<BankCustomerBaseClass>> Departments
+        public IEnumerable<Department<BankCustomer>> Departments
         {
             get
             {
-                return Enumerable.Range(1, 10).Select(i => new Department<BankCustomerBaseClass>($"Департамент {i}"));
+                return Enumerable.Range(1, 10).Select(i => new Department<BankCustomer>($"Департамент {i}"));
             }
         }
 
         /// <summary>
         /// Клиенты банка
         /// </summary>
-        public IEnumerable<BankCustomerBaseClass> BankCustomers
+        public IEnumerable<BankCustomer> BankCustomers
         {
             get
             {
-                return Enumerable.Range(1, 10).Select(i => new BankCustomerBaseClass(new Passport(111, 
+                return Enumerable.Range(1, 10).Select(i => new BankCustomer(new Passport(111, 
                                                                                                   222222, 
                                                                                                   "Место выдачи", 
                                                                                                   DateTime.Now, 

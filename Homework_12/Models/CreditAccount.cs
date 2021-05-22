@@ -3,7 +3,7 @@
     /// <summary>
     /// Класс кредитный счёт
     /// </summary>
-    class CreditAccount : BankAccountBaseClass
+    class CreditAccount : BankAccount
     {
         /// <summary>
         /// Статус кредита
@@ -15,7 +15,7 @@
         /// </summary>
         /// <param name="bankCustomer"> Клиент банка </param>
         /// <param name="creditStatus"> Статус кредита </param>
-        public CreditAccount(BankCustomerBaseClass bankCustomer, CreditStatus creditStatus) : base(bankCustomer)
+        public CreditAccount(BankCustomer bankCustomer, CreditStatus creditStatus) : base(bankCustomer)
         {
             AccountStatus = AccountStatus.CREDIT;
             CreditStatus = creditStatus;

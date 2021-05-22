@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Interfaces;
+using System;
 
 namespace Models
 {
     /// <summary>
     /// Класс место жительства
     /// </summary>
-    public class Address
+    public class Address : IAddress
     {
         /// <summary>
         /// Дата регистрации

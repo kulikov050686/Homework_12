@@ -16,7 +16,7 @@ namespace ViewModels
         /// </summary>
         public BankCustomersManagementViewModel()
         {
-            Title = "Редактирование клиента банка";
+            Title = "Клиента банка";
         }
     }
 }

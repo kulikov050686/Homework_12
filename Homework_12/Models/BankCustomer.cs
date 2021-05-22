@@ -6,7 +6,7 @@ namespace Models
     /// <summary>
     /// Базовый класс Клиент Банка
     /// </summary>
-    public class BankCustomerBaseClass : IEntity
+    public class BankCustomer : IBankCustomer
     {
         /// <summary>
         /// Идентификатор
@@ -16,7 +16,7 @@ namespace Models
         /// <summary>
         /// Паспорт
         /// </summary>
-        public Passport Passport { get; set; }
+        public IPassport Passport { get; set; }
 
         /// <summary>
         /// Статус
@@ -49,9 +49,9 @@ namespace Models
         /// <param name="passport"> Паспорт </param>
         /// <param name="clientStatus"> Статус </param>
         /// <param name="phoneNumber"> Номер телефона </param>
-        public BankCustomerBaseClass(Passport passport, 
-                                     ClientStatus clientStatus, 
-                                     string phoneNumber)
+        public BankCustomer(Passport passport, 
+                            ClientStatus clientStatus, 
+                            string phoneNumber)
         {
             if(passport is null) throw new ArgumentException("");
             if(string.IsNullOrWhiteSpace(phoneNumber)) throw new ArgumentException("");
@@ -68,10 +68,10 @@ namespace Models
         /// <param name="clientStatus"> Статус </param>
         /// <param name="phoneNumber"> Номер телефон </param>
         /// <param name="reliability"> Надёжность </param>
-        public BankCustomerBaseClass(Passport passport, 
-                                     ClientStatus clientStatus, 
-                                     string phoneNumber, 
-                                     byte reliability) : this(passport, 
+        public BankCustomer(Passport passport, 
+                            ClientStatus clientStatus, 
+                            string phoneNumber, 
+                            byte reliability) : this(passport, 
                                                               clientStatus, 
                                                               phoneNumber)
         {
@@ -86,11 +86,11 @@ namespace Models
         /// <param name="phoneNumber"> Номер телефона </param>
         /// <param name="reliability"> Надёжность </param>
         /// <param name="email"> Электронная почта </param>
-        public BankCustomerBaseClass(Passport passport, 
-                                     ClientStatus clientStatus, 
-                                     string phoneNumber, 
-                                     byte reliability, 
-                                     string email) : this(passport,
+        public BankCustomer(Passport passport, 
+                            ClientStatus clientStatus, 
+                            string phoneNumber, 
+                            byte reliability, 
+                            string email) : this(passport,
                                                           clientStatus,
                                                           phoneNumber, 
                                                           reliability)
@@ -108,12 +108,12 @@ namespace Models
         /// <param name="phoneNumber"> Номер телефон </param>
         /// <param name="reliability"> Надёжность </param>
         /// <param name="email"> Электронная почта </param>
-        public BankCustomerBaseClass(int id, 
-                                     Passport passport, 
-                                     ClientStatus clientStatus, 
-                                     string phoneNumber, 
-                                     byte reliability, 
-                                     string email) : this(passport,
+        public BankCustomer(int id, 
+                            Passport passport, 
+                            ClientStatus clientStatus, 
+                            string phoneNumber, 
+                            byte reliability, 
+                            string email) : this(passport,
                                                           clientStatus,
                                                           phoneNumber,
                                                           reliability, 

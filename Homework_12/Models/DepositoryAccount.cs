@@ -3,7 +3,7 @@
     /// <summary>
     /// Класс Депозитный счёт
     /// </summary>
-    public class DepositoryAccount : BankAccountBaseClass
+    public class DepositoryAccount : BankAccount
     {
         /// <summary>
         /// Статус депозита
@@ -15,7 +15,7 @@
         /// </summary>
         /// <param name="bankCustomer"> Клиент банка </param>
         /// <param name="depositStatus"> Статус депозита </param>
-        public DepositoryAccount(BankCustomerBaseClass bankCustomer, DepositStatus depositStatus) : base(bankCustomer)
+        public DepositoryAccount(BankCustomer bankCustomer, DepositStatus depositStatus) : base(bankCustomer)
         {
             AccountStatus = AccountStatus.DEPOSITORY;
             DepositStatus = depositStatus;

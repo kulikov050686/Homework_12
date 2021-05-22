@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Interfaces;
+using System;
 
 namespace Models
 {
     /// <summary>
     /// Класс паспорт
     /// </summary>
-    public class Passport
+    public class Passport : IPassport
     {
         /// <summary>
         /// Номер
@@ -35,8 +36,8 @@ namespace Models
         /// <summary>
         /// Владелец
         /// </summary>
-        public Person Holder { get; private set; }
-
+        public IPerson Holder { get; }
+        
         /// <summary>
         /// Конструктор
         /// </summary>

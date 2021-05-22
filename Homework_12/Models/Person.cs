@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Interfaces;
+using System;
 
 namespace Models
 {
     /// <summary>
     /// Класс человек
     /// </summary>
-    public class Person
+    public class Person : IPerson
     {
         /// <summary>
         /// Фамилия
@@ -40,12 +41,12 @@ namespace Models
         /// <summary>
         /// Место жительства (прописка)
         /// </summary>
-        public Address PlaceOfResidence { get; set; }
+        public IAddress PlaceOfResidence { get; set; }
 
         /// <summary>
         /// Место регистрации (место непосредственного проживания)
         /// </summary>
-        public Address PlaceOfRegistration { get; set; }
+        public IAddress PlaceOfRegistration { get; set; }
 
         /// <summary>
         /// Конструктор

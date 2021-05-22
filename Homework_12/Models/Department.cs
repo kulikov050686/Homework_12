@@ -7,7 +7,7 @@ namespace Models
     /// Класс департамент
     /// </summary>
     public class Department<T> : IEntity 
-        where T : BankCustomerBaseClass
+        where T : BankCustomer
     {
         /// <summary>
         /// Идентификатор

@@ -10,9 +10,9 @@ namespace Services
         private BankCustomerRepository _bankCustomers;
         DepartmentRepository _departments;
 
-        public IEnumerable<BankCustomerBaseClass> BankCustomers => _bankCustomers.GetAll();
+        public IEnumerable<BankCustomer> BankCustomers => _bankCustomers.GetAll();
 
-        public IEnumerable<Department<BankCustomerBaseClass>> Departments => _departments.GetAll();
+        public IEnumerable<Department<BankCustomer>> Departments => _departments.GetAll();
 
         public BankCustomersManager(BankCustomerRepository bankCustomerRepository, DepartmentRepository departmentRepository)
         {
