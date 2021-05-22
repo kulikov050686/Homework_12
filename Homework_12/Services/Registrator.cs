@@ -4,7 +4,7 @@ using ViewModels;
 namespace Services
 {
     /// <summary>
-    /// 
+    /// Класс регистрации сервисов и моделей-представления
     /// </summary>
     public static class Registrator
     {
@@ -16,6 +16,7 @@ namespace Services
         {
             services.AddSingleton<BankCustomerRepository>();
             services.AddSingleton<DepartmentRepository>();
+            services.AddSingleton<BankCustomersManager>();
 
             return services;
         }

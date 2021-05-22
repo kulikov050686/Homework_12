@@ -10,12 +10,12 @@ namespace Models
         /// <summary>
         /// Номер
         /// </summary>
-        public ulong Number { get; }
+        public int Number { get; }
         
         /// <summary>
         /// Серия
         /// </summary>
-        public ulong Series { get; }
+        public int Series { get; }
 
         /// <summary>
         /// Место выдачи
@@ -30,7 +30,7 @@ namespace Models
         /// <summary>
         /// Код подразделения
         /// </summary>
-        public ulong DivisionCode { get; }
+        public int DivisionCode { get; }
 
         /// <summary>
         /// Владелец
@@ -46,15 +46,16 @@ namespace Models
         /// <param name="dateOfIssue"> Дата выпуска </param>
         /// <param name="divisionCode"> Код подразделения </param>
         /// <param name="holder"> Владелец </param>
-        public Passport(ulong series, 
-                        ulong number, 
+        public Passport(int series, 
+                        int number, 
                         string placeOfIssue, 
                         DateTime dateOfIssue, 
-                        ulong divisionCode, 
+                        int divisionCode, 
                         Person holder)
         {
             if(holder is null) throw new ArgumentException("Владелец не может быть null!!!");
             if(string.IsNullOrWhiteSpace(placeOfIssue)) throw new ArgumentException("Место выдачи не может быть null!!!");
+            if(series <= 0 || number <= 0 || divisionCode <= 0) throw new ArgumentException("Номера не могут быть нулями или отрицательными!!!");
 
             Series = series;
             Number = number;

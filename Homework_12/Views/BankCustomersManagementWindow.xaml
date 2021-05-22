@@ -4,12 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Views"
+        xmlns:uc="clr-namespace:UserControls"
         mc:Ignorable="d"
-        Title="{Binding Title}" 
-        Height="450" 
-        Width="800"
+        MaxHeight="800"
+        MaxWidth="900"
+        Title="{Binding Title}"       
         DataContext="{Binding BankCustomersManagementVM, Source={StaticResource Locator}}">
-    <Grid>
-        
-    </Grid>
+    
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <uc:FotoUserControl TitleUC="Фото"/>
+            <uc:PersonUserControl TitleUC="Данные клиента"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <uc:PassportUserControl TitleUC="Паспорт"/>
+            <uc:AddressUserControl TitleUC="Адрес прописки"/>
+            <uc:AddressUserControl TitleUC="Адрес регистрации"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" 
+                    Height="50" 
+                    HorizontalAlignment="Right">
+            <Button Content="Пименить" 
+                    Margin="5 0 5 0" 
+                    Width="80"/>
+            <Button Content="Отмена" 
+                    Margin=" 5 0 5 0" 
+                    Width="80"/>
+        </StackPanel>
+    </StackPanel>
 </Window>

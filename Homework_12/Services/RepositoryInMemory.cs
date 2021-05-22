@@ -21,7 +21,7 @@ namespace Services
         }
 
         /// <summary>
-        /// 
+        /// Конструктор
         /// </summary>
         /// <param name="items"></param>
         protected RepositoryInMemory(IEnumerable<T> items) 

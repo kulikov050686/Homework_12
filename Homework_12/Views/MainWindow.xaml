@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:uc="clr-namespace:UserControls"
+        xmlns:cmd="clr-namespace:Commands"
         mc:Ignorable="d"        
         DataContext="{Binding MainWindowVM, Source={StaticResource Locator}}"
         Title="{Binding Title}" 
@@ -11,33 +12,16 @@
         Width="800">
 
     <Grid>
+        <Button Content="Button" 
+                HorizontalAlignment="Left" 
+                Margin="400,208,0,0" 
+                VerticalAlignment="Top" 
+                Height="51" 
+                Width="150">
+            <Button.Command>
+                <cmd:BankCustomersManagementCommand/>
+            </Button.Command>
+        </Button>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-                
-        <uc:PersonUserControl Grid.Column="0" 
-                              Grid.Row="0" 
-                              VerticalAlignment="Center" 
-                              HorizontalAlignment="Center"/>
-
-        <uc:AddressUserControl Grid.Column="1" 
-                               Grid.Row="0" 
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center"/>
-
-        <uc:PassportUserControl Grid.Column="0" 
-                                Grid.Row="1" 
-                                VerticalAlignment="Center" 
-                                HorizontalAlignment="Center"/>
-
-        <uc:FotoUserControl Grid.Column="1" 
-                            Grid.Row="1"/>
     </Grid>
 </Window>

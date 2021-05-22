@@ -4,34 +4,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UserControls"
-             mc:Ignorable="d" 
-             d:DesignHeight="320" 
-             d:DesignWidth="300">
+             mc:Ignorable="d">
     
     <GroupBox Header="{Binding TitleUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}">
         <StackPanel>
             
-            <!-- Имя -->            
+            <!-- Имя -->
             <GroupBox Header="Имя">
                 <TextBox Text="{Binding NameUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}"
-                         FontSize="16"
-                         Width="300"
+                         FontSize="16"                         
                          VerticalAlignment="Center"/>
             </GroupBox>
             
             <!-- Фамилия --> 
             <GroupBox Header="Фамилия">
                 <TextBox Text="{Binding SurnameUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}"
-                         FontSize="16"
-                         Width="300"
+                         FontSize="16"                         
                          VerticalAlignment="Center"/>
             </GroupBox>
             
             <!-- Отчество -->
             <GroupBox Header="Отчество">
                 <TextBox Text="{Binding PatronymicUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}"
-                         FontSize="16"
-                         Width="300"
+                         FontSize="16"                         
                          VerticalAlignment="Center"/>
             </GroupBox>
             
@@ -47,8 +42,7 @@
                 
                 <!-- Пол -->
                 <GroupBox Header="Пол" Margin="15 0 0 0">
-                    <ComboBox FontSize="16"
-                              Height="25"                              
+                    <ComboBox FontSize="16"                                                         
                               SelectedItem="{Binding SelectedItemGenderUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}"
                               SelectedIndex="{Binding SelectedIndexGenderUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}"
                               ItemsSource="{Binding GenderUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}"/>
@@ -57,13 +51,13 @@
             </StackPanel>
             
             <!-- Место рожнения -->
-            <GroupBox Header="Место рождения">
+            <GroupBox Header="Место рождения" 
+                      Height="100" 
+                      Width="300">
+                
                 <TextBox Text="{Binding PlaceOfBirthUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}"
                          FontSize="16"
-                         Width="300"
-                         VerticalAlignment="Center"
-                         Height="100"
-                         TextWrapping="Wrap" />
+                         TextWrapping="Wrap"/>
             </GroupBox>
             
         </StackPanel>        

@@ -35,7 +35,7 @@ namespace Models
         /// <summary>
         /// Номер дома
         /// </summary>
-        public uint HouseNumber { get; }
+        public int HouseNumber { get; }
         
         /// <summary>
         /// Корпус дома
@@ -45,7 +45,7 @@ namespace Models
         /// <summary>
         /// Номер квартиры
         /// </summary>
-        public uint ApartmentNumber { get; }
+        public int ApartmentNumber { get; }
 
         /// <summary>
         /// Конструктор
@@ -59,12 +59,12 @@ namespace Models
                        string region, 
                        string city, 
                        string street, 
-                       uint houseNumber)
+                       int houseNumber)
         {
             if(string.IsNullOrWhiteSpace(region) || 
                string.IsNullOrWhiteSpace(city) || 
                string.IsNullOrWhiteSpace(street) || 
-               (houseNumber == 0))
+               (houseNumber <= 0))
             {
                 throw new ArgumentException("");
             }
@@ -89,14 +89,14 @@ namespace Models
                        string region,
                        string city,
                        string street,
-                       uint houseNumber,
-                       uint apartmentNumber) : this(registrationDate,
+                       int houseNumber,
+                       int apartmentNumber) : this(registrationDate,
                                                     region,
                                                     city,
                                                     street,
                                                     houseNumber)
         {
-            if(apartmentNumber == 0) throw new ArgumentException("");
+            if(apartmentNumber <= 0) throw new ArgumentException("");
             
             ApartmentNumber = apartmentNumber;
         }
@@ -115,8 +115,8 @@ namespace Models
                        string region,
                        string city,
                        string street,
-                       uint houseNumber,
-                       uint apartmentNumber,
+                       int houseNumber,
+                       int apartmentNumber,
                        string housing) : this(registrationDate,
                                               region,
                                               city,
@@ -144,8 +144,8 @@ namespace Models
                        string region, 
                        string city, 
                        string street, 
-                       uint houseNumber,
-                       uint apartmentNumber,
+                       int houseNumber,
+                       int apartmentNumber,
                        string housing,
                        string district) : this(registrationDate,
                                                region,
