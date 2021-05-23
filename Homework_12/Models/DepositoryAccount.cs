@@ -1,4 +1,6 @@
-﻿namespace Models
+﻿using Enums;
+
+namespace Models
 {
     /// <summary>
     /// Класс Депозитный счёт

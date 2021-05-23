@@ -69,7 +69,7 @@ namespace Models
             {
                 throw new ArgumentException("");
             }
-
+            
             RegistrationDate = registrationDate;
             Region = region;
             City = city;

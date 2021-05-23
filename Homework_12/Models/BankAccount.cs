@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using Enums;
+using Interfaces;
 using System;
 
 namespace Models
@@ -34,29 +35,6 @@ namespace Models
         public BankCustomer BankCustomer { get; }
 
         /// <summary>
-        /// конструктор
-        /// </summary>
-        /// <param name="id"> Идентификатор </param>
-        /// <param name="bankCustomer"> Клиент банка </param>
-        /// <param name="accountStatus"> Статус счёта </param>
-        public BankAccount(int id, BankCustomer bankCustomer, AccountStatus accountStatus) : this(bankCustomer, accountStatus)
-        {
-            if(id < 0) throw new ArgumentException("");
-
-            Id = id;
-        }
-
-        /// <summary>
-        /// Конструктор
-        /// </summary>
-        /// <param name="bankCustomer"> Клиент банка </param>
-        /// <param name="accountStatus"> Статус счёта </param>
-        public BankAccount(BankCustomer bankCustomer, AccountStatus accountStatus) : this(bankCustomer)
-        {          
-            AccountStatus = accountStatus;
-        }
-
-        /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="bankCustomer"> Клиент банка </param>
@@ -65,6 +43,29 @@ namespace Models
             if (bankCustomer is null) throw new ArgumentException("");
 
             BankCustomer = bankCustomer;
+        }
+
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="bankCustomer"> Клиент банка </param>
+        /// <param name="accountStatus"> Статус счёта </param>
+        public BankAccount(BankCustomer bankCustomer, AccountStatus accountStatus) : this(bankCustomer)
+        {
+            AccountStatus = accountStatus;
+        }
+
+        /// <summary>
+        /// конструктор
+        /// </summary>
+        /// <param name="id"> Идентификатор </param>
+        /// <param name="bankCustomer"> Клиент банка </param>
+        /// <param name="accountStatus"> Статус счёта </param>
+        public BankAccount(int id, BankCustomer bankCustomer, AccountStatus accountStatus) : this(bankCustomer, accountStatus)
+        {
+            if (id < 0) throw new ArgumentException("");
+
+            Id = id;
         }
     }
 }

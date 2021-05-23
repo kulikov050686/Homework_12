@@ -1,4 +1,5 @@
 ﻿using Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace Models
@@ -6,8 +7,8 @@ namespace Models
     /// <summary>
     /// Класс департамент
     /// </summary>
-    public class Department<T> : IEntity 
-        where T : BankCustomer
+    public class Department<T> : IDepartment<T> 
+        where T : IBankCustomer
     {
         /// <summary>
         /// Идентификатор
@@ -35,6 +36,7 @@ namespace Models
         /// <param name="name"> Название </param>
         public Department(string name)
         {
+            if(string.IsNullOrWhiteSpace(name)) throw new ArgumentException("");
             Name = name;
         }
 
@@ -44,7 +46,8 @@ namespace Models
         /// <param name="id"> Идентификатор </param>
         /// <param name="name"> Название </param>
         public Department(int id, string name) : this(name)
-        {            
+        {
+            if(id < 0 ) throw new ArgumentException("");
             Id = id;
         }
     }

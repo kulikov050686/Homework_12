@@ -7,7 +7,7 @@ namespace Services
 {
     public class BankCustomersManager
     {
-        private BankCustomerRepository _bankCustomers;
+        BankCustomerRepository _bankCustomers;
         DepartmentRepository _departments;
 
         public IEnumerable<BankCustomer> BankCustomers => _bankCustomers.GetAll();

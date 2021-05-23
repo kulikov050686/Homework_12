@@ -52,7 +52,7 @@ namespace Models
                         string placeOfIssue, 
                         DateTime dateOfIssue, 
                         int divisionCode, 
-                        Person holder)
+                        IPerson holder)
         {
             if(holder is null) throw new ArgumentException("Владелец не может быть null!!!");
             if(string.IsNullOrWhiteSpace(placeOfIssue)) throw new ArgumentException("Место выдачи не может быть null!!!");
@@ -70,10 +70,9 @@ namespace Models
         /// Изменить место жительства (прописка)
         /// </summary>
         /// <param name="newPlaceOfResidence"> Новое место жительства (прописка) </param>
-        public void EditPlaceOfResidence(Address newPlaceOfResidence)
+        public void EditPlaceOfResidence(IAddress newPlaceOfResidence)
         {
-            if(newPlaceOfResidence is null) throw new ArgumentException("Новый адрес не может быть null!!!");
-            
+            if(newPlaceOfResidence is null) throw new ArgumentException("Новый адрес не может быть null!!!");            
             Holder.PlaceOfResidence = newPlaceOfResidence;
         }
 
@@ -81,10 +80,9 @@ namespace Models
         /// Изменить место регистрации
         /// </summary>
         /// <param name="newPlaceOfRegistration"> Новое место регистрации </param>
-        public void EditPlaceOfRegistration(Address newPlaceOfRegistration)
+        public void EditPlaceOfRegistration(IAddress newPlaceOfRegistration)
         {
-            if(newPlaceOfRegistration is null) throw new ArgumentException("Новый адрес не может быть null!!!");
-            
+            if(newPlaceOfRegistration is null) throw new ArgumentException("Новый адрес не может быть null!!!");            
             Holder.PlaceOfRegistration = newPlaceOfRegistration;
         }
     }

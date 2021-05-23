@@ -64,7 +64,7 @@ namespace Models
                       string gender, 
                       DateTime birthday, 
                       string placeOfBirth, 
-                      Address placeOfResidence)
+                      IAddress placeOfResidence)
         {
             if(string.IsNullOrWhiteSpace(surname) || 
                string.IsNullOrWhiteSpace(name) || 
@@ -103,8 +103,8 @@ namespace Models
                       string gender,
                       DateTime birthday,
                       string placeOfBirth,
-                      Address placeOfResidence,
-                      Address placeOfRegistration) : this(surname,
+                      IAddress placeOfResidence,
+                      IAddress placeOfRegistration) : this(surname,
                                                           name,
                                                           patronymic,
                                                           gender,
@@ -112,8 +112,7 @@ namespace Models
                                                           placeOfBirth,
                                                           placeOfResidence)
         {
-            if(placeOfRegistration is null) throw new ArgumentException("");
-            
+            if(placeOfRegistration is null) throw new ArgumentException("");            
             PlaceOfRegistration = placeOfRegistration;
         }
     }

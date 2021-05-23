@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using Enums;
+using Interfaces;
 using System;
 
 namespace Models
@@ -49,7 +50,7 @@ namespace Models
         /// <param name="passport"> Паспорт </param>
         /// <param name="clientStatus"> Статус </param>
         /// <param name="phoneNumber"> Номер телефона </param>
-        public BankCustomer(Passport passport, 
+        public BankCustomer(IPassport passport, 
                             ClientStatus clientStatus, 
                             string phoneNumber)
         {
@@ -68,12 +69,12 @@ namespace Models
         /// <param name="clientStatus"> Статус </param>
         /// <param name="phoneNumber"> Номер телефон </param>
         /// <param name="reliability"> Надёжность </param>
-        public BankCustomer(Passport passport, 
+        public BankCustomer(IPassport passport, 
                             ClientStatus clientStatus, 
                             string phoneNumber, 
                             byte reliability) : this(passport, 
-                                                              clientStatus, 
-                                                              phoneNumber)
+                                                     clientStatus, 
+                                                     phoneNumber)
         {
             Reliability = reliability;
         }
@@ -86,14 +87,14 @@ namespace Models
         /// <param name="phoneNumber"> Номер телефона </param>
         /// <param name="reliability"> Надёжность </param>
         /// <param name="email"> Электронная почта </param>
-        public BankCustomer(Passport passport, 
+        public BankCustomer(IPassport passport, 
                             ClientStatus clientStatus, 
                             string phoneNumber, 
                             byte reliability, 
                             string email) : this(passport,
-                                                          clientStatus,
-                                                          phoneNumber, 
-                                                          reliability)
+                                                 clientStatus,
+                                                 phoneNumber, 
+                                                 reliability)
         {
             if (string.IsNullOrWhiteSpace(email)) throw new ArgumentException("");
             Email = email;
@@ -109,16 +110,17 @@ namespace Models
         /// <param name="reliability"> Надёжность </param>
         /// <param name="email"> Электронная почта </param>
         public BankCustomer(int id, 
-                            Passport passport, 
+                            IPassport passport, 
                             ClientStatus clientStatus, 
                             string phoneNumber, 
                             byte reliability, 
                             string email) : this(passport,
-                                                          clientStatus,
-                                                          phoneNumber,
-                                                          reliability, 
-                                                          email)
+                                                 clientStatus,
+                                                 phoneNumber,
+                                                 reliability, 
+                                                 email)
         {
+            if(id < 0) throw new ArgumentException("");
             Id = id;
         }
     }

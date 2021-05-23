@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,23 +26,23 @@ namespace Models
             get
             {
                 return Enumerable.Range(1, 10).Select(i => new BankCustomer(new Passport(111, 
-                                                                                                  222222, 
-                                                                                                  "Место выдачи", 
-                                                                                                  DateTime.Now, 
-                                                                                                  333333, 
-                                                                                                  new Person($"Фамилия {i}", 
-                                                                                                             $"Имя {i}", 
-                                                                                                             $"Отчество {i}", 
-                                                                                                             $"муж", 
-                                                                                                             DateTime.Now, 
-                                                                                                             "Место рождения", 
-                                                                                                             new Address(DateTime.Now, 
-                                                                                                                         $"Регион {i}", 
-                                                                                                                         $"Город {i}", 
-                                                                                                                         $"Улица {i}", 
-                                                                                                                         100 + i))), 
-                                                                                     ClientStatus.LEGAL, 
-                                                                                     $"0123-456-789"));
+                                                                                         222222, 
+                                                                                         "Место выдачи", 
+                                                                                         DateTime.Now, 
+                                                                                         333333, 
+                                                                                         new Person($"Фамилия {i}", 
+                                                                                                    $"Имя {i}", 
+                                                                                                    $"Отчество {i}", 
+                                                                                                    $"муж", 
+                                                                                                    DateTime.Now, 
+                                                                                                    "Место рождения", 
+                                                                                                    new Address(DateTime.Now, 
+                                                                                                                $"Регион {i}", 
+                                                                                                                $"Город {i}", 
+                                                                                                                $"Улица {i}", 
+                                                                                                                100 + i))), 
+                                                                            ClientStatus.LEGAL, 
+                                                                            $"0123-456-789"));
             }
         }
     }

@@ -1,4 +1,6 @@
-﻿namespace Interfaces
+﻿using Enums;
+
+namespace Interfaces
 {
     /// <summary>
     /// Интерфейс Банковский счёт
@@ -14,5 +16,10 @@
         /// Процентная ставка
         /// </summary>
         public double InterestRate { get; set; }
+
+        /// <summary>
+        /// Статус счёта
+        /// </summary>
+        public AccountStatus AccountStatus { get; }
     }
 }
