@@ -23,7 +23,7 @@ namespace Models
         /// <summary>
         /// Лист клиентов банка
         /// </summary>
-        public IList<T> BankCustomers { get; set; }
+        public IList<T> BankCustomers { get; set; } = new List<T>();
 
         /// <summary>
         /// Описание

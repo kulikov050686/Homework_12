@@ -7,6 +7,7 @@ namespace Services
     /// </summary>
     public class DepartmentRepository : RepositoryInMemory<Department<BankCustomer>>
     {
+        public DepartmentRepository() : base(TestData.Departments) { }
         protected override void Update(Department<BankCustomer> source, Department<BankCustomer> destination)
         {
             destination.BankCustomers = source.BankCustomers;

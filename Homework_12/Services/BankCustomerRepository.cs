@@ -7,6 +7,8 @@ namespace Services
     /// </summary>
     public class BankCustomerRepository : RepositoryInMemory<BankCustomer>
     {
+        public BankCustomerRepository() : base(TestData.BankCustomers) { }
+
         protected override void Update(BankCustomer source, BankCustomer destination)
         {
             destination.Id = source.Id;
