@@ -1,4 +1,6 @@
-﻿namespace ViewModels
+﻿using Enums;
+
+namespace ViewModels
 {
     /// <summary>
     /// Модель-Представление главного окна
@@ -9,6 +11,11 @@
         /// Название окна
         /// </summary>
         public string Title { get; protected set; }
+
+        /// <summary>
+        /// Страница отображаемая на главном окне
+        /// </summary>
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.MAINPAGE;
 
         #region Конструктор
 

@@ -1,0 +1,51 @@
+﻿<Page x:Class="Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" 
+      d:DesignWidth="800"      
+      DataContext="{Binding BankCustomersManagementVM, Source={StaticResource Locator}}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" MinWidth="200"/>
+            <ColumnDefinition Width="200" MinWidth="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <!--Отдел банка-->
+        <GroupBox Grid.Column="0" 
+                  Header="Отделы банка">
+            
+            <ListBox>
+                
+            </ListBox>
+        </GroupBox>
+        
+        <!--Клиенты отдела банка-->
+        <GroupBox Grid.Column="1" 
+                  Header="Клиеты отдела банка">
+            
+            <ListBox>
+                
+            </ListBox>
+        </GroupBox>
+        
+        <!--Информация о выбранном клиенте банка-->
+        <GroupBox Grid.Column="2" 
+                  Header="Информация о клиенте">
+            
+        </GroupBox>
+
+        <GridSplitter Grid.Column="0" 
+                      HorizontalAlignment="Right" 
+                      Width="3"/>
+
+        <GridSplitter Grid.Column="1" 
+                      HorizontalAlignment="Right" 
+                      Width="3"/>
+    </Grid>
+</Page>

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:uc="clr-namespace:UserControls"
         xmlns:cmd="clr-namespace:Commands"
+        xmlns:c="clr-namespace:Converters"
         mc:Ignorable="d"        
         DataContext="{Binding MainWindowVM, Source={StaticResource Locator}}"
         Title="{Binding Title}" 
@@ -12,16 +13,6 @@
         Width="800">
 
     <Grid>
-        <Button Content="Button" 
-                HorizontalAlignment="Left" 
-                Margin="400,208,0,0" 
-                VerticalAlignment="Top" 
-                Height="51" 
-                Width="150">
-            <Button.Command>
-                <cmd:BankCustomersManagementCommand/>
-            </Button.Command>
-        </Button>
-
+        <Frame Content="{Binding CurrentPage, Converter={c:ApplicationPageValueConverter}}"/>
     </Grid>
 </Window>

@@ -8,8 +8,7 @@
         mc:Ignorable="d"
         MaxHeight="800"
         MaxWidth="900"
-        Title="{Binding Title}"       
-        DataContext="{Binding BankCustomersManagementVM, Source={StaticResource Locator}}">
+        Title="{Binding Title}">
     
     <StackPanel>
         <StackPanel Orientation="Horizontal">

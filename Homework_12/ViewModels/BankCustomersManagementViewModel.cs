@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Services;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,14 @@ namespace ViewModels
 {
     public class BankCustomersManagementViewModel : BaseClassViewModelINPC
     {
+        #region Закрытые поля
+
+        private readonly BankCustomersManager _bankCustomersManager;
+
+        #endregion
+
+        #region Открытые поля
+
         /// <summary>
         /// Заголовок окна
         /// </summary>
@@ -41,12 +50,19 @@ namespace ViewModels
         /// </summary>
         public string PlaceOfBirthCustomer { get; set; }
 
+        #endregion
+
+        #region Конструктор
+
         /// <summary>
         /// Конструктор
         /// </summary>
-        public BankCustomersManagementViewModel()
+        public BankCustomersManagementViewModel(BankCustomersManager bankCustomersManager)
         {
             Title = "Клиента банка";
+            _bankCustomersManager = bankCustomersManager;
         }
+
+        #endregion
     }
 }
