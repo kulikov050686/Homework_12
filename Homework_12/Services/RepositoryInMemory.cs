@@ -10,8 +10,12 @@ namespace Services
     /// <typeparam name="T"></typeparam>
     abstract public class RepositoryInMemory<T> : IRepository<T> where T : IEntity
     {
+        #region Закрытые поля
+
         private readonly List<T> _items = new List<T>();
         private int _lastId;
+
+        #endregion
 
         /// <summary>
         /// Конструктор по умолчанию
@@ -23,16 +27,16 @@ namespace Services
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="items"></param>
+        /// <param name="items"> Список элементов </param>
         protected RepositoryInMemory(IEnumerable<T> items) 
         {
             foreach (var item in items) Add(item);           
         }
         
         /// <summary>
-        /// 
+        /// Добавить в репозиторий
         /// </summary>
-        /// <param name="item"></param>
+        /// <param name="item"> Добавляемый элемент </param>
         public void Add(T item)
         {
             if (item is null) throw new ArgumentNullException(nameof(item));
@@ -43,23 +47,21 @@ namespace Services
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
+        /// Получить все элементы
+        /// </summary>        
         public IEnumerable<T> GetAll() => _items;
 
         /// <summary>
-        /// 
+        /// Удалить элемент из репозитория
         /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
+        /// <param name="item"> Удаляемый элемент </param>        
         public bool Remove(T item) => _items.Remove(item);
         
         /// <summary>
-        /// 
+        /// Обновление данных элемента
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="item"></param>
+        /// <param name="id"> Идентификатор элемента </param>
+        /// <param name="item"> Новые данные </param>
         public void Update(int id, T item)
         {
             if (item is null) throw new ArgumentNullException(nameof(item));
@@ -74,10 +76,10 @@ namespace Services
         }
 
         /// <summary>
-        /// 
+        /// Обновление данных элемента
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="destination"></param>
+        /// <param name="source"> Новые данные </param>
+        /// <param name="destination"> Обновляемый элемент </param>
         protected abstract void Update(T source, T destination);        
     }
 }

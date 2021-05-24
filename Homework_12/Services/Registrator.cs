@@ -28,7 +28,8 @@ namespace Services
         public static IServiceCollection RegisterViewModels(this IServiceCollection services)
         {
             services.AddSingleton<MainWindowViewModel>();
-
+            
+            services.AddTransient<MainPageViewModel>();
             services.AddTransient<BankCustomersManagementViewModel>();
 
             return services;

@@ -17,5 +17,10 @@ namespace ViewModels
         /// Модель-представление управления клиетами банка
         /// </summary>
         public BankCustomersManagementViewModel BankCustomersManagementVM => App.Host.Services.GetRequiredService<BankCustomersManagementViewModel>();
+
+        /// <summary>
+        /// Модель-представление главной страницы
+        /// </summary>
+        public MainPageViewModel MainPageVM => App.Host.Services.GetRequiredService<MainPageViewModel>();
     }
 }

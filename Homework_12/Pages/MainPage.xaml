@@ -4,10 +4,11 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Pages"
+      xmlns:m="clr-namespace:Models"
       mc:Ignorable="d" 
       d:DesignHeight="450" 
       d:DesignWidth="800"      
-      DataContext="{Binding BankCustomersManagementVM, Source={StaticResource Locator}}">
+      DataContext="{Binding MainPageVM, Source={StaticResource Locator}}">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -20,8 +21,23 @@
         <GroupBox Grid.Column="0" 
                   Header="Отделы банка">
             
-            <ListBox>
+            <ListBox ItemsSource="{Binding Departments}">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
                 
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="m:Department">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Right" 
+                                       Text="{Binding BankCustomers.Count, StringFormat=({0})}"/>
+
+                            <TextBlock Text="{Binding Name}"/>
+                        </DockPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
         </GroupBox>
         
