@@ -21,7 +21,9 @@
         <GroupBox Grid.Column="0" 
                   Header="Отделы банка">
             
-            <ListBox ItemsSource="{Binding Departments}">
+            <ListBox ItemsSource="{Binding Departments}" 
+                     SelectedItem="{Binding SelectedDepartment}" 
+                     SelectedIndex="0">
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -44,9 +46,34 @@
         <!--Клиенты отдела банка-->
         <GroupBox Grid.Column="1" 
                   Header="Клиеты отдела банка">
-            
-            <ListBox>
-                
+
+            <ListBox ItemsSource="{Binding SelectedDepartment.BankCustomers}" 
+                     SelectedItem="{Binding SelectedBankCustomer}" 
+                     SelectedIndex="0">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="m:BankCustomer">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Right" 
+                                       Text="{Binding Passport.Holder.Name}"/>
+
+                            <TextBlock Text="{Binding Passport.Holder.Surname}"/>
+                        </DockPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Добавить"/>
+                        <MenuItem Header="Удалить"/>
+                        <MenuItem Header="Редактировать"/>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
             </ListBox>
         </GroupBox>
         

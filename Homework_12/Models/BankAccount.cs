@@ -32,16 +32,15 @@ namespace Models
         /// <summary>
         /// Клиент банка
         /// </summary>
-        public BankCustomer BankCustomer { get; }
+        public IBankCustomer BankCustomer { get; }
 
         /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="bankCustomer"> Клиент банка </param>
-        public BankAccount(BankCustomer bankCustomer)
+        public BankAccount(IBankCustomer bankCustomer)
         {
             if (bankCustomer is null) throw new ArgumentException("");
-
             BankCustomer = bankCustomer;
         }
 
@@ -50,7 +49,7 @@ namespace Models
         /// </summary>
         /// <param name="bankCustomer"> Клиент банка </param>
         /// <param name="accountStatus"> Статус счёта </param>
-        public BankAccount(BankCustomer bankCustomer, AccountStatus accountStatus) : this(bankCustomer)
+        public BankAccount(IBankCustomer bankCustomer, AccountStatus accountStatus) : this(bankCustomer)
         {
             AccountStatus = accountStatus;
         }
@@ -61,10 +60,9 @@ namespace Models
         /// <param name="id"> Идентификатор </param>
         /// <param name="bankCustomer"> Клиент банка </param>
         /// <param name="accountStatus"> Статус счёта </param>
-        public BankAccount(int id, BankCustomer bankCustomer, AccountStatus accountStatus) : this(bankCustomer, accountStatus)
+        public BankAccount(int id, IBankCustomer bankCustomer, AccountStatus accountStatus) : this(bankCustomer, accountStatus)
         {
             if (id < 0) throw new ArgumentException("");
-
             Id = id;
         }
     }
