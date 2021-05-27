@@ -56,15 +56,15 @@ namespace Models
         /// <param name="city"> Город </param>
         /// <param name="street"> Улица </param>
         /// <param name="houseNumber"> Дом </param>
-        public Address(DateTime registrationDate, 
-                       string region, 
-                       string city, 
-                       string street, 
+        public Address(DateTime registrationDate,
+                       string region,
+                       string city,
+                       string street,
                        int houseNumber)
         {
-            if(string.IsNullOrWhiteSpace(region) || 
-               string.IsNullOrWhiteSpace(city) || 
-               string.IsNullOrWhiteSpace(street) || 
+            if(string.IsNullOrWhiteSpace(region) ||
+               string.IsNullOrWhiteSpace(city) ||
+               string.IsNullOrWhiteSpace(street) ||
                (houseNumber <= 0))
             {
                 throw new ArgumentException("");
@@ -98,7 +98,6 @@ namespace Models
                                                     houseNumber)
         {
             if(apartmentNumber <= 0) throw new ArgumentException("");
-            
             ApartmentNumber = apartmentNumber;
         }
 
@@ -126,8 +125,7 @@ namespace Models
                                               apartmentNumber)
         {
             if(string.IsNullOrWhiteSpace(housing)) throw new ArgumentException("");
-            
-            Housing = housing;            
+            Housing = housing;
         }
 
         /// <summary>
@@ -141,10 +139,10 @@ namespace Models
         /// <param name="apartmentNumber"> Номер квартиры </param>
         /// <param name="housing"> Корпус дома </param>
         /// <param name="district"> Район города </param>
-        public Address(DateTime registrationDate, 
-                       string region, 
-                       string city, 
-                       string street, 
+        public Address(DateTime registrationDate,
+                       string region,
+                       string city,
+                       string street,
                        int houseNumber,
                        int apartmentNumber,
                        string housing,
@@ -152,13 +150,12 @@ namespace Models
                                                region,
                                                city,
                                                street,
-                                               houseNumber, 
-                                               apartmentNumber, 
+                                               houseNumber,
+                                               apartmentNumber,
                                                housing)
         {
-            if (string.IsNullOrWhiteSpace(district)) throw new ArgumentException("");
-            
-            District = district; 
+            if (string.IsNullOrWhiteSpace(district)) throw new ArgumentException("");            
+            District = district;
         }
     }
 }

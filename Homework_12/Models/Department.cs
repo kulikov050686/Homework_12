@@ -7,8 +7,7 @@ namespace Models
     /// <summary>
     /// Класс департамент
     /// </summary>
-    public class Department<T> : IDepartment<T> 
-        where T : IBankCustomer
+    public class Department<IBankAccount> : IDepartment<IBankAccount>
     {
         /// <summary>
         /// Идентификатор
@@ -23,7 +22,7 @@ namespace Models
         /// <summary>
         /// Лист клиентов банка
         /// </summary>
-        public IList<T> BankCustomers { get; set; } = new List<T>();
+        public IList<IBankAccount> BankCustomers { get; set; } = new List<IBankAccount>();
 
         /// <summary>
         /// Описание

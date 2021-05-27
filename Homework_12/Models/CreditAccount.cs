@@ -5,7 +5,7 @@ namespace Models
     /// <summary>
     /// Класс кредитный счёт
     /// </summary>
-    class CreditAccount : BankAccount
+    public class CreditAccount : BankAccount
     {
         /// <summary>
         /// Статус кредита

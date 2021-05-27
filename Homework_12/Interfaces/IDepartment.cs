@@ -2,8 +2,10 @@
 
 namespace Interfaces
 {
-    public interface IDepartment<T> : IEntity 
-        where T : IBankCustomer
+    /// <summary>
+    /// Интерфейс департамент
+    /// </summary>    
+    public interface IDepartment<IBankCustomer> : IEntity
     {
         /// <summary>
         /// Название
@@ -13,6 +15,6 @@ namespace Interfaces
         /// <summary>
         /// Лист клиентов банка
         /// </summary>
-        public IList<T> BankCustomers { get; set; }
+        public IList<IBankCustomer> BankCustomers { get; set; }
     }
 }

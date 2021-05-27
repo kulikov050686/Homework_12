@@ -23,6 +23,6 @@
         /// <summary>
         /// Адрес электронной почты
         /// </summary>
-        public string Email { get; set; }        
+        public string Email { get; set; }
     }
 }

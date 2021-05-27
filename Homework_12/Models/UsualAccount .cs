@@ -5,7 +5,7 @@ namespace Models
     /// <summary>
     /// Класс обычный счёт
     /// </summary>
-    public class UsualAccount  : BankAccount
+    public class UsualAccount : BankAccount
     {
         /// <summary>
         /// Конструктор

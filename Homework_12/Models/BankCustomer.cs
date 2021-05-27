@@ -50,8 +50,8 @@ namespace Models
         /// <param name="passport"> Паспорт </param>
         /// <param name="clientStatus"> Статус </param>
         /// <param name="phoneNumber"> Номер телефона </param>
-        public BankCustomer(IPassport passport, 
-                            ClientStatus clientStatus, 
+        public BankCustomer(IPassport passport,
+                            ClientStatus clientStatus,
                             string phoneNumber)
         {
             if(passport is null) throw new ArgumentException("");
@@ -59,7 +59,7 @@ namespace Models
 
             Passport = passport;
             ClientStatus = clientStatus;
-            PhoneNumber = phoneNumber; 
+            PhoneNumber = phoneNumber;
         }
 
         /// <summary>
@@ -69,11 +69,11 @@ namespace Models
         /// <param name="clientStatus"> Статус </param>
         /// <param name="phoneNumber"> Номер телефон </param>
         /// <param name="reliability"> Надёжность </param>
-        public BankCustomer(IPassport passport, 
-                            ClientStatus clientStatus, 
-                            string phoneNumber, 
-                            byte reliability) : this(passport, 
-                                                     clientStatus, 
+        public BankCustomer(IPassport passport,
+                            ClientStatus clientStatus,
+                            string phoneNumber,
+                            byte reliability) : this(passport,
+                                                     clientStatus,
                                                      phoneNumber)
         {
             Reliability = reliability;
@@ -87,13 +87,13 @@ namespace Models
         /// <param name="phoneNumber"> Номер телефона </param>
         /// <param name="reliability"> Надёжность </param>
         /// <param name="email"> Электронная почта </param>
-        public BankCustomer(IPassport passport, 
-                            ClientStatus clientStatus, 
-                            string phoneNumber, 
-                            byte reliability, 
+        public BankCustomer(IPassport passport,
+                            ClientStatus clientStatus,
+                            string phoneNumber,
+                            byte reliability,
                             string email) : this(passport,
                                                  clientStatus,
-                                                 phoneNumber, 
+                                                 phoneNumber,
                                                  reliability)
         {
             if (string.IsNullOrWhiteSpace(email)) throw new ArgumentException("");
@@ -109,15 +109,15 @@ namespace Models
         /// <param name="phoneNumber"> Номер телефон </param>
         /// <param name="reliability"> Надёжность </param>
         /// <param name="email"> Электронная почта </param>
-        public BankCustomer(int id, 
-                            IPassport passport, 
-                            ClientStatus clientStatus, 
-                            string phoneNumber, 
-                            byte reliability, 
+        public BankCustomer(int id,
+                            IPassport passport,
+                            ClientStatus clientStatus,
+                            string phoneNumber,
+                            byte reliability,
                             string email) : this(passport,
                                                  clientStatus,
                                                  phoneNumber,
-                                                 reliability, 
+                                                 reliability,
                                                  email)
         {
             if(id < 0) throw new ArgumentException("");

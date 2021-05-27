@@ -28,9 +28,9 @@ namespace Services
         /// Конструктор
         /// </summary>
         /// <param name="items"> Список элементов </param>
-        protected RepositoryInMemory(IEnumerable<T> items) 
+        protected RepositoryInMemory(IEnumerable<T> items)
         {
-            foreach (var item in items) Add(item);           
+            foreach (var item in items) Add(item);
         }
         
         /// <summary>
@@ -80,6 +80,6 @@ namespace Services
         /// </summary>
         /// <param name="source"> Новые данные </param>
         /// <param name="destination"> Обновляемый элемент </param>
-        protected abstract void Update(T source, T destination);        
+        protected abstract void Update(T source, T destination);
     }
 }
