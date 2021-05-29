@@ -14,5 +14,6 @@
 
     <Grid>
         <Frame Content="{Binding CurrentPage, Converter={c:ApplicationPageValueConverter}}"/>
-    </Grid>
+    </Grid>   
+    
 </Window>

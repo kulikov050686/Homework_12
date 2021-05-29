@@ -12,7 +12,7 @@ namespace Models
         /// <summary>
         /// Департаменты банка
         /// </summary>
-        public static Department<BankCustomer>[] Departments = Enumerable.Range(1, 10).Select(i => new Department<BankCustomer>($"Департамент {i}")).ToArray();       
+        public static Department[] Departments = Enumerable.Range(1, 10).Select(i => new Department($"Департамент {i}")).ToArray();       
 
         /// <summary>
         /// Клиенты банка
@@ -23,7 +23,7 @@ namespace Models
         /// Заполнение клиентами банка депортаментов
         /// </summary>
         /// <param name="departments"> Департаменты </param>        
-        private static BankCustomer[] CreateBankCustomers(Department<BankCustomer>[] departments)
+        private static BankCustomer[] CreateBankCustomers(Department[] departments)
         {
             var index = 1;            
 
@@ -51,8 +51,8 @@ namespace Models
                                                             $"0123-456-789"));
                     index++;
                 }                         
-            }           
-
+            }
+           
             return departments.SelectMany(d => d.BankCustomers).ToArray();
         }
     }

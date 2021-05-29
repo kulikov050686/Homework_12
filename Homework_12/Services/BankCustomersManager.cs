@@ -23,7 +23,7 @@ namespace Services
         /// <summary>
         /// Получить список всех департаментов
         /// </summary>
-        public IEnumerable<Department<BankCustomer>> Departments => _departments.GetAll();
+        public IEnumerable<Department> Departments => _departments.GetAll();
          
         /// <summary>
         /// Конструктор

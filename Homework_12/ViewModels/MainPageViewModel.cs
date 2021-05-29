@@ -11,7 +11,7 @@ namespace ViewModels
         #region Закрытые поля
 
         private readonly BankCustomersManager _bankCustomersManager;
-        private Department<BankCustomer> _selectedDepartment;
+        private Department _selectedDepartment;
         private BankCustomer _selectedBankCustomer;
 
         #endregion
@@ -26,12 +26,12 @@ namespace ViewModels
         /// <summary>
         /// Список всех департаментов банка
         /// </summary>
-        public IEnumerable<Department<BankCustomer>> Departments => _bankCustomersManager.Departments;
+        public IEnumerable<Department> Departments => _bankCustomersManager.Departments;
 
         /// <summary>
         /// Выбранный департамент
         /// </summary>
-        public Department<BankCustomer> SelectedDepartment
+        public Department SelectedDepartment
         {
             get => _selectedDepartment;
             set => Set(ref _selectedDepartment, value);

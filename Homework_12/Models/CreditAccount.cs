@@ -17,9 +17,8 @@ namespace Models
         /// </summary>
         /// <param name="bankCustomer"> Клиент банка </param>
         /// <param name="creditStatus"> Статус кредита </param>
-        public CreditAccount(BankCustomer bankCustomer, CreditStatus creditStatus) : base(bankCustomer)
+        public CreditAccount(CreditStatus creditStatus) : base(AccountStatus.CREDIT)
         {
-            AccountStatus = AccountStatus.CREDIT;
             CreditStatus = creditStatus;
         }
     }

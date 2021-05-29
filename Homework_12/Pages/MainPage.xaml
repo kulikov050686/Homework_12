@@ -5,9 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Pages"
       xmlns:m="clr-namespace:Models"
+      xmlns:cmd="clr-namespace:Commands"
+      xmlns:uc="clr-namespace:UserControls"
       mc:Ignorable="d" 
       d:DesignHeight="450" 
-      d:DesignWidth="800"      
+      d:DesignWidth="800"  
       DataContext="{Binding MainPageVM, Source={StaticResource Locator}}">
 
     <Grid>
@@ -78,10 +80,8 @@
         </GroupBox>
         
         <!--Информация о выбранном клиенте банка-->
-        <GroupBox Grid.Column="2" 
-                  Header="Информация о клиенте">
-            
-        </GroupBox>
+        <uc:InfoBankCustomerUserControl Grid.Column="2"
+                                        DataContext="{Binding SelectedBankCustomer}"/>        
 
         <GridSplitter Grid.Column="0" 
                       HorizontalAlignment="Right" 

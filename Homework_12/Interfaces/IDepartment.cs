@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Models;
+using System.Collections.Generic;
 
 namespace Interfaces
 {
     /// <summary>
     /// Интерфейс департамент
     /// </summary>    
-    public interface IDepartment<IBankCustomer> : IEntity
+    public interface IDepartment : IEntity
     {
         /// <summary>
         /// Название
@@ -15,6 +16,6 @@ namespace Interfaces
         /// <summary>
         /// Лист клиентов банка
         /// </summary>
-        public IList<IBankCustomer> BankCustomers { get; set; }
+        public IList<BankCustomer> BankCustomers { get; set; }
     }
 }

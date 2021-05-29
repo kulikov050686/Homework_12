@@ -17,13 +17,13 @@ namespace Interfaces
         /// <summary>
         /// Удаление сущности из репозитория
         /// </summary>
-        /// <param name="item"> Удяляемая сущность </param>
+        /// <param name="item"> Удаляемая сущность </param>
         bool Remove(T item);
 
         /// <summary>
         /// Обновление сущности в репозитории
         /// </summary>
-        /// <param name="item"> Обновяемая сущность </param>
+        /// <param name="item"> Обноляемая сущность </param>
         void Update(int id, T item);
 
         /// <summary>

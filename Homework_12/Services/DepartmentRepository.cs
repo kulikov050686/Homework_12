@@ -5,7 +5,7 @@ namespace Services
     /// <summary>
     /// Хранилище департаментов банка
     /// </summary>
-    public class DepartmentRepository : RepositoryInMemory<Department<BankCustomer>>
+    public class DepartmentRepository : RepositoryInMemory<Department>
     {
         /// <summary>
         /// Конструктор по умолчанию
@@ -17,7 +17,7 @@ namespace Services
         /// </summary>
         /// <param name="source"> Новые данные департамента </param>
         /// <param name="destination"> Обновляемый департамент </param>
-        protected override void Update(Department<BankCustomer> source, Department<BankCustomer> destination)
+        protected override void Update(Department source, Department destination)
         {
             destination.BankCustomers = source.BankCustomers;
             destination.Description = source.Description;

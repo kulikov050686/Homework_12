@@ -1,4 +1,7 @@
-﻿namespace Interfaces
+﻿using Models;
+using System.Collections.Generic;
+
+namespace Interfaces
 {
     /// <summary>
     /// Интерфейс Клиет Банка
@@ -24,5 +27,10 @@
         /// Адрес электронной почты
         /// </summary>
         public string Email { get; set; }
+
+        /// <summary>
+        /// Лист счетов
+        /// </summary>
+        public IList<BankAccount> BankAccounts { get; set; }
     }
 }

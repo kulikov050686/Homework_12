@@ -154,7 +154,7 @@ namespace Models
                                                apartmentNumber,
                                                housing)
         {
-            if (string.IsNullOrWhiteSpace(district)) throw new ArgumentException("");            
+            if (string.IsNullOrWhiteSpace(district)) throw new ArgumentException("");
             District = district;
         }
     }

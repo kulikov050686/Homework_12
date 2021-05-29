@@ -9,11 +9,7 @@ namespace Models
     {
         /// <summary>
         /// Конструктор
-        /// </summary>
-        /// <param name="bankCustomer"> Клиент банка </param>
-        public UsualAccount(BankCustomer bankCustomer) : base(bankCustomer)
-        {
-            AccountStatus = AccountStatus.USUAL;
-        }
+        /// </summary>        
+        public UsualAccount() : base(AccountStatus.USUAL) {}
     }
 }

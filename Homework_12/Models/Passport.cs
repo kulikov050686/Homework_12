@@ -47,11 +47,11 @@ namespace Models
         /// <param name="dateOfIssue"> Дата выпуска </param>
         /// <param name="divisionCode"> Код подразделения </param>
         /// <param name="holder"> Владелец </param>
-        public Passport(int series, 
-                        int number, 
-                        string placeOfIssue, 
-                        DateTime dateOfIssue, 
-                        int divisionCode, 
+        public Passport(int series,
+                        int number,
+                        string placeOfIssue,
+                        DateTime dateOfIssue,
+                        int divisionCode,
                         IPerson holder)
         {
             if(holder is null) throw new ArgumentException("Владелец не может быть null!!!");

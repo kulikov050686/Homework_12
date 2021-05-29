@@ -27,40 +27,23 @@ namespace Models
         /// <summary>
         /// Статус счёта
         /// </summary>
-        public AccountStatus AccountStatus { get; protected set; }
-
-        /// <summary>
-        /// Клиент банка
-        /// </summary>
-        public IBankCustomer BankCustomer { get; }
+        public AccountStatus AccountStatus { get; }
 
         /// <summary>
         /// Конструктор
-        /// </summary>
-        /// <param name="bankCustomer"> Клиент банка </param>
-        public BankAccount(IBankCustomer bankCustomer)
-        {
-            if (bankCustomer is null) throw new ArgumentException("");
-            BankCustomer = bankCustomer;
-        }
-
-        /// <summary>
-        /// Конструктор
-        /// </summary>
-        /// <param name="bankCustomer"> Клиент банка </param>
+        /// </summary>        
         /// <param name="accountStatus"> Статус счёта </param>
-        public BankAccount(IBankCustomer bankCustomer, AccountStatus accountStatus) : this(bankCustomer)
+        public BankAccount(AccountStatus accountStatus)
         {
             AccountStatus = accountStatus;
         }
 
         /// <summary>
-        /// конструктор
+        /// Конструктор
         /// </summary>
-        /// <param name="id"> Идентификатор </param>
-        /// <param name="bankCustomer"> Клиент банка </param>
+        /// <param name="id"> Идентификатор </param>        
         /// <param name="accountStatus"> Статус счёта </param>
-        public BankAccount(int id, IBankCustomer bankCustomer, AccountStatus accountStatus) : this(bankCustomer, accountStatus)
+        public BankAccount(int id, AccountStatus accountStatus) : this(accountStatus)
         {
             if (id < 0) throw new ArgumentException("");
             Id = id;

@@ -1,6 +1,7 @@
 ﻿using Enums;
 using Interfaces;
 using System;
+using System.Collections.Generic;
 
 namespace Models
 {
@@ -45,6 +46,11 @@ namespace Models
         public string Description { get; set; }
 
         /// <summary>
+        /// Список счетов
+        /// </summary>
+        public IList<BankAccount> BankAccounts { get; set; }
+
+        /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="passport"> Паспорт </param>
@@ -59,7 +65,7 @@ namespace Models
 
             Passport = passport;
             ClientStatus = clientStatus;
-            PhoneNumber = phoneNumber;
+            PhoneNumber = phoneNumber;            
         }
 
         /// <summary>
