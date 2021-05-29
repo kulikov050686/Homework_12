@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using ViewModels;
+using Interfaces;
 
 namespace Services
 {
@@ -18,6 +19,8 @@ namespace Services
             services.AddSingleton<DepartmentRepository>();
             services.AddSingleton<BankCustomersManager>();
 
+            services.AddTransient<IUserDialogService, WindowUserDialogService>();
+
             return services;
         }
 
@@ -29,7 +32,7 @@ namespace Services
         {
             services.AddSingleton<MainWindowViewModel>();
             
-            services.AddTransient<MainPageViewModel>();            
+            services.AddTransient<MainPageViewModel>();
 
             return services;
         }

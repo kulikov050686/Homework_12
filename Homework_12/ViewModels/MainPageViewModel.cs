@@ -1,4 +1,5 @@
 ﻿using Commands;
+using Interfaces;
 using Models;
 using Services;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace ViewModels
         private readonly BankCustomersManager _bankCustomersManager;
         private Department _selectedDepartment;
         private BankCustomer _selectedBankCustomer;
+        private IUserDialogService _userDialog;
 
         #endregion
 
@@ -57,21 +59,11 @@ namespace ViewModels
         {
             get => _editBankCustomer ??= new RelayCommand((obj) => 
             {
-                var bankCustomer = (BankCustomer)obj;
-
-                var dlg = new AddBankCustomersWindow()
+                if(_userDialog.Edit(obj))
                 {
-                    NameBankCustomer = bankCustomer.Passport.Holder.Name,
-                    SurnameBankCustomer = bankCustomer.Passport.Holder.Surname,
-                    PatronymicBankCustomer = bankCustomer.Passport.Holder.Patronymic,
-                    BirthdayBankCustomer = bankCustomer.Passport.Holder.Birthday,
-                    PlaceOfBirthBankCustomer = bankCustomer.Passport.Holder.PlaceOfBirth
-                };
-
-                if (dlg.ShowDialog() == true)
-                    MessageBox.Show("Пользователь выполнил редактирование");
-                else
-                    MessageBox.Show("Пользователь передумал редактировать");
+                    MessageBox.Show("обновление выполнено");
+                }
+                               
             },(obj) => obj is BankCustomer);
         }
 
@@ -93,9 +85,10 @@ namespace ViewModels
 
         #region Конструктор
 
-        public MainPageViewModel(BankCustomersManager bankCustomersManager)
+        public MainPageViewModel(BankCustomersManager bankCustomersManager, IUserDialogService userDialog)
         {
             _bankCustomersManager = bankCustomersManager;
+            _userDialog = userDialog;
         }
 
         #endregion

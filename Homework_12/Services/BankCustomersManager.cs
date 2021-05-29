@@ -24,6 +24,15 @@ namespace Services
         /// Получить список всех департаментов
         /// </summary>
         public IEnumerable<Department> Departments => _departments.GetAll();
+
+        /// <summary>
+        /// Обновление данных клиента банка и сохранение в репозитории
+        /// </summary>
+        /// <param name="bankCustomer"> Клиент банка </param>
+        public void Update(BankCustomer bankCustomer)
+        {
+            _bankCustomers.Update(bankCustomer.Id, bankCustomer);
+        }
          
         /// <summary>
         /// Конструктор
