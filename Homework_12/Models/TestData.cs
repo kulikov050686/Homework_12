@@ -34,15 +34,15 @@ namespace Models
                     item.BankCustomers.Add(new BankCustomer(new Passport(111,
                                                                          222222,
                                                                          $"Место выдачи {index}",
-                                                                         DateTime.Now,
+                                                                         DateTime.Today,
                                                                          333333,
                                                                          new Person($"Фамилия {index}",
                                                                                     $"Имя {index}",
                                                                                     $"Отчество {index}",
                                                                                     $"муж",
-                                                                                    DateTime.Now,
+                                                                                    DateTime.Today,
                                                                                     $"Место рождения {index}",
-                                                                                    new Address(DateTime.Now,
+                                                                                    new Address(DateTime.Today,
                                                                                                 $"Регион {index}",
                                                                                                 $"Город {index}",
                                                                                                 $"Улица {index}",
@@ -50,7 +50,7 @@ namespace Models
                                                             ClientStatus.LEGAL,
                                                             $"0123-456-789"));
                     index++;
-                }                         
+                }
             }
            
             return departments.SelectMany(d => d.BankCustomers).ToArray();

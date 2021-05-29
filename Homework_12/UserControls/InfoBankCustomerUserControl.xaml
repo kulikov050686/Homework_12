@@ -11,6 +11,23 @@
 
     <GroupBox Header="Информация">
         <Grid>
+
+            <Grid.Resources>
+                <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                        <Trigger Property="Grid.Column"  Value="0">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                            <Setter Property="Margin" Value="0 0 2 0"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Trigger>
+
+                        <Trigger Property="Grid.Column"  Value="1">
+                            <Setter Property="Margin" Value="2 0 0 0"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Resources>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
@@ -74,7 +91,7 @@
 
             <TextBlock Grid.Row="3"
                        Grid.Column="1"
-                       Text="{Binding Passport.Holder.Birthday, StringFormat=dd.HH.yyyy}"/>
+                       Text="{Binding Passport.Holder.Birthday, StringFormat=dd.MM.yyyy}"/>
 
             <TextBlock Grid.Row="4"
                        Grid.Column="1"
