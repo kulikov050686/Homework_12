@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System;
 
 namespace UserControls
-{    
+{
     public partial class PersonUserControl : UserControl
     {
         #region Название
@@ -85,7 +85,7 @@ namespace UserControls
                                         new PropertyMetadata(default(string)));
 
         [Description("Место рождения")]
-        public string PlaceOfBirthUC 
+        public string PlaceOfBirthUC
         {
             get => (string)GetValue(PlaceOfBirthUCProperty);
             set => SetValue(PlaceOfBirthUCProperty, value);
@@ -152,9 +152,9 @@ namespace UserControls
         #endregion
 
         public PersonUserControl()
-        { 
+        {
             InitializeComponent();
             GenderUC = new List<string> { "муж", "жен" };
         }
-    }   
+    }
 }

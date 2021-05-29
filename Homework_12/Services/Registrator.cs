@@ -29,8 +29,7 @@ namespace Services
         {
             services.AddSingleton<MainWindowViewModel>();
             
-            services.AddTransient<MainPageViewModel>();
-            services.AddTransient<BankCustomersManagementViewModel>();
+            services.AddTransient<MainPageViewModel>();            
 
             return services;
         }

@@ -9,21 +9,21 @@ namespace Commands
     /// </summary>
     class BankCustomersManagementCommand : BaseCommand
     {
-        private BankCustomersManagementWindow _window;
+        private AddBankCustomersWindow _window;
 
         /// <summary>
         /// Разрешающий метод выполнения команды
         /// </summary>
         /// <param name="parameter"></param>        
         public override bool CanExecute(object parameter) => _window == null;
-        
+
         /// <summary>
         /// Выполняющий метод
         /// </summary>
         /// <param name="parameter"></param>
         public override void Execute(object parameter)
         {
-            var window = new BankCustomersManagementWindow
+            var window = new AddBankCustomersWindow
             {
                 Owner = Application.Current.MainWindow
             };

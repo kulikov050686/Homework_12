@@ -12,12 +12,7 @@ namespace ViewModels
         /// Модель-представления главного окна
         /// </summary>
         public MainWindowViewModel MainWindowVM => App.Host.Services.GetRequiredService<MainWindowViewModel>();
-
-        /// <summary>
-        /// Модель-представление управления клиетами банка
-        /// </summary>
-        public BankCustomersManagementViewModel BankCustomersManagementVM => App.Host.Services.GetRequiredService<BankCustomersManagementViewModel>();
-
+                
         /// <summary>
         /// Модель-представление главной страницы
         /// </summary>

@@ -1,9 +1,7 @@
 ﻿using Commands;
 using Models;
 using Services;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 
 namespace ViewModels
@@ -73,7 +71,6 @@ namespace ViewModels
             get => _createNewBankCustomer ??= new RelayCommand((obj) =>
             {
                 var department = (Department)obj;
-
 
             }, (obj) => obj is Department);
         }
