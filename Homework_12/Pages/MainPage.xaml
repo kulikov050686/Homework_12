@@ -73,7 +73,9 @@
                     <ContextMenu>
                         <MenuItem Header="Добавить"/>
                         <MenuItem Header="Удалить"/>
-                        <MenuItem Header="Редактировать"/>
+                        <MenuItem Header="Редактировать" 
+                                  Command="{Binding EditBankCustomer}" 
+                                  CommandParameter="{Binding SelectedBankCustomer}"/>
                     </ContextMenu>
                 </ListBox.ContextMenu>
             </ListBox>

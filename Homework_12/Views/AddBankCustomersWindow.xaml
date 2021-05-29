@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Views"
         xmlns:uc="clr-namespace:UserControls"
+        xmlns:cmd="clr-namespace:Commands"
         mc:Ignorable="d"
         MaxHeight="800"
         MaxWidth="900"
@@ -31,13 +32,24 @@
         <StackPanel Orientation="Horizontal" 
                     Height="50" 
                     HorizontalAlignment="Right">
-            
-            <Button Content="Пименить" 
+
+            <Button Content="Применить" 
                     Margin="5 0 5 0" 
-                    Width="80"/>
+                    Width="80" 
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=local:AddBankCustomersWindow}}">
+                <Button.Command>
+                    <cmd:CloseDialogCommand DialogResult="True"/>
+                </Button.Command>
+            </Button>
+
             <Button Content="Отмена" 
                     Margin=" 5 0 5 0" 
-                    Width="80"/>
+                    Width="80"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=local:AddBankCustomersWindow}}">
+                <Button.Command>
+                    <cmd:CloseDialogCommand DialogResult="False"/>
+                </Button.Command>
+            </Button>
         </StackPanel>
     </StackPanel>
 </Window>

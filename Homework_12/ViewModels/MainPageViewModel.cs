@@ -2,7 +2,9 @@
 using Models;
 using Services;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Input;
+using Views;
 
 namespace ViewModels
 {
@@ -57,7 +59,19 @@ namespace ViewModels
             {
                 var bankCustomer = (BankCustomer)obj;
 
+                var dlg = new AddBankCustomersWindow()
+                {
+                    NameBankCustomer = bankCustomer.Passport.Holder.Name,
+                    SurnameBankCustomer = bankCustomer.Passport.Holder.Surname,
+                    PatronymicBankCustomer = bankCustomer.Passport.Holder.Patronymic,
+                    BirthdayBankCustomer = bankCustomer.Passport.Holder.Birthday,
+                    PlaceOfBirthBankCustomer = bankCustomer.Passport.Holder.PlaceOfBirth
+                };
 
+                if (dlg.ShowDialog() == true)
+                    MessageBox.Show("Пользователь выполнил редактирование");
+                else
+                    MessageBox.Show("Пользователь передумал редактировать");
             },(obj) => obj is BankCustomer);
         }
 
