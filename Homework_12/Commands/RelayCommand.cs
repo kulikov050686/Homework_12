@@ -7,8 +7,8 @@ namespace Commands
     /// </summary>
     public class RelayCommand : BaseCommand
     {
-        private Action<object> execute;
-        private Func<object, bool> canExecute;
+        private Action<object> _execute;
+        private Func<object, bool> _canExecute;
         
         /// <summary>
         /// Конструктор команды
@@ -17,8 +17,8 @@ namespace Commands
         /// <param name="canExecute"> Метод разрешающий выполнение команды </param>
         public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
-            this.execute = execute;
-            this.canExecute = canExecute;
+            _execute = execute;
+            _canExecute = canExecute;
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace Commands
         /// <param name="parameter"> Параметр команды </param>        
         public override bool CanExecute(object parameter)
         {
-            return this.canExecute == null || this.canExecute(parameter);
+            return _canExecute == null || _canExecute(parameter);
         }
 
         /// <summary>
@@ -36,9 +36,11 @@ namespace Commands
         /// <param name="parameter"> Параметр команды </param>
         public override void Execute(object parameter)
         {
-            if (execute != null)
+            if (!CanExecute(parameter)) return;
+
+            if (_execute != null)
             {
-                this.execute(parameter);
+                _execute(parameter);
             }
         }
     }

@@ -1,8 +1,10 @@
-﻿using Models;
+﻿using Commands;
+using Models;
 using Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
 
 namespace ViewModels
 {
@@ -44,6 +46,36 @@ namespace ViewModels
         {
             get => _selectedBankCustomer;
             set => Set(ref _selectedBankCustomer, value);
+        }
+
+        #endregion
+
+        #region Команда редактирования клиента банка
+
+        private ICommand _editBankCustomer;
+        public ICommand EditBankCustomer
+        {
+            get => _editBankCustomer ??= new RelayCommand((obj) => 
+            {
+                var bankCustomer = (BankCustomer)obj;
+
+
+            },(obj) => obj is BankCustomer);
+        }
+
+        #endregion
+
+        #region Команда создания нового клиента банка
+
+        private ICommand _createNewBankCustomer;
+        public ICommand CreateNewBankCustomer
+        {
+            get => _createNewBankCustomer ??= new RelayCommand((obj) =>
+            {
+                var department = (Department)obj;
+
+
+            }, (obj) => obj is Department);
         }
 
         #endregion
