@@ -63,7 +63,6 @@
                         <DockPanel>
                             <TextBlock DockPanel.Dock="Right" 
                                        Text="{Binding Passport.Holder.Name}"/>
-
                             <TextBlock Text="{Binding Passport.Holder.Surname}"/>
                         </DockPanel>
                     </DataTemplate>
@@ -71,7 +70,9 @@
 
                 <ListBox.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Добавить"/>
+                        <MenuItem Header="Добавить" 
+                                  Command="{Binding CreateNewBankCustomer}" 
+                                  CommandParameter="{Binding SelectedDepartment}"/>
                         <MenuItem Header="Удалить"/>
                         <MenuItem Header="Редактировать" 
                                   Command="{Binding EditBankCustomer}" 

@@ -33,17 +33,17 @@
                     Height="50" 
                     HorizontalAlignment="Right">
 
-            <Button Content="Применить" 
-                    Margin="5 0 5 0" 
-                    Width="80" 
+            <Button Content="Применить"
+                    Margin="5 0 5 0"
+                    Width="80"
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=local:AddBankCustomersWindow}}">
                 <Button.Command>
                     <cmd:CloseDialogCommand DialogResult="True"/>
                 </Button.Command>
             </Button>
 
-            <Button Content="Отмена" 
-                    Margin=" 5 0 5 0" 
+            <Button Content="Отмена"
+                    Margin=" 5 0 5 0"
                     Width="80"
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=local:AddBankCustomersWindow}}">
                 <Button.Command>

@@ -62,14 +62,11 @@ namespace Models
                        string street,
                        int houseNumber)
         {
-            if(string.IsNullOrWhiteSpace(region) ||
-               string.IsNullOrWhiteSpace(city) ||
-               string.IsNullOrWhiteSpace(street) ||
-               (houseNumber <= 0))
-            {
-                throw new ArgumentException("");
-            }
-            
+            if(string.IsNullOrWhiteSpace(region)) throw new ArgumentException("Регион или область не может быть пустым!!!");
+            if(string.IsNullOrWhiteSpace(city)) throw new ArgumentException("Город не может быть пустым!!!");
+            if(string.IsNullOrWhiteSpace(street)) throw new ArgumentException("Улица не может быть пустой!!!");
+            if (houseNumber <= 0) throw new ArgumentException("Номер дома не верен!!!");
+
             RegistrationDate = registrationDate;
             Region = region;
             City = city;
@@ -92,12 +89,12 @@ namespace Models
                        string street,
                        int houseNumber,
                        int apartmentNumber) : this(registrationDate,
-                                                    region,
-                                                    city,
-                                                    street,
-                                                    houseNumber)
+                                                   region,
+                                                   city,
+                                                   street,
+                                                   houseNumber)
         {
-            if(apartmentNumber <= 0) throw new ArgumentException("");
+            if(apartmentNumber <= 0) throw new ArgumentException("Номер квартиры не верен!!!");
             ApartmentNumber = apartmentNumber;
         }
 
@@ -124,7 +121,7 @@ namespace Models
                                               houseNumber, 
                                               apartmentNumber)
         {
-            if(string.IsNullOrWhiteSpace(housing)) throw new ArgumentException("");
+            if(string.IsNullOrWhiteSpace(housing)) throw new ArgumentException("Корпус дома не может быть пустым!!!");
             Housing = housing;
         }
 
@@ -154,7 +151,7 @@ namespace Models
                                                apartmentNumber,
                                                housing)
         {
-            if (string.IsNullOrWhiteSpace(district)) throw new ArgumentException("");
+            if (string.IsNullOrWhiteSpace(district)) throw new ArgumentException("Район города не может быть пустым!!!");
             District = district;
         }
     }

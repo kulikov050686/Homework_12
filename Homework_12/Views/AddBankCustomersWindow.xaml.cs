@@ -31,8 +31,8 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
-        [Description("Фамилия клиента банка")]        
-        public string SurnameBankCustomer 
+        [Description("Фамилия клиента банка")]
+        public string SurnameBankCustomer
         {
             get => (string)GetValue(SurnameBankCustomerProperty);
             set => SetValue(SurnameBankCustomerProperty, value);
@@ -66,10 +66,10 @@ namespace Views
                                         new PropertyMetadata(default(string)));
 
         [Description("Пол клиента банка")]
-        public string GenderBankCustomer 
+        public string GenderBankCustomer
         {
             get => (string)GetValue(GenderBankCustomerProperty);
-            set => SetValue(GenderBankCustomerProperty, value); 
+            set => SetValue(GenderBankCustomerProperty, value);
         }
 
         #endregion
@@ -83,7 +83,7 @@ namespace Views
                                         new PropertyMetadata(default(DateTime)));
 
         [Description("Дата рождения клиента банка")]
-        public DateTime BirthdayBankCustomer 
+        public DateTime BirthdayBankCustomer
         {
             get => (DateTime)GetValue(BirthdayBankCustomerProperty);
             set => SetValue(BirthdayBankCustomerProperty, value);
@@ -106,6 +106,78 @@ namespace Views
             set => SetValue(PlaceOfBirthBankCustomerProperty, value); 
         }
 
+        #endregion
+
+        #region Место выдачи паспорта клиента банка
+
+        public static readonly DependencyProperty PlaceOfIssuePassportProperty =
+           DependencyProperty.Register(nameof(PlaceOfIssuePassport),
+                                       typeof(string),
+                                       typeof(AddBankCustomersWindow),
+                                       new PropertyMetadata(default(string)));
+
+        [Description("Место выдачи паспорта")]
+        public string PlaceOfIssuePassport
+        {
+            get => (string)GetValue(PlaceOfIssuePassportProperty);
+            set => SetValue(PlaceOfIssuePassportProperty, value);
+        }
+
+        #endregion
+
+        #region Номер паспорта клиента банка
+
+        public static readonly DependencyProperty NumberPassportProperty =
+           DependencyProperty.Register(nameof(NumberPassport),
+                                       typeof(ulong),
+                                       typeof(AddBankCustomersWindow),
+                                       new PropertyMetadata(default(ulong)));
+
+        [Description("Номер паспорта клиента банка")]
+        public ulong NumberPassport
+        {
+            get => (ulong)GetValue(NumberPassportProperty);
+            set => SetValue(NumberPassportProperty, value);
+        }
+
+        #endregion
+
+        #region Серия паспорта клиента банка
+
+        public static readonly DependencyProperty SeriesPassportProperty =
+           DependencyProperty.Register(nameof(SeriesPassport),
+                                       typeof(ulong),
+                                       typeof(AddBankCustomersWindow),
+                                       new PropertyMetadata(default(ulong)));
+
+        [Description("Серия паспорта клиента банка")]
+        public ulong SeriesPassport
+        {
+            get => (ulong)GetValue(SeriesPassportProperty);
+            set => SetValue(SeriesPassportProperty, value);
+        }
+
+        #endregion
+
+        #region
+        #endregion
+
+        #region
+        #endregion
+
+        #region
+        #endregion
+
+        #region
+        #endregion
+
+        #region
+        #endregion
+
+        #region
+        #endregion
+
+        #region
         #endregion
 
         public AddBankCustomersWindow() => InitializeComponent();        

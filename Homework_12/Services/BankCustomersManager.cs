@@ -33,6 +33,17 @@ namespace Services
         {
             _bankCustomers.Update(bankCustomer.Id, bankCustomer);
         }
+
+        /// <summary>
+        /// Добавление нового клиента банка в департамент
+        /// </summary>
+        /// <param name="bankCustomer"> Клиент банка </param>
+        /// <param name="department"> Департамент </param>
+        /// <returns></returns>
+        public bool Create(BankCustomer bankCustomer, Department department)
+        {
+            return false;
+        }
          
         /// <summary>
         /// Конструктор

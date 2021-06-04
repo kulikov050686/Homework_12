@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models;
+using System;
 
 namespace Interfaces
 {
@@ -30,7 +31,7 @@ namespace Interfaces
         /// <summary>
         /// Код подразделения
         /// </summary>
-        public int DivisionCode { get; }
+        public DivisionCode DivisionCode { get; }
 
         /// <summary>
         /// Владелец

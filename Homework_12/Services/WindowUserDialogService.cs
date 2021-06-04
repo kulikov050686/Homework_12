@@ -23,6 +23,20 @@ namespace Services
             }
         }
 
+        public object Create()
+        {
+            var dlg = new AddBankCustomersWindow();
+
+            if (dlg.ShowDialog() != true) return null;
+
+            return null;            
+        }
+
+        public bool Delete(object item)
+        {
+            return false;
+        }
+
         public void ShowInformation(string information, string caption) => 
             MessageBox.Show(information, caption, MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -46,18 +60,12 @@ namespace Services
         /// <param name="bankCustomer"> Клиент банка </param>        
         private static bool EditBankCustomer(BankCustomer bankCustomer)
         {
-            var dlg = new AddBankCustomersWindow()
-            {
-                NameBankCustomer = bankCustomer.Passport.Holder.Name,
-                SurnameBankCustomer = bankCustomer.Passport.Holder.Surname,
-                PatronymicBankCustomer = bankCustomer.Passport.Holder.Patronymic,
-                BirthdayBankCustomer = bankCustomer.Passport.Holder.Birthday,
-                PlaceOfBirthBankCustomer = bankCustomer.Passport.Holder.PlaceOfBirth
-            };
-
-            if (dlg.ShowDialog() != true) return false;
-
-            return true;
+            return false;
+        }
+                
+        private static bool DeleteBankCustomer()
+        {
+            return false;
         }
     }
 }

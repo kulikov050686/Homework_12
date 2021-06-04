@@ -4,7 +4,7 @@ using System.Windows;
 using System;
 
 namespace UserControls
-{    
+{
     public partial class PassportUserControl : UserControl
     {
         #region Название
@@ -45,14 +45,14 @@ namespace UserControls
 
         public static readonly DependencyProperty NumberUCProperty =
            DependencyProperty.Register(nameof(NumberUC),
-                                       typeof(ulong),
+                                       typeof(string),
                                        typeof(PassportUserControl),
-                                       new PropertyMetadata(default(ulong)));
+                                       new PropertyMetadata(default(string)));
 
         [Description("Номер паспорта")]
-        public ulong NumberUC 
+        public string NumberUC 
         {
-            get => (ulong)GetValue(NumberUCProperty);
+            get => (string)GetValue(NumberUCProperty);
             set => SetValue(NumberUCProperty, value);
         }
 
@@ -62,14 +62,14 @@ namespace UserControls
 
         public static readonly DependencyProperty SeriesUCProperty =
            DependencyProperty.Register(nameof(SeriesUC),
-                                       typeof(ulong),
+                                       typeof(string),
                                        typeof(PassportUserControl),
-                                       new PropertyMetadata(default(ulong)));
+                                       new PropertyMetadata(default(string)));
 
         [Description("Серия паспорта")]
-        public ulong SeriesUC 
+        public string SeriesUC
         {
-            get => (ulong)GetValue(SeriesUCProperty);
+            get => (string)GetValue(SeriesUCProperty);
             set => SetValue(SeriesUCProperty, value);
         }
 
@@ -79,14 +79,14 @@ namespace UserControls
 
         public static readonly DependencyProperty DivisionCodeLeftUCProperty =
            DependencyProperty.Register(nameof(DivisionCodeLeftUC),
-                                       typeof(ulong),
+                                       typeof(string),
                                        typeof(PassportUserControl),
-                                       new PropertyMetadata(default(ulong)));
+                                       new PropertyMetadata(default(string)));
 
-        [Description("Код подразделения 1")]        
-        public ulong DivisionCodeLeftUC
+        [Description("Код подразделения 1")]
+        public string DivisionCodeLeftUC
         {
-            get => (ulong)GetValue(DivisionCodeLeftUCProperty);
+            get => (string)GetValue(DivisionCodeLeftUCProperty);
             set => SetValue(DivisionCodeLeftUCProperty, value);
         }
 
@@ -96,14 +96,14 @@ namespace UserControls
 
         public static readonly DependencyProperty DivisionCodeRightUCProperty =
            DependencyProperty.Register(nameof(DivisionCodeRightUC),
-                                       typeof(ulong),
+                                       typeof(string),
                                        typeof(PassportUserControl),
-                                       new PropertyMetadata(default(ulong)));
+                                       new PropertyMetadata(default(string)));
 
         [Description("Код подразделения 1")]
-        public ulong DivisionCodeRightUC
+        public string DivisionCodeRightUC
         {
-            get => (ulong)GetValue(DivisionCodeRightUCProperty);
+            get => (string)GetValue(DivisionCodeRightUCProperty);
             set => SetValue(DivisionCodeRightUCProperty, value);
         }
 

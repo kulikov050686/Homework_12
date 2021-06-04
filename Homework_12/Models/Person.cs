@@ -66,15 +66,12 @@ namespace Models
                       string placeOfBirth, 
                       IAddress placeOfResidence)
         {
-            if(string.IsNullOrWhiteSpace(surname) || 
-               string.IsNullOrWhiteSpace(name) || 
-               string.IsNullOrWhiteSpace(patronymic) || 
-               string.IsNullOrWhiteSpace(gender) || 
-               string.IsNullOrWhiteSpace(placeOfBirth) ||
-               placeOfResidence is null)
-            {
-                throw new ArgumentException("");
-            }            
+            if(string.IsNullOrWhiteSpace(surname)) throw new ArgumentException("Фамилия не может быть пустой!!!");
+            if(string.IsNullOrWhiteSpace(name)) throw new ArgumentException("Имя не может быть пустым!!!");
+            if(string.IsNullOrWhiteSpace(patronymic)) throw new ArgumentException("Отчество не может быть пустым!!!");
+            if(string.IsNullOrWhiteSpace(gender)) throw new ArgumentException("Пол не может быть пустым!!!");
+            if(string.IsNullOrWhiteSpace(placeOfBirth)) throw new ArgumentException("Место рождения не может быть пустым!!!");
+            if (placeOfResidence is null) throw new ArgumentNullException("Адрес прописки не может быть null!!!");                 
 
             Surname = surname;
             Name = name;
@@ -112,7 +109,7 @@ namespace Models
                                                           placeOfBirth,
                                                           placeOfResidence)
         {
-            if(placeOfRegistration is null) throw new ArgumentException("");            
+            if (placeOfRegistration is null) throw new ArgumentNullException("Адрес регистрации не может быть null!!!");            
             PlaceOfRegistration = placeOfRegistration;
         }
     }

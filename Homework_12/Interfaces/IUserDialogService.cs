@@ -12,6 +12,17 @@
         bool Edit(object item);
 
         /// <summary>
+        /// Создать некоторый объект
+        /// </summary>        
+        object Create();
+
+        /// <summary>
+        /// Удалить некоторый объект
+        /// </summary>
+        /// <param name="item"> Удаляемый объект </param>
+        bool Delete(object item);
+
+        /// <summary>
         /// Отображение информационных сообщений
         /// </summary>
         /// <param name="information"> Информационное сообщение </param>

@@ -35,7 +35,7 @@ namespace Models
         /// <param name="name"> Название </param>
         public Department(string name)
         {
-            if(string.IsNullOrWhiteSpace(name)) throw new ArgumentException("");
+            if(string.IsNullOrWhiteSpace(name)) throw new ArgumentException("Название департамента не может быть пустым!!!");
             Name = name;
         }
 
@@ -46,7 +46,7 @@ namespace Models
         /// <param name="name"> Название </param>
         public Department(int id, string name) : this(name)
         {
-            if(id < 0 ) throw new ArgumentException("");
+            if(id < 0 ) throw new ArgumentException("Значение идентификатора не верно!!!");
             Id = id;
         }
     }

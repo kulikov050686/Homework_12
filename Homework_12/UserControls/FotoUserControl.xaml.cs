@@ -5,7 +5,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 
 namespace UserControls
-{    
+{
     public partial class FotoUserControl : UserControl
     {
         #region Название

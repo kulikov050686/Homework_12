@@ -5,7 +5,6 @@ using Services;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
-using Views;
 
 namespace ViewModels
 {
@@ -61,7 +60,7 @@ namespace ViewModels
             {
                 if(_userDialog.Edit(obj))
                 {
-                    MessageBox.Show("обновление выполнено");
+                    MessageBox.Show("Обновление выполнено");
                 }
                                
             },(obj) => obj is BankCustomer);
@@ -78,7 +77,23 @@ namespace ViewModels
             {
                 var department = (Department)obj;
 
+                if (_userDialog.Create() is null) return;
+                
+
             }, (obj) => obj is Department);
+        }
+
+        #endregion
+
+        #region Команда удаления клиента банка
+
+        private ICommand _deleteBankCustomer;
+        public ICommand DeleteBankCustomer
+        {
+            get => _deleteBankCustomer ??= new RelayCommand((obj) =>
+            {
+
+            }, (obj) => obj is BankCustomer);
         }
 
         #endregion
