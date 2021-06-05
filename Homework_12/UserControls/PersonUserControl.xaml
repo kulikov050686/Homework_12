@@ -5,27 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UserControls"
              mc:Ignorable="d">
-    
+
     <GroupBox Header="{Binding TitleUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}">
         <StackPanel>
             
             <!-- Имя -->
             <GroupBox Header="Имя">
-                <TextBox Text="{Binding NameUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}"
+                <TextBox Text="{Binding NameUC,RelativeSource={RelativeSource AncestorType=local:PersonUserControl}, Mode=TwoWay}"
                          FontSize="16"                         
                          VerticalAlignment="Center"/>
             </GroupBox>
             
             <!-- Фамилия --> 
             <GroupBox Header="Фамилия">
-                <TextBox Text="{Binding SurnameUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}"
+                <TextBox Text="{Binding SurnameUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}, Mode=TwoWay}"
                          FontSize="16"                         
                          VerticalAlignment="Center"/>
             </GroupBox>
             
             <!-- Отчество -->
             <GroupBox Header="Отчество">
-                <TextBox Text="{Binding PatronymicUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}"
+                <TextBox Text="{Binding PatronymicUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}, Mode=TwoWay}"
                          FontSize="16"                         
                          VerticalAlignment="Center"/>
             </GroupBox>
@@ -37,14 +37,14 @@
                 <GroupBox Header="Дата рождения">
                     <DatePicker FontSize="16"
                                 Width="210"
-                                SelectedDate="{Binding DateOfBirthrUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}"/>
+                                SelectedDate="{Binding DateOfBirthrUC,RelativeSource={RelativeSource AncestorType=local:PersonUserControl}, Mode=TwoWay}"/>
                 </GroupBox>
                 
                 <!-- Пол -->
                 <GroupBox Header="Пол" Margin="15 0 0 0">
                     <ComboBox FontSize="16"                                                         
-                              SelectedItem="{Binding SelectedItemGenderUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}"
-                              SelectedIndex="{Binding SelectedIndexGenderUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}"
+                              SelectedItem="{Binding SelectedItemGenderUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}, Mode=TwoWay}"
+                              SelectedIndex="{Binding SelectedIndexGenderUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}, Mode=TwoWay}"
                               ItemsSource="{Binding GenderUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}"/>
                 </GroupBox>
                 
@@ -54,8 +54,8 @@
             <GroupBox Header="Место рождения" 
                       Height="100" 
                       Width="300">
-                
-                <TextBox Text="{Binding PlaceOfBirthUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}}"
+
+                <TextBox Text="{Binding PlaceOfBirthUC, RelativeSource={RelativeSource AncestorType=local:PersonUserControl}, Mode=TwoWay}"
                          FontSize="16"
                          TextWrapping="Wrap"/>
             </GroupBox>

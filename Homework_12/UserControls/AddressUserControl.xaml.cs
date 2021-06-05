@@ -96,14 +96,14 @@ namespace UserControls
 
         public static readonly DependencyProperty HouseNumberUCProperty =
             DependencyProperty.Register(nameof(HouseNumberUC),
-                                        typeof(uint),
+                                        typeof(int),
                                         typeof(AddressUserControl),
-                                        new PropertyMetadata(default(uint)));
+                                        new PropertyMetadata(default(int)));
 
         [Description("Номер дома")]
-        public uint HouseNumberUC
+        public int HouseNumberUC
         {
-            get => (uint)GetValue(HouseNumberUCProperty);
+            get => (int)GetValue(HouseNumberUCProperty);
             set => SetValue(HouseNumberUCProperty, value);
         }
 
@@ -130,14 +130,14 @@ namespace UserControls
 
         public static readonly DependencyProperty ApartmentNumberUCProperty =
             DependencyProperty.Register(nameof(ApartmentNumberUC),
-                                        typeof(uint),
+                                        typeof(int),
                                         typeof(AddressUserControl),
-                                        new PropertyMetadata(default(uint)));
+                                        new PropertyMetadata(default(int)));
 
         [Description("Номер квартиры")]
-        public uint ApartmentNumberUC
+        public int ApartmentNumberUC
         {
-            get => (uint)GetValue(ApartmentNumberUCProperty);
+            get => (int)GetValue(ApartmentNumberUCProperty);
             set => SetValue(ApartmentNumberUCProperty, value);
         }
 

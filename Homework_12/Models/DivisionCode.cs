@@ -19,7 +19,7 @@ namespace Models
 
             set
             {
-                if(100 > value || value > 999) 
+                if(100 > value || value > 999)
                     throw new ArgumentException("Выход из диапазона!!!");
 
                 _left = value;
@@ -48,7 +48,7 @@ namespace Models
         public DivisionCode()
         {
             _left = 100;
-            _right = 999;
+            _right = 100;
         }
     }
 }

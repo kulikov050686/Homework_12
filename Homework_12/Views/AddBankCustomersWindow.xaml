@@ -7,26 +7,55 @@
         xmlns:uc="clr-namespace:UserControls"
         xmlns:cmd="clr-namespace:Commands"
         mc:Ignorable="d"
-        MaxHeight="800"
-        MaxWidth="900"
+        MaxHeight="500"
+        MaxWidth="1085"
+        ResizeMode="NoResize"
         Title="Добавить клиента банка"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
     
     <StackPanel>
+        
         <StackPanel Orientation="Horizontal">
-            <uc:FotoUserControl TitleUC="Фото"/>
+            
+            <!--Данные клиента-->
             <uc:PersonUserControl TitleUC="Данные клиента"
-                                  NameUC="{Binding NameBankCustomer}"
-                                  SurnameUC="{Binding SurnameBankCustomer}"
-                                  PatronymicUC="{Binding PatronymicBankCustomer}"
-                                  DateOfBirthrUC="{Binding BirthdayBankCustomer}"
-                                  PlaceOfBirthUC="{Binding PlaceOfBirthBankCustomer}"/>
-        </StackPanel>
+                                  NameUC="{Binding NameBankCustomer, Mode=TwoWay}"
+                                  SurnameUC="{Binding SurnameBankCustomer, Mode=TwoWay}"
+                                  PatronymicUC="{Binding PatronymicBankCustomer, Mode=TwoWay}"
+                                  DateOfBirthrUC="{Binding BirthdayBankCustomer, Mode=TwoWay}"
+                                  SelectedItemGenderUC="{Binding GenderBankCustomer, Mode=TwoWay}"
+                                  PlaceOfBirthUC="{Binding PlaceOfBirthBankCustomer, Mode=TwoWay}"/>
 
-        <StackPanel Orientation="Horizontal">
-            <uc:PassportUserControl TitleUC="Паспорт"/>
-            <uc:AddressUserControl TitleUC="Адрес прописки"/>
-            <uc:AddressUserControl TitleUC="Адрес регистрации"/>
+            <!--Паспорт-->
+            <uc:PassportUserControl TitleUC="Паспорт"
+                                    SeriesUC="{Binding SeriesPassport, Mode=TwoWay}"
+                                    NumberUC="{Binding NumberPassport, Mode=TwoWay}"
+                                    DivisionCodeLeftUC="{Binding DivisionCodeLeftPassport, Mode=TwoWay}"
+                                    DivisionCodeRightUC="{Binding DivisionCodeRightPassport, Mode=TwoWay}"
+                                    DateOfIssueUC="{Binding DateOfIssuePassport, Mode=TwoWay}"
+                                    PlaceOfIssueUC="{Binding PlaceOfIssuePassport, Mode=TwoWay}"/>
+            
+            <!--Адрес прописки-->
+            <uc:AddressUserControl TitleUC="Адрес прописки"
+                                   RegionUC="{Binding RegionPlaceOfResidence, Mode=TwoWay}"
+                                   CityUC="{Binding CityPlaceOfResidence, Mode=TwoWay}"
+                                   DistrictUC="{Binding DistrictPlaceOfResidence, Mode=TwoWay}"
+                                   StreetUC="{Binding StreetPlaceOfResidence, Mode=TwoWay}"
+                                   HouseNumberUC="{Binding HouseNumberPlaceOfResidence, Mode=TwoWay}"
+                                   HousingUC="{Binding HousingPlaceOfResidence, Mode=TwoWay}"
+                                   ApartmentNumberUC="{Binding ApartmentNumberPlaceOfResidence, Mode=TwoWay}"
+                                   RegistrationDateUC="{Binding RegistrationDatePlaceOfResidence, Mode=TwoWay}"/>
+            
+            <!--Адрес регистрации-->
+            <uc:AddressUserControl TitleUC="Адрес регистрации"
+                                   RegionUC="{Binding RegionRegistration, Mode=TwoWay}"
+                                   CityUC="{Binding CityRegistration, Mode=TwoWay}"
+                                   DistrictUC="{Binding DistrictRegistration, Mode=TwoWay}"
+                                   StreetUC="{Binding StreetRegistration, Mode=TwoWay}"
+                                   HouseNumberUC="{Binding HouseNumberRegistration, Mode=TwoWay}"
+                                   HousingUC="{Binding HousingRegistration, Mode=TwoWay}"
+                                   ApartmentNumberUC="{Binding ApartmentNumberRegistration, Mode=TwoWay}"
+                                   RegistrationDateUC="{Binding RegistrationDateRegistration, Mode=TwoWay}"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" 

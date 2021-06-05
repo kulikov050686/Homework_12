@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using Enums;
+using Interfaces;
 using Models;
 using System;
 using System.Windows;
@@ -25,13 +26,14 @@ namespace Services
 
         public object Create()
         {
-            var dlg = new AddBankCustomersWindow();
-
-            if (dlg.ShowDialog() != true) return null;
-
-            return null;            
+            return null;
         }
 
+        public BankCustomer Create(ClientStatus clientStatus)
+        {
+            return null;
+        }
+        
         public bool Delete(object item)
         {
             return false;
@@ -61,11 +63,15 @@ namespace Services
         private static bool EditBankCustomer(BankCustomer bankCustomer)
         {
             return false;
-        }
-                
-        private static bool DeleteBankCustomer()
+        }        
+
+        private static BankCustomer CreateBankCustomer()
         {
-            return false;
-        }
+            var dlg = new AddBankCustomersWindow();
+
+            if (dlg.ShowDialog() != true) return null;
+
+            return null;
+        }        
     }
 }

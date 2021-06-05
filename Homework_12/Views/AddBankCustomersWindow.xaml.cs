@@ -6,7 +6,7 @@ namespace Views
 {    
     public partial class AddBankCustomersWindow : Window
     {
-        #region Имя клиента банка
+        #region Имя
 
         public static readonly DependencyProperty NameBankCustomerProperty =
             DependencyProperty.Register(nameof(NameBankCustomer),
@@ -14,7 +14,7 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
-        [Description("Имя клиента")]
+        [Description("Имя")]
         public string NameBankCustomer
         {
             get => (string)GetValue(NameBankCustomerProperty);
@@ -23,7 +23,7 @@ namespace Views
 
         #endregion
 
-        #region Фамилия клиента банка
+        #region Фамилия
 
         public static readonly DependencyProperty SurnameBankCustomerProperty =
             DependencyProperty.Register(nameof(SurnameBankCustomer),
@@ -31,7 +31,7 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
-        [Description("Фамилия клиента банка")]
+        [Description("Фамилия")]
         public string SurnameBankCustomer
         {
             get => (string)GetValue(SurnameBankCustomerProperty);
@@ -39,8 +39,8 @@ namespace Views
         }
 
         #endregion
-
-        #region Отчество клиента банка
+        
+        #region Отчество
 
         public static readonly DependencyProperty PatronymicBankCustomerProperty =
             DependencyProperty.Register(nameof(PatronymicBankCustomer),
@@ -48,7 +48,7 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
-        [Description("Отчество клиента банка")]
+        [Description("Отчество")]
         public string PatronymicBankCustomer
         {
             get => (string)GetValue(PatronymicBankCustomerProperty);
@@ -57,7 +57,7 @@ namespace Views
 
         #endregion
 
-        #region Пол клиента банка
+        #region Пол
 
         public static readonly DependencyProperty GenderBankCustomerProperty =
             DependencyProperty.Register(nameof(GenderBankCustomer),
@@ -65,7 +65,7 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
-        [Description("Пол клиента банка")]
+        [Description("Пол")]
         public string GenderBankCustomer
         {
             get => (string)GetValue(GenderBankCustomerProperty);
@@ -74,7 +74,7 @@ namespace Views
 
         #endregion
 
-        #region Дата рождения клиента банка
+        #region Дата рождения
 
         public static readonly DependencyProperty BirthdayBankCustomerProperty =
             DependencyProperty.Register(nameof(BirthdayBankCustomer),
@@ -82,7 +82,7 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(DateTime)));
 
-        [Description("Дата рождения клиента банка")]
+        [Description("Дата рождения")]
         public DateTime BirthdayBankCustomer
         {
             get => (DateTime)GetValue(BirthdayBankCustomerProperty);
@@ -91,7 +91,7 @@ namespace Views
 
         #endregion
 
-        #region Место рождения клиента банка
+        #region Место рождения
 
         public static readonly DependencyProperty PlaceOfBirthBankCustomerProperty =
             DependencyProperty.Register(nameof(PlaceOfBirthBankCustomer),
@@ -99,7 +99,7 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
-        [Description("Место рождения клиента банка")]
+        [Description("Место рождения")]
         public string PlaceOfBirthBankCustomer 
         {
             get => (string)GetValue(PlaceOfBirthBankCustomerProperty);
@@ -108,7 +108,92 @@ namespace Views
 
         #endregion
 
-        #region Место выдачи паспорта клиента банка
+        #region Номер паспорта
+
+        public static readonly DependencyProperty NumberPassportProperty =
+           DependencyProperty.Register(nameof(NumberPassport),
+                                       typeof(int),
+                                       typeof(AddBankCustomersWindow),
+                                       new PropertyMetadata(default(int)));
+
+        [Description("Номер паспорта клиента банка")]
+        public int NumberPassport
+        {
+            get => (int)GetValue(NumberPassportProperty);
+            set => SetValue(NumberPassportProperty, value);
+        }
+
+        #endregion
+
+        #region Серия паспорта
+
+        public static readonly DependencyProperty SeriesPassportProperty =
+           DependencyProperty.Register(nameof(SeriesPassport),
+                                       typeof(int),
+                                       typeof(AddBankCustomersWindow),
+                                       new PropertyMetadata(default(int)));
+
+        [Description("Серия паспорта клиента банка")]
+        public int SeriesPassport
+        {
+            get => (int)GetValue(SeriesPassportProperty);
+            set => SetValue(SeriesPassportProperty, value);
+        }
+
+        #endregion
+
+        #region Код подразделения левый
+
+        public static readonly DependencyProperty DivisionCodeLeftPassportProperty =
+           DependencyProperty.Register(nameof(DivisionCodeLeftPassport),
+                                       typeof(int),
+                                       typeof(AddBankCustomersWindow),
+                                       new PropertyMetadata(default(int)));
+
+        [Description("Код подразделения лывый")]
+        public int DivisionCodeLeftPassport
+        {
+            get => (int)GetValue(DivisionCodeLeftPassportProperty);
+            set => SetValue(DivisionCodeLeftPassportProperty, value);
+        }
+
+        #endregion
+
+        #region Код подразделения правый
+
+        public static readonly DependencyProperty DivisionCodeRightPassportProperty =
+           DependencyProperty.Register(nameof(DivisionCodeRightPassport),
+                                       typeof(int),
+                                       typeof(AddBankCustomersWindow),
+                                       new PropertyMetadata(default(int)));
+
+        [Description("Код подразделения правый")]
+        public int DivisionCodeRightPassport
+        {
+            get => (int)GetValue(DivisionCodeRightPassportProperty);
+            set => SetValue(DivisionCodeRightPassportProperty, value);
+        }
+
+        #endregion
+
+        #region Дата выдачи паспорта
+
+        public static readonly DependencyProperty DateOfIssuePassportProperty =
+           DependencyProperty.Register(nameof(DateOfIssuePassport),
+                                       typeof(DateTime),
+                                       typeof(AddBankCustomersWindow),
+                                       new PropertyMetadata(default(DateTime)));
+
+        [Description("Дата выдачи паспорта")]
+        public DateTime DateOfIssuePassport
+        {
+            get => (DateTime)GetValue(DateOfIssuePassportProperty);
+            set => SetValue(DateOfIssuePassportProperty, value);
+        }
+
+        #endregion
+
+        #region Место выдачи паспорта
 
         public static readonly DependencyProperty PlaceOfIssuePassportProperty =
            DependencyProperty.Register(nameof(PlaceOfIssuePassport),
@@ -125,59 +210,276 @@ namespace Views
 
         #endregion
 
-        #region Номер паспорта клиента банка
+        #region Регион или Область адреса прописки
 
-        public static readonly DependencyProperty NumberPassportProperty =
-           DependencyProperty.Register(nameof(NumberPassport),
-                                       typeof(ulong),
-                                       typeof(AddBankCustomersWindow),
-                                       new PropertyMetadata(default(ulong)));
+        public static readonly DependencyProperty RegionPlaceOfResidenceProperty =
+            DependencyProperty.Register(nameof(RegionPlaceOfResidence),
+                                        typeof(string),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(string)));
 
-        [Description("Номер паспорта клиента банка")]
-        public ulong NumberPassport
+        [Description("Регион или область адреса прописки")]
+        public string RegionPlaceOfResidence
         {
-            get => (ulong)GetValue(NumberPassportProperty);
-            set => SetValue(NumberPassportProperty, value);
+            get => (string)GetValue(RegionPlaceOfResidenceProperty);
+            set => SetValue(RegionPlaceOfResidenceProperty, value);
         }
 
         #endregion
 
-        #region Серия паспорта клиента банка
+        #region Город адреса прописки
 
-        public static readonly DependencyProperty SeriesPassportProperty =
-           DependencyProperty.Register(nameof(SeriesPassport),
-                                       typeof(ulong),
-                                       typeof(AddBankCustomersWindow),
-                                       new PropertyMetadata(default(ulong)));
+        public static readonly DependencyProperty CityPlaceOfResidenceProperty =
+            DependencyProperty.Register(nameof(CityPlaceOfResidence),
+                                        typeof(string),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(string)));
 
-        [Description("Серия паспорта клиента банка")]
-        public ulong SeriesPassport
+        [Description("Город адреса прописки")]
+        public string CityPlaceOfResidence
         {
-            get => (ulong)GetValue(SeriesPassportProperty);
-            set => SetValue(SeriesPassportProperty, value);
+            get => (string)GetValue(CityPlaceOfResidenceProperty);
+            set => SetValue(CityPlaceOfResidenceProperty, value);
         }
 
         #endregion
 
-        #region
+        #region Район города адреса прописки
+
+        public static readonly DependencyProperty DistrictPlaceOfResidenceProperty =
+            DependencyProperty.Register(nameof(DistrictPlaceOfResidence),
+                                        typeof(string),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(string)));
+
+        [Description("Район города адреса прописки")]
+        public string DistrictPlaceOfResidence
+        {
+            get => (string)GetValue(DistrictPlaceOfResidenceProperty);
+            set => SetValue(DistrictPlaceOfResidenceProperty, value);
+        }
+
         #endregion
 
-        #region
+        #region Название улицы адреса прописки
+
+        public static readonly DependencyProperty StreetPlaceOfResidenceProperty =
+            DependencyProperty.Register(nameof(StreetPlaceOfResidence),
+                                        typeof(string),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(string)));
+
+        [Description("Название улицы адреса прописки")]
+        public string StreetPlaceOfResidence
+        {
+            get => (string)GetValue(StreetPlaceOfResidenceProperty);
+            set => SetValue(StreetPlaceOfResidenceProperty, value);
+        }
+
         #endregion
 
-        #region
+        #region Номер дома адреса прописки
+
+        public static readonly DependencyProperty HouseNumberPlaceOfResidenceProperty =
+            DependencyProperty.Register(nameof(HouseNumberPlaceOfResidence),
+                                        typeof(int),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(int)));
+
+        [Description("Номер дома адреса прописки")]
+        public int HouseNumberPlaceOfResidence
+        {
+            get => (int)GetValue(HouseNumberPlaceOfResidenceProperty);
+            set => SetValue(HouseNumberPlaceOfResidenceProperty, value);
+        }
+
         #endregion
 
-        #region
+        #region Корпус дома адреса прописки
+
+        public static readonly DependencyProperty HousingPlaceOfResidenceProperty =
+            DependencyProperty.Register(nameof(HousingPlaceOfResidence),
+                                        typeof(string),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(string)));
+
+        [Description("Корпус дома адреса прописки")]
+        public string HousingPlaceOfResidence
+        {
+            get => (string)GetValue(HousingPlaceOfResidenceProperty);
+            set => SetValue(HousingPlaceOfResidenceProperty, value);
+        }
+
         #endregion
 
-        #region
+        #region Номер квартиры адреса прописки
+
+        public static readonly DependencyProperty ApartmentNumberPlaceOfResidenceProperty =
+            DependencyProperty.Register(nameof(ApartmentNumberPlaceOfResidence),
+                                        typeof(int),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(int)));
+
+        [Description("Номер квартиры адреса прописки")]
+        public int ApartmentNumberPlaceOfResidence
+        {
+            get => (int)GetValue(ApartmentNumberPlaceOfResidenceProperty);
+            set => SetValue(ApartmentNumberPlaceOfResidenceProperty, value);
+        }
+
         #endregion
 
-        #region
+        #region Дата регистрации адреса прописки
+
+        public static readonly DependencyProperty RegistrationDatePlaceOfResidenceProperty =
+            DependencyProperty.Register(nameof(RegistrationDatePlaceOfResidence),
+                                        typeof(DateTime),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(DateTime)));
+
+        [Description("Дата регистрации адреса прописки")]
+        public DateTime RegistrationDatePlaceOfResidence
+        {
+            get => (DateTime)GetValue(RegistrationDatePlaceOfResidenceProperty);
+            set => SetValue(RegistrationDatePlaceOfResidenceProperty, value);
+        }
+
         #endregion
 
-        #region
+        #region Регион или Область адреса регистрации
+
+        public static readonly DependencyProperty RegionRegistrationProperty =
+            DependencyProperty.Register(nameof(RegionRegistration),
+                                        typeof(string),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(string)));
+
+        [Description("Регион или область адреса регистрации")]
+        public string RegionRegistration
+        {
+            get => (string)GetValue(RegionRegistrationProperty);
+            set => SetValue(RegionRegistrationProperty, value);
+        }
+
+        #endregion
+
+        #region Город адреса регистрации
+
+        public static readonly DependencyProperty CityRegistrationProperty =
+            DependencyProperty.Register(nameof(CityRegistration),
+                                        typeof(string),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(string)));
+
+        [Description("Город адреса регистрации")]
+        public string CityRegistration
+        {
+            get => (string)GetValue(CityRegistrationProperty);
+            set => SetValue(CityRegistrationProperty, value);
+        }
+
+        #endregion
+
+        #region Район города адреса регистрации
+
+        public static readonly DependencyProperty DistrictRegistrationProperty =
+            DependencyProperty.Register(nameof(DistrictRegistration),
+                                        typeof(string),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(string)));
+
+        [Description("Район города адреса регистрации")]
+        public string DistrictRegistration
+        {
+            get => (string)GetValue(DistrictRegistrationProperty);
+            set => SetValue(DistrictRegistrationProperty, value);
+        }
+
+        #endregion
+
+        #region Название улицы адреса регистрации
+
+        public static readonly DependencyProperty StreetRegistrationProperty =
+            DependencyProperty.Register(nameof(StreetRegistration),
+                                        typeof(string),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(string)));
+
+        [Description("Название улицы адреса регистрация")]
+        public string StreetRegistration
+        {
+            get => (string)GetValue(StreetRegistrationProperty);
+            set => SetValue(StreetRegistrationProperty, value);
+        }
+
+        #endregion
+
+        #region Номер дома адреса регистрации
+
+        public static readonly DependencyProperty HouseNumberRegistrationProperty =
+            DependencyProperty.Register(nameof(HouseNumberRegistration),
+                                        typeof(int),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(int)));
+
+        [Description("Номер дома адреса регистрации")]
+        public int HouseNumberRegistration
+        {
+            get => (int)GetValue(HouseNumberRegistrationProperty);
+            set => SetValue(HouseNumberRegistrationProperty, value);
+        }
+
+        #endregion
+
+        #region Корпус дома адреса регистрации
+
+        public static readonly DependencyProperty HousingRegistrationProperty =
+            DependencyProperty.Register(nameof(HousingRegistration),
+                                        typeof(string),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(string)));
+
+        [Description("Корпус дома адреса регистрации")]
+        public string HousingRegistration
+        {
+            get => (string)GetValue(HousingRegistrationProperty);
+            set => SetValue(HousingRegistrationProperty, value);
+        }
+
+        #endregion
+
+        #region Номер квартиры адреса регистрации
+
+        public static readonly DependencyProperty ApartmentNumberRegistrationProperty =
+            DependencyProperty.Register(nameof(ApartmentNumberRegistration),
+                                        typeof(int),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(int)));
+
+        [Description("Номер квартиры адреса регистрации")]
+        public int ApartmentNumberRegistration
+        {
+            get => (int)GetValue(ApartmentNumberRegistrationProperty);
+            set => SetValue(ApartmentNumberRegistrationProperty, value);
+        }
+
+        #endregion
+
+        #region Дата регистрации адреса регистрации
+
+        public static readonly DependencyProperty RegistrationDateRegistrationProperty =
+            DependencyProperty.Register(nameof(RegistrationDateRegistration),
+                                        typeof(DateTime),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(DateTime)));
+
+        [Description("Дата регистрации адреса регистрации")]
+        public DateTime RegistrationDateRegistration
+        {
+            get => (DateTime)GetValue(RegistrationDateRegistrationProperty);
+            set => SetValue(RegistrationDateRegistrationProperty, value);
+        }
+
         #endregion
 
         public AddBankCustomersWindow() => InitializeComponent();        

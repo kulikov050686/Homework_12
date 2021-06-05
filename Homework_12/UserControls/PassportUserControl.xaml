@@ -14,14 +14,14 @@
 
                 <!-- Серия паспорта -->
                 <GroupBox Header="Серия">
-                    <TextBox Text="{Binding SeriesUC, RelativeSource={RelativeSource AncestorType=local:PassportUserControl}}" 
+                    <TextBox Text="{Binding SeriesUC, RelativeSource={RelativeSource AncestorType=local:PassportUserControl}, Mode=TwoWay}" 
                              FontSize="16"/>
                 </GroupBox>
 
                 <!-- Номер паспорта -->
                 <GroupBox Header="Номер" 
                           Margin="25 0 0 0">
-                    <TextBox Text="{Binding NumberUC, RelativeSource={RelativeSource AncestorType=local:PassportUserControl}}" 
+                    <TextBox Text="{Binding NumberUC, RelativeSource={RelativeSource AncestorType=local:PassportUserControl}, Mode=TwoWay}" 
                              FontSize="16"/>
                 </GroupBox>
 
@@ -33,7 +33,7 @@
                 <GroupBox Header="Дата выдачи"                          
                           Width="200">                    
                     <DatePicker FontSize="16"
-                                SelectedDate="{Binding DateOfIssueUC, RelativeSource={RelativeSource AncestorType=local:PassportUserControl}}"/>
+                                SelectedDate="{Binding DateOfIssueUC, RelativeSource={RelativeSource AncestorType=local:PassportUserControl}, Mode=TwoWay}"/>
                 </GroupBox>
 
                 <!-- Код подразделения выдавший паспорт -->
@@ -44,7 +44,7 @@
                         <StackPanel Orientation="Horizontal" 
                                     HorizontalAlignment="Center">
 
-                            <TextBox Text="{Binding DivisionCodeLeftUC, RelativeSource={RelativeSource AncestorType=local:PassportUserControl}}"
+                            <TextBox Text="{Binding DivisionCodeLeftUC, RelativeSource={RelativeSource AncestorType=local:PassportUserControl}, Mode=TwoWay}"
                                      FontSize="16"                                     
                                      Margin="5"
                                      Width="60"/>
@@ -54,7 +54,7 @@
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"/>
 
-                            <TextBox Text="{Binding DivisionCodeRightUC, RelativeSource={RelativeSource AncestorType=local:PassportUserControl}}"
+                            <TextBox Text="{Binding DivisionCodeRightUC, RelativeSource={RelativeSource AncestorType=local:PassportUserControl}, Mode=TwoWay}"
                                      FontSize="16"                                       
                                      Margin="5"
                                      Width="60"/>
@@ -68,7 +68,7 @@
                       Height="100" 
                       Width="370">
                 
-                <TextBox Text="{Binding PlaceOfIssueUC, RelativeSource={RelativeSource AncestorType=local:PassportUserControl}}"
+                <TextBox Text="{Binding PlaceOfIssueUC, RelativeSource={RelativeSource AncestorType=local:PassportUserControl}, Mode=TwoWay}"
                          TextWrapping="Wrap"                         
                          FontSize="16"/>
             </GroupBox>

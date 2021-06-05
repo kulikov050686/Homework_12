@@ -52,7 +52,7 @@ namespace UserControls
 
         [Description("Фамилия")]
         public string SurnameUC 
-        { 
+        {
             get => (string)GetValue(SurnameUCProperty);
             set => SetValue(SurnameUCProperty, value);
         }

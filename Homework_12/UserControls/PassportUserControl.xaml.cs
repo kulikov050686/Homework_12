@@ -24,35 +24,18 @@ namespace UserControls
 
         #endregion
 
-        #region Место выдачи паспорта
-
-        public static readonly DependencyProperty PlaceOfIssueUCProperty =
-           DependencyProperty.Register(nameof(PlaceOfIssueUC),
-                                       typeof(string),
-                                       typeof(PassportUserControl),
-                                       new PropertyMetadata(default(string)));
-
-        [Description("Место выдачи паспорта")]
-        public string PlaceOfIssueUC 
-        {
-            get => (string)GetValue(PlaceOfIssueUCProperty);
-            set => SetValue(PlaceOfIssueUCProperty, value);
-        }
-
-        #endregion
-
         #region Номер паспорта
 
         public static readonly DependencyProperty NumberUCProperty =
            DependencyProperty.Register(nameof(NumberUC),
-                                       typeof(string),
+                                       typeof(int),
                                        typeof(PassportUserControl),
-                                       new PropertyMetadata(default(string)));
+                                       new PropertyMetadata(default(int)));
 
         [Description("Номер паспорта")]
-        public string NumberUC 
+        public int NumberUC 
         {
-            get => (string)GetValue(NumberUCProperty);
+            get => (int)GetValue(NumberUCProperty);
             set => SetValue(NumberUCProperty, value);
         }
 
@@ -62,48 +45,48 @@ namespace UserControls
 
         public static readonly DependencyProperty SeriesUCProperty =
            DependencyProperty.Register(nameof(SeriesUC),
-                                       typeof(string),
+                                       typeof(int),
                                        typeof(PassportUserControl),
-                                       new PropertyMetadata(default(string)));
+                                       new PropertyMetadata(default(int)));
 
         [Description("Серия паспорта")]
-        public string SeriesUC
+        public int SeriesUC
         {
-            get => (string)GetValue(SeriesUCProperty);
+            get => (int)GetValue(SeriesUCProperty);
             set => SetValue(SeriesUCProperty, value);
         }
 
         #endregion
 
-        #region Код подразделения 1
+        #region Код подразделения левый
 
         public static readonly DependencyProperty DivisionCodeLeftUCProperty =
            DependencyProperty.Register(nameof(DivisionCodeLeftUC),
-                                       typeof(string),
+                                       typeof(int),
                                        typeof(PassportUserControl),
-                                       new PropertyMetadata(default(string)));
+                                       new PropertyMetadata(default(int)));
 
-        [Description("Код подразделения 1")]
-        public string DivisionCodeLeftUC
+        [Description("Код подразделения левый")]
+        public int DivisionCodeLeftUC
         {
-            get => (string)GetValue(DivisionCodeLeftUCProperty);
+            get => (int)GetValue(DivisionCodeLeftUCProperty);
             set => SetValue(DivisionCodeLeftUCProperty, value);
         }
 
         #endregion
 
-        #region Код подразделения 2
+        #region Код подразделения правый
 
         public static readonly DependencyProperty DivisionCodeRightUCProperty =
            DependencyProperty.Register(nameof(DivisionCodeRightUC),
-                                       typeof(string),
+                                       typeof(int),
                                        typeof(PassportUserControl),
-                                       new PropertyMetadata(default(string)));
+                                       new PropertyMetadata(default(int)));
 
-        [Description("Код подразделения 1")]
-        public string DivisionCodeRightUC
+        [Description("Код подразделения правый")]
+        public int DivisionCodeRightUC
         {
-            get => (string)GetValue(DivisionCodeRightUCProperty);
+            get => (int)GetValue(DivisionCodeRightUCProperty);
             set => SetValue(DivisionCodeRightUCProperty, value);
         }
 
@@ -126,6 +109,23 @@ namespace UserControls
 
         #endregion
 
-        public PassportUserControl() => InitializeComponent();        
+        #region Место выдачи паспорта
+
+        public static readonly DependencyProperty PlaceOfIssueUCProperty =
+           DependencyProperty.Register(nameof(PlaceOfIssueUC),
+                                       typeof(string),
+                                       typeof(PassportUserControl),
+                                       new PropertyMetadata(default(string)));
+
+        [Description("Место выдачи паспорта")]
+        public string PlaceOfIssueUC
+        {
+            get => (string)GetValue(PlaceOfIssueUCProperty);
+            set => SetValue(PlaceOfIssueUCProperty, value);
+        }
+
+        #endregion
+
+        public PassportUserControl() => InitializeComponent();             
     }
 }
