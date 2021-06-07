@@ -33,7 +33,7 @@ namespace Models
                 {
                     var address = new Address(DateTime.Today, $"Регион {index}", $"Город {index}", $"Улица {index}", 100 + index);
                     var person = new Person($"Фамилия {index}", $"Имя {index}", $"Отчество {index}", $"муж", DateTime.Today, $"Место рождения {index}", address);
-                    var divisionCode = new DivisionCode() { Left = 200 + index, Right = 300 + index };
+                    var divisionCode = new DivisionCode(200 + index, 300 + index);
                     var pasport = new Passport(111, 222222, $"Место выдачи {index}", DateTime.Today, divisionCode, person);
                     var bankCustomer = new BankCustomer(pasport, ClientStatus.LEGAL, $"0123-456-789");
 

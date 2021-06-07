@@ -11,12 +11,12 @@ namespace Models
         /// <summary>
         /// Номер
         /// </summary>
-        public int Number { get; }
+        public long Number { get; }
         
         /// <summary>
         /// Серия
         /// </summary>
-        public int Series { get; }
+        public long Series { get; }
 
         /// <summary>
         /// Место выдачи
@@ -47,8 +47,8 @@ namespace Models
         /// <param name="dateOfIssue"> Дата выпуска </param>
         /// <param name="divisionCode"> Код подразделения </param>
         /// <param name="holder"> Владелец </param>
-        public Passport(int series,
-                        int number,
+        public Passport(long series,
+                        long number,
                         string placeOfIssue,
                         DateTime dateOfIssue,
                         DivisionCode divisionCode,
@@ -73,7 +73,8 @@ namespace Models
         /// <param name="newPlaceOfResidence"> Новое место жительства (прописка) </param>
         public void EditPlaceOfResidence(IAddress newPlaceOfResidence)
         {
-            if(newPlaceOfResidence is null) throw new ArgumentException("Новый адрес не может быть null!!!");
+            if(newPlaceOfResidence is null) 
+                throw new ArgumentException("Новый адрес не может быть null!!!");
             Holder.PlaceOfResidence = newPlaceOfResidence;
         }
 
@@ -83,7 +84,8 @@ namespace Models
         /// <param name="newPlaceOfRegistration"> Новое место регистрации </param>
         public void EditPlaceOfRegistration(IAddress newPlaceOfRegistration)
         {
-            if(newPlaceOfRegistration is null) throw new ArgumentException("Новый адрес не может быть null!!!");
+            if(newPlaceOfRegistration is null) 
+                throw new ArgumentException("Новый адрес не может быть null!!!");
             Holder.PlaceOfRegistration = newPlaceOfRegistration;
         }
     }

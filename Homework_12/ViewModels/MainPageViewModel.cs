@@ -1,9 +1,9 @@
 ﻿using Commands;
+using Enums;
 using Interfaces;
 using Models;
 using Services;
 using System.Collections.Generic;
-using System.Windows;
 using System.Windows.Input;
 
 namespace ViewModels
@@ -15,7 +15,7 @@ namespace ViewModels
         private readonly BankCustomersManager _bankCustomersManager;
         private Department _selectedDepartment;
         private BankCustomer _selectedBankCustomer;
-        private IUserDialogService _userDialog;
+        private IBankCustomerDialogService _bankCustomerDialog;
 
         #endregion
 
@@ -58,11 +58,7 @@ namespace ViewModels
         {
             get => _editBankCustomer ??= new RelayCommand((obj) => 
             {
-                if(_userDialog.Edit(obj))
-                {
-                    MessageBox.Show("Обновление выполнено");
-                }
-                               
+                           
             },(obj) => obj is BankCustomer);
         }
 
@@ -76,9 +72,11 @@ namespace ViewModels
             get => _createNewBankCustomer ??= new RelayCommand((obj) =>
             {
                 var department = (Department)obj;
+                var bankCustomer = _bankCustomerDialog.CreateNewBankCustomer(ClientStatus.LEGAL);
 
-                if (_userDialog.Create() is null) return;
-                
+                if (bankCustomer is null) return;
+
+
 
             }, (obj) => obj is Department);
         }
@@ -100,10 +98,11 @@ namespace ViewModels
 
         #region Конструктор
 
-        public MainPageViewModel(BankCustomersManager bankCustomersManager, IUserDialogService userDialog)
+        public MainPageViewModel(BankCustomersManager bankCustomersManager,
+                                 IBankCustomerDialogService bankCustomerDialog)
         {
             _bankCustomersManager = bankCustomersManager;
-            _userDialog = userDialog;
+            _bankCustomerDialog = bankCustomerDialog;
         }
 
         #endregion

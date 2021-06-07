@@ -11,12 +11,12 @@ namespace Interfaces
         /// <summary>
         /// Номер
         /// </summary>
-        public int Number { get; }
+        public long Number { get; }
 
         /// <summary>
         /// Серия
         /// </summary>
-        public int Series { get; }
+        public long Series { get; }
 
         /// <summary>
         /// Место выдачи

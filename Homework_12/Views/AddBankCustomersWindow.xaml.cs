@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Windows;
 
 namespace Views
-{    
+{
     public partial class AddBankCustomersWindow : Window
     {
         #region Имя
@@ -112,14 +112,14 @@ namespace Views
 
         public static readonly DependencyProperty NumberPassportProperty =
            DependencyProperty.Register(nameof(NumberPassport),
-                                       typeof(int),
+                                       typeof(long),
                                        typeof(AddBankCustomersWindow),
-                                       new PropertyMetadata(default(int)));
+                                       new PropertyMetadata(default(long)));
 
         [Description("Номер паспорта клиента банка")]
-        public int NumberPassport
+        public long NumberPassport
         {
-            get => (int)GetValue(NumberPassportProperty);
+            get => (long)GetValue(NumberPassportProperty);
             set => SetValue(NumberPassportProperty, value);
         }
 
@@ -129,14 +129,14 @@ namespace Views
 
         public static readonly DependencyProperty SeriesPassportProperty =
            DependencyProperty.Register(nameof(SeriesPassport),
-                                       typeof(int),
+                                       typeof(long),
                                        typeof(AddBankCustomersWindow),
-                                       new PropertyMetadata(default(int)));
+                                       new PropertyMetadata(default(long)));
 
         [Description("Серия паспорта клиента банка")]
-        public int SeriesPassport
+        public long SeriesPassport
         {
-            get => (int)GetValue(SeriesPassportProperty);
+            get => (long)GetValue(SeriesPassportProperty);
             set => SetValue(SeriesPassportProperty, value);
         }
 

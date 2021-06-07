@@ -45,7 +45,7 @@ namespace Models
         /// <param name="accountStatus"> Статус счёта </param>
         public BankAccount(int id, AccountStatus accountStatus) : this(accountStatus)
         {
-            if (id < 0) throw new ArgumentException("");
+            if (id < 0) throw new ArgumentException("Невозможный идентификатор!!!");
             Id = id;
         }
     }

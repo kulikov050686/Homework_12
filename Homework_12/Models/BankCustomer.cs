@@ -56,53 +56,20 @@ namespace Models
         /// <param name="passport"> Паспорт </param>
         /// <param name="clientStatus"> Статус </param>
         /// <param name="phoneNumber"> Номер телефона </param>
-        public BankCustomer(IPassport passport,
-                            ClientStatus clientStatus,
-                            string phoneNumber)
-        {
-            if(passport is null) throw new ArgumentException("");
-            if(string.IsNullOrWhiteSpace(phoneNumber)) throw new ArgumentException("");
-
-            Passport = passport;
-            ClientStatus = clientStatus;
-            PhoneNumber = phoneNumber;            
-        }
-
-        /// <summary>
-        /// Конструктор
-        /// </summary>
-        /// <param name="passport"> Паспорт </param>
-        /// <param name="clientStatus"> Статус </param>
-        /// <param name="phoneNumber"> Номер телефон </param>
-        /// <param name="reliability"> Надёжность </param>
-        public BankCustomer(IPassport passport,
-                            ClientStatus clientStatus,
-                            string phoneNumber,
-                            byte reliability) : this(passport,
-                                                     clientStatus,
-                                                     phoneNumber)
-        {
-            Reliability = reliability;
-        }
-
-        /// <summary>
-        /// Конструктор
-        /// </summary>
-        /// <param name="passport"> Паспорт </param>
-        /// <param name="clientStatus"> Статус </param>
-        /// <param name="phoneNumber"> Номер телефона </param>
         /// <param name="reliability"> Надёжность </param>
         /// <param name="email"> Электронная почта </param>
         public BankCustomer(IPassport passport,
                             ClientStatus clientStatus,
-                            string phoneNumber,
-                            byte reliability,
-                            string email) : this(passport,
-                                                 clientStatus,
-                                                 phoneNumber,
-                                                 reliability)
+                            string phoneNumber = "",
+                            byte reliability = 0,
+                            string email = "")
         {
-            if (string.IsNullOrWhiteSpace(email)) throw new ArgumentException("");
+            if (passport is null) throw new ArgumentNullException("Паспорт не может быть null!!!");
+            Passport = passport;
+            ClientStatus = clientStatus;
+
+            PhoneNumber = phoneNumber;
+            Reliability = reliability;
             Email = email;
         }
 
@@ -126,7 +93,7 @@ namespace Models
                                                  reliability,
                                                  email)
         {
-            if(id < 0) throw new ArgumentException("");
+            if(id < 0) throw new ArgumentException("Невозможный идентификатор!!!");
             Id = id;
         }
     }

@@ -28,14 +28,14 @@ namespace UserControls
 
         public static readonly DependencyProperty NumberUCProperty =
            DependencyProperty.Register(nameof(NumberUC),
-                                       typeof(int),
+                                       typeof(long),
                                        typeof(PassportUserControl),
-                                       new PropertyMetadata(default(int)));
+                                       new PropertyMetadata(default(long)));
 
         [Description("Номер паспорта")]
-        public int NumberUC 
+        public long NumberUC 
         {
-            get => (int)GetValue(NumberUCProperty);
+            get => (long)GetValue(NumberUCProperty);
             set => SetValue(NumberUCProperty, value);
         }
 
@@ -45,14 +45,14 @@ namespace UserControls
 
         public static readonly DependencyProperty SeriesUCProperty =
            DependencyProperty.Register(nameof(SeriesUC),
-                                       typeof(int),
+                                       typeof(long),
                                        typeof(PassportUserControl),
-                                       new PropertyMetadata(default(int)));
+                                       new PropertyMetadata(default(long)));
 
         [Description("Серия паспорта")]
-        public int SeriesUC
+        public long SeriesUC
         {
-            get => (int)GetValue(SeriesUCProperty);
+            get => (long)GetValue(SeriesUCProperty);
             set => SetValue(SeriesUCProperty, value);
         }
 

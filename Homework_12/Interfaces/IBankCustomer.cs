@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using Enums;
+using Models;
 using System.Collections.Generic;
 
 namespace Interfaces
@@ -12,6 +13,11 @@ namespace Interfaces
         /// Паспорт
         /// </summary>
         public IPassport Passport { get; set; }
+
+        /// <summary>
+        /// Статус
+        /// </summary>
+        public ClientStatus ClientStatus { get; set; }
 
         /// <summary>
         /// Надёжность

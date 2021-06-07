@@ -7,48 +7,28 @@ namespace Models
     /// </summary>
     public class DivisionCode
     {
-        int _left;
-        int _right;
-
         /// <summary>
         /// Левая часть кода подразделения
         /// </summary>
-        public int Left
-        {
-            get => _left;
-
-            set
-            {
-                if(100 > value || value > 999)
-                    throw new ArgumentException("Выход из диапазона!!!");
-
-                _left = value;
-            }
-        }
-
+        public int Left { get; }
+        
         /// <summary>
         /// Правая часть кода подразделения
         /// </summary>
-        public int Right
-        {
-            get => _right;
-
-            set 
-            {
-                if (100 > value || value > 999)
-                    throw new ArgumentException("Выход из диапазона!!!");
-
-                _right = value;
-            } 
-        }
-
+        public int Right { get; }
+        
         /// <summary>
         /// Конструктор
         /// </summary>
-        public DivisionCode()
+        /// <param name="left"> Левая часть кода </param>
+        /// <param name="right"> Правая часть кода </param>
+        public DivisionCode(int left, int right)
         {
-            _left = 100;
-            _right = 100;
+            if (left <= 0) throw new ArgumentException("Невозможное значение!!!");
+            Left = left;
+
+            if (right <= 0) throw new ArgumentException("Невозможное значение!!!");
+            Right = right;
         }
     }
 }
