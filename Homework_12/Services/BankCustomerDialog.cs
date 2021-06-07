@@ -12,7 +12,7 @@ namespace Services
         /// Создать нового клиента банка
         /// </summary>
         /// <param name="clientStatus"> Статус </param>        
-        public IBankCustomer CreateNewBankCustomer(ClientStatus clientStatus)
+        public BankCustomer CreateNewBankCustomer(ClientStatus clientStatus)
         {
             var dialog = new AddBankCustomersWindow();
 
@@ -68,6 +68,7 @@ namespace Services
 
         public bool ReplacePassport(IBankCustomer bankCustomer)
         {
+            if (bankCustomer is null) throw new ArgumentNullException("Клиент банка не может быть null!!!");
             return false;
         }
 

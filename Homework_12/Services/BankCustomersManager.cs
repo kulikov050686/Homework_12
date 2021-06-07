@@ -1,5 +1,6 @@
 ﻿using Models;
 using System.Collections.Generic;
+using System;
 
 namespace Services
 {
@@ -40,9 +41,20 @@ namespace Services
         /// <param name="bankCustomer"> Клиент банка </param>
         /// <param name="department"> Департамент </param>
         /// <returns></returns>
-        public bool Create(BankCustomer bankCustomer, Department department)
+        public bool CreateNewBankCustomer(BankCustomer bankCustomer, Department department)
         {
-            return false;
+            if (bankCustomer is null) 
+                throw new ArgumentNullException(nameof(bankCustomer), "Добавляемый клиент банка не может быть null!!!");
+            if (department is null)
+                throw new ArgumentNullException(nameof(department), "Департамент не может быть null!!!");
+
+            var selectedDepartment = _departments.Get(department.Name);
+
+            if (selectedDepartment is null) return false;
+            department.BankCustomers.Add(bankCustomer);
+            _bankCustomers.Add(bankCustomer);
+
+            return true;
         }
          
         /// <summary>

@@ -76,8 +76,11 @@ namespace ViewModels
 
                 if (bankCustomer is null) return;
 
-
-
+                if(_bankCustomersManager.CreateNewBankCustomer(bankCustomer, department))
+                {
+                    OnPropertyChanged(nameof(BankCustomers));
+                    return;
+                }
             }, (obj) => obj is Department);
         }
 

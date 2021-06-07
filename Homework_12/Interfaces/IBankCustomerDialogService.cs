@@ -1,4 +1,5 @@
 ﻿using Enums;
+using Models;
 
 namespace Interfaces
 {
@@ -11,7 +12,7 @@ namespace Interfaces
         /// Создание нового клиента банка
         /// </summary>
         /// <param name="clientStatus"> Статус клиента банка </param>        
-        IBankCustomer CreateNewBankCustomer(ClientStatus clientStatus);
+        BankCustomer CreateNewBankCustomer(ClientStatus clientStatus);
         
         /// <summary>
         /// Заменить паспорт
