@@ -18,7 +18,7 @@ namespace Interfaces
         /// Заменить паспорт
         /// </summary>
         /// <param name="bankCustomer"> Клиент банка </param>
-        bool ReplacePassport(IBankCustomer bankCustomer);
+        Passport ReplacePassport(IBankCustomer bankCustomer);
 
         /// <summary>
         /// Добавить описание

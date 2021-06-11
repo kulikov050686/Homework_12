@@ -37,5 +37,21 @@ namespace Interfaces
         /// Владелец
         /// </summary>
         public IPerson Holder { get; }
+
+        /// <summary>
+        /// Метод сравнения
+        /// </summary>
+        /// <param name="obj"> Сравниваемй объект </param>        
+        public bool Equals(IPassport obj)
+        {
+            if (obj is null) return false;
+
+            return Number == obj.Number &&
+                   Series == obj.Series &&
+                   PlaceOfIssue == obj.PlaceOfIssue &&
+                   DateOfIssue == obj.DateOfIssue &&
+                   DivisionCode.Equals(obj.DivisionCode) &&
+                   Holder.Equals(obj.Holder);
+        }
     }
 }

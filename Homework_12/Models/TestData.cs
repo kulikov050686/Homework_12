@@ -12,7 +12,7 @@ namespace Models
         /// <summary>
         /// Департаменты банка
         /// </summary>
-        public static Department[] Departments = Enumerable.Range(1, 10).Select(i => new Department($"Департамент {i}")).ToArray();       
+        public static Department[] Departments = Enumerable.Range(1, 3).Select(i => new Department($"Департамент {i}")).ToArray();
 
         /// <summary>
         /// Клиенты банка

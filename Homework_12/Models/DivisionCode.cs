@@ -30,5 +30,14 @@ namespace Models
             if (right <= 0) throw new ArgumentException("Невозможное значение!!!");
             Right = right;
         }
+
+        public bool Equals(DivisionCode obj)
+        {
+            if (obj is null) 
+                throw new ArgumentNullException(nameof(obj));
+
+            return Left == obj.Left &&
+                   Right == obj.Right;
+        }
     }
 }

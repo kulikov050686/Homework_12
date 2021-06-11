@@ -35,7 +35,8 @@ namespace Models
         /// <param name="name"> Название </param>
         public Department(string name)
         {
-            if(string.IsNullOrWhiteSpace(name)) throw new ArgumentException("Название департамента не может быть пустым!!!");
+            if(string.IsNullOrWhiteSpace(name)) 
+                throw new ArgumentException("Название департамента не может быть пустым!!!");
             Name = name;
         }
 

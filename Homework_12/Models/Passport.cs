@@ -87,6 +87,6 @@ namespace Models
             if(newPlaceOfRegistration is null) 
                 throw new ArgumentException("Новый адрес не может быть null!!!");
             Holder.PlaceOfRegistration = newPlaceOfRegistration;
-        }
+        }        
     }
 }

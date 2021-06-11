@@ -62,7 +62,8 @@ namespace Services
         /// </summary>
         /// <param name="bankCustomerRepository"> Хранилище клиентов банка </param>
         /// <param name="departmentRepository"> Хранилище департаментов банка </param>
-        public BankCustomersManager(BankCustomerRepository bankCustomerRepository, DepartmentRepository departmentRepository)
+        public BankCustomersManager(BankCustomerRepository bankCustomerRepository, 
+                                    DepartmentRepository departmentRepository)
         {
             _bankCustomers = bankCustomerRepository;
             _departments = departmentRepository;

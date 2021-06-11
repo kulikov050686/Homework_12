@@ -66,10 +66,42 @@ namespace Services
             return new BankCustomer(passport, clientStatus);
         }
 
-        public bool ReplacePassport(IBankCustomer bankCustomer)
+        /// <summary>
+        /// Изменить паспорт
+        /// </summary>
+        /// <param name="bankCustomer"> Клиент банка </param>
+        public Passport ReplacePassport(IBankCustomer bankCustomer)
         {
-            if (bankCustomer is null) throw new ArgumentNullException("Клиент банка не может быть null!!!");
-            return false;
+            if (bankCustomer is null)
+                throw new ArgumentNullException("Клиент банка не может быть null!!!");
+
+            var dialog = new PassportWindow();
+
+            dialog.Number = bankCustomer.Passport.Number;
+            dialog.Series = bankCustomer.Passport.Series;
+            dialog.DivisionCodeLeft = bankCustomer.Passport.DivisionCode.Left;
+            dialog.DivisionCodeRight = bankCustomer.Passport.DivisionCode.Right;
+            dialog.DateOfIssue = bankCustomer.Passport.DateOfIssue;
+            dialog.PlaceOfIssue = bankCustomer.Passport.PlaceOfIssue;
+
+            if (dialog.ShowDialog() != true) return null;
+
+            var divisionCode = CreateDivisionCode(dialog.DivisionCodeLeft,
+                                                  dialog.DivisionCodeRight);
+
+            if (divisionCode is null) return null;
+
+
+            var passport = CreatePassport(dialog.Series,
+                                          dialog.Number,
+                                          dialog.PlaceOfIssue,
+                                          dialog.DateOfIssue,
+                                          divisionCode,
+                                          bankCustomer.Passport.Holder);
+
+            if (passport.Equals(bankCustomer.Passport)) return null;
+
+            return passport;
         }
 
         public void AddDescription(IBankCustomer bankCustomer)
@@ -175,12 +207,12 @@ namespace Services
         /// <param name="dateOfIssue"> Дата выпуска </param>
         /// <param name="divisionCode"> Код подразделения </param>
         /// <param name="holder"> Владелец </param>
-        private IPassport CreatePassport(long series,
-                                         long number,
-                                         string placeOfIssue,
-                                         DateTime dateOfIssue,
-                                         DivisionCode divisionCode,
-                                         IPerson holder)
+        private Passport CreatePassport(long series,
+                                        long number,
+                                        string placeOfIssue,
+                                        DateTime dateOfIssue,
+                                        DivisionCode divisionCode,
+                                        IPerson holder)
         {
             try
             {

@@ -83,6 +83,6 @@ namespace Models
             PlaceOfBirth = placeOfBirth;
             PlaceOfResidence = placeOfResidence;
             PlaceOfRegistration = placeOfRegistration;
-        }
+        }        
     }
 }
