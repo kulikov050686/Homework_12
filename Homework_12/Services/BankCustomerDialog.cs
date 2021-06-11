@@ -104,9 +104,24 @@ namespace Services
             return passport;
         }
 
-        public void AddDescription(IBankCustomer bankCustomer)
+        /// <summary>
+        /// Добавить описание
+        /// </summary>
+        /// <param name="bankCustomer"> Клиент банка </param>
+        public string AddDescription(BankCustomer bankCustomer)
         {
-            
+            if (bankCustomer is null)
+                throw new ArgumentNullException("Клиент банка не может быть null!!!");
+
+            var dialog = new AddDescriptionWindow();
+            dialog.Description = bankCustomer.Description;
+            if (dialog.ShowDialog() != true) return null;
+
+            string description = dialog.Description;
+            if (string.IsNullOrWhiteSpace(description)) return null;
+            if (bankCustomer.Description == description) return null;
+
+            return description;
         }
 
         public void AddEmail(IBankCustomer bankCustomer)

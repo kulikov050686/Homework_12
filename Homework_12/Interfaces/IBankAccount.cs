@@ -10,16 +10,16 @@ namespace Interfaces
         /// <summary>
         /// Сумма на счёте
         /// </summary>
-        public double Amount { get; set; }
+        double Amount { get; set; }
 
         /// <summary>
         /// Процентная ставка
         /// </summary>
-        public double InterestRate { get; set; }
+        double InterestRate { get; set; }
 
         /// <summary>
         /// Статус счёта
         /// </summary>
-        public AccountStatus AccountStatus { get; }
+        AccountStatus AccountStatus { get; }
     }
 }

@@ -11,38 +11,38 @@ namespace Interfaces
         /// <summary>
         /// Номер
         /// </summary>
-        public long Number { get; }
+        long Number { get; }
 
         /// <summary>
         /// Серия
         /// </summary>
-        public long Series { get; }
+        long Series { get; }
 
         /// <summary>
         /// Место выдачи
         /// </summary>
-        public string PlaceOfIssue { get; }
+        string PlaceOfIssue { get; }
 
         /// <summary>
         /// Дата выпуска
         /// </summary>
-        public DateTime DateOfIssue { get; }
+        DateTime DateOfIssue { get; }
 
         /// <summary>
         /// Код подразделения
         /// </summary>
-        public DivisionCode DivisionCode { get; }
+        DivisionCode DivisionCode { get; }
 
         /// <summary>
         /// Владелец
         /// </summary>
-        public IPerson Holder { get; }
+        IPerson Holder { get; }
 
         /// <summary>
         /// Метод сравнения
         /// </summary>
         /// <param name="obj"> Сравниваемй объект </param>        
-        public bool Equals(IPassport obj)
+        bool Equals(IPassport obj)
         {
             if (obj is null) return false;
 

@@ -10,48 +10,48 @@ namespace Interfaces
         /// <summary>
         /// Фамилия
         /// </summary>
-        public string Surname { get; }
+        string Surname { get; }
 
         /// <summary>
         /// Имя
         /// </summary>
-        public string Name { get; }
+        string Name { get; }
 
         /// <summary>
         /// Отчество
         /// </summary>
-        public string Patronymic { get; }
+        string Patronymic { get; }
 
         /// <summary>
         /// Пол
         /// </summary>
-        public string Gender { get; }
+        string Gender { get; }
 
         /// <summary>
         /// День рождения
         /// </summary>
-        public DateTime Birthday { get; }
+        DateTime Birthday { get; }
 
         /// <summary>
         /// Место рождения
         /// </summary>
-        public string PlaceOfBirth { get; }
+        string PlaceOfBirth { get; }
 
         /// <summary>
         /// Место жительства (прописка)
         /// </summary>
-        public IAddress PlaceOfResidence { get; set; }
+        IAddress PlaceOfResidence { get; set; }
 
         /// <summary>
         /// Место регистрации (место непосредственного проживания)
         /// </summary>
-        public IAddress PlaceOfRegistration { get; set; }
+        IAddress PlaceOfRegistration { get; set; }
 
         /// <summary>
         /// Метод сравнения
         /// </summary>
         /// <param name="obj"> Сравниваемый объект </param>        
-        public bool Equals(IPerson obj)
+        bool Equals(IPerson obj)
         {
             if (obj is null) return false;
 

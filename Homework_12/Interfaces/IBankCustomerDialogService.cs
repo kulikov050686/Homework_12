@@ -21,12 +21,6 @@ namespace Interfaces
         Passport ReplacePassport(IBankCustomer bankCustomer);
 
         /// <summary>
-        /// Добавить описание
-        /// </summary>
-        /// <param name="bankCustomer"> Клиент банка </param>
-        void AddDescription(IBankCustomer bankCustomer);
-
-        /// <summary>
         /// Добавить электронный адрес 
         /// </summary>
         /// <param name="bankCustomer"> Клиент банка </param>

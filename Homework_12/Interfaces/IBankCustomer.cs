@@ -12,31 +12,31 @@ namespace Interfaces
         /// <summary>
         /// Паспорт
         /// </summary>
-        public IPassport Passport { get; set; }
+        IPassport Passport { get; set; }
 
         /// <summary>
         /// Статус
         /// </summary>
-        public ClientStatus ClientStatus { get; set; }
+        ClientStatus ClientStatus { get; set; }
 
         /// <summary>
         /// Надёжность
         /// </summary>
-        public byte Reliability { get; set; }
+        byte Reliability { get; set; }
 
         /// <summary>
         /// Номер телефона
         /// </summary>
-        public string PhoneNumber { get; set; }
+        string PhoneNumber { get; set; }
 
         /// <summary>
         /// Адрес электронной почты
         /// </summary>
-        public string Email { get; set; }
+        string Email { get; set; }
 
         /// <summary>
         /// Лист счетов
         /// </summary>
-        public IList<BankAccount> BankAccounts { get; set; }
+        IList<BankAccount> BankAccounts { get; set; }
     }
 }
