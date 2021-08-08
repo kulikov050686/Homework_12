@@ -79,6 +79,15 @@ namespace ViewModels
         {
             get => _deleteBankCustomer ??= new RelayCommand((obj) =>
             {
+                var department = SelectedDepartment;
+                var bankCustomer = SelectedBankCustomer;
+
+                if (department is null || bankCustomer is null) return;
+
+                if(_bankCustomersManager.DeleteBankCustomer(bankCustomer, department))
+                {
+                    OnPropertyChanged(nameof(BankCustomers));
+                }
 
             }, (obj) => obj is BankCustomer);
         }
@@ -93,9 +102,13 @@ namespace ViewModels
             get => _editDataBankCustomer ??= new RelayCommand((obj) =>
             {
                 var bankCustomer = (BankCustomer)obj;
+                if (bankCustomer is null) return;
 
-                _bankCustomerDialog.UpdateDataBankCustomer(bankCustomer);
+                var tempBankCustomer = _bankCustomerDialog.UpdateDataBankCustomer(bankCustomer);
+                if (tempBankCustomer is null) return;
 
+                _bankCustomersManager.Update(tempBankCustomer);
+                OnPropertyChanged(nameof(BankCustomers));
             }, (obj) => obj is BankCustomer);
         }
 

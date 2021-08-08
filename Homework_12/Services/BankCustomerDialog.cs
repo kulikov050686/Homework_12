@@ -36,7 +36,10 @@ namespace Services
 
             if (dialog.ShowDialog() != true) return null;
 
-            return CreateBankCustomer(dialog, bankCustomer.ClientStatus);
+            var tempBankCustomer = CreateBankCustomer(dialog, bankCustomer.ClientStatus);
+            tempBankCustomer.Id = bankCustomer.Id;
+
+            return tempBankCustomer;
         }
 
         /// <summary>

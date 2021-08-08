@@ -39,8 +39,7 @@ namespace Services
         /// Добавление нового клиента банка в департамент
         /// </summary>
         /// <param name="bankCustomer"> Клиент банка </param>
-        /// <param name="department"> Департамент </param>
-        /// <returns></returns>
+        /// <param name="department"> Департамент </param>        
         public bool CreateNewBankCustomer(BankCustomer bankCustomer, Department department)
         {
             if (bankCustomer is null) 
@@ -56,7 +55,32 @@ namespace Services
 
             return true;
         }
-         
+        
+        /// <summary>
+        /// Удалить клиента банка из департамента
+        /// </summary>
+        /// <param name="bankCustomer"> Клиент банка </param>
+        /// <param name="department"> Департамент </param>        
+        public bool DeleteBankCustomer(BankCustomer bankCustomer, Department department)
+        {
+            if (bankCustomer is null)
+                throw new ArgumentNullException(nameof(bankCustomer), "Добавляемый клиент банка не может быть null!!!");
+            if (department is null)
+                throw new ArgumentNullException(nameof(department), "Департамент не может быть null!!!");
+
+            var selectedDepartment = _departments.Get(department.Name);
+
+            if (selectedDepartment is null) return false;
+            
+            if(department.BankCustomers.Remove(bankCustomer))
+            {
+                _bankCustomers.Remove(bankCustomer);
+                return true;
+            }
+
+            return false;
+        }
+
         /// <summary>
         /// Конструктор
         /// </summary>
