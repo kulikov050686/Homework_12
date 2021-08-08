@@ -18,6 +18,38 @@ namespace Services
 
             if (dialog.ShowDialog() != true) return null;
 
+            return CreateBankCustomer(dialog, clientStatus);
+        }
+
+        /// <summary>
+        /// Обновить данные клиента банка
+        /// </summary>
+        /// <param name="bankCustomer"> Клиент банка </param>        
+        public BankCustomer UpdateDataBankCustomer(IBankCustomer bankCustomer)
+        {
+            if (bankCustomer is null)
+                throw new ArgumentNullException("Клиент банка не может быть null!!!");
+
+            var dialog = new AddBankCustomersWindow();
+
+            FillInWindows(dialog, bankCustomer);
+
+            if (dialog.ShowDialog() != true) return null;
+
+            return CreateBankCustomer(dialog, bankCustomer.ClientStatus);
+        }
+
+        /// <summary>
+        /// Создать клиента банка
+        /// </summary>
+        /// <param name="dialog"> Окно диалога </param>
+        /// <param name="clientStatus"> Статус клиента </param>        
+        private BankCustomer CreateBankCustomer(AddBankCustomersWindow dialog,
+                                                ClientStatus clientStatus)
+        {
+            if (dialog is null)
+                throw new ArgumentNullException(nameof(dialog));
+
             var residenceAddress = CreateAddress(dialog.RegistrationDatePlaceOfResidence,
                                                  dialog.RegionPlaceOfResidence,
                                                  dialog.CityPlaceOfResidence,
@@ -63,80 +95,66 @@ namespace Services
 
             if (passport is null) return null;
 
-            return new BankCustomer(passport, clientStatus);
+            return new BankCustomer(passport,
+                                    clientStatus,
+                                    dialog.PhoneNumber,
+                                    dialog.Reliability,
+                                    dialog.Email);
         }
 
         /// <summary>
-        /// Изменить паспорт
+        /// Заполнение полей окна
         /// </summary>
+        /// <param name="dialog"> Окно диалога </param>
         /// <param name="bankCustomer"> Клиент банка </param>
-        public Passport ReplacePassport(IBankCustomer bankCustomer)
+        private void FillInWindows(AddBankCustomersWindow dialog,
+                                   IBankCustomer bankCustomer)
         {
+            if (dialog is null)
+                throw new ArgumentNullException(nameof(dialog));
+
             if (bankCustomer is null)
-                throw new ArgumentNullException("Клиент банка не может быть null!!!");
+                throw new ArgumentNullException(nameof(bankCustomer));
 
-            var dialog = new PassportWindow();
-
-            dialog.Number = bankCustomer.Passport.Number;
-            dialog.Series = bankCustomer.Passport.Series;
-            dialog.DivisionCodeLeft = bankCustomer.Passport.DivisionCode.Left;
-            dialog.DivisionCodeRight = bankCustomer.Passport.DivisionCode.Right;
-            dialog.DateOfIssue = bankCustomer.Passport.DateOfIssue;
-            dialog.PlaceOfIssue = bankCustomer.Passport.PlaceOfIssue;
-
-            if (dialog.ShowDialog() != true) return null;
-
-            var divisionCode = CreateDivisionCode(dialog.DivisionCodeLeft,
-                                                  dialog.DivisionCodeRight);
-
-            if (divisionCode is null) return null;
-
-
-            var passport = CreatePassport(dialog.Series,
-                                          dialog.Number,
-                                          dialog.PlaceOfIssue,
-                                          dialog.DateOfIssue,
-                                          divisionCode,
-                                          bankCustomer.Passport.Holder);
-
-            if (passport.Equals(bankCustomer.Passport)) return null;
-
-            return passport;
-        }
-
-        /// <summary>
-        /// Добавить описание
-        /// </summary>
-        /// <param name="bankCustomer"> Клиент банка </param>
-        public string AddDescription(BankCustomer bankCustomer)
-        {
-            if (bankCustomer is null)
-                throw new ArgumentNullException("Клиент банка не может быть null!!!");
-
-            var dialog = new AddDescriptionWindow();
+            dialog.PhoneNumber = bankCustomer.PhoneNumber;
+            dialog.Email = bankCustomer.Email;
             dialog.Description = bankCustomer.Description;
-            if (dialog.ShowDialog() != true) return null;
+            dialog.Reliability = bankCustomer.Reliability;
 
-            string description = dialog.Description;
-            if (string.IsNullOrWhiteSpace(description)) return null;
-            if (bankCustomer.Description == description) return null;
+            dialog.NameBankCustomer = bankCustomer.Passport.Holder.Name;
+            dialog.SurnameBankCustomer = bankCustomer.Passport.Holder.Surname;
+            dialog.PatronymicBankCustomer = bankCustomer.Passport.Holder.Patronymic;
+            dialog.BirthdayBankCustomer = bankCustomer.Passport.Holder.Birthday;
+            dialog.GenderBankCustomer = bankCustomer.Passport.Holder.Gender;
+            dialog.PlaceOfBirthBankCustomer = bankCustomer.Passport.Holder.PlaceOfBirth;
 
-            return description;
-        }
+            dialog.SeriesPassport = bankCustomer.Passport.Series;
+            dialog.NumberPassport = bankCustomer.Passport.Number;
+            dialog.DivisionCodeLeftPassport = bankCustomer.Passport.DivisionCode.Left;
+            dialog.DivisionCodeRightPassport = bankCustomer.Passport.DivisionCode.Right;
+            dialog.DateOfIssuePassport = bankCustomer.Passport.DateOfIssue;
+            dialog.PlaceOfIssuePassport = bankCustomer.Passport.PlaceOfIssue;
 
-        public void AddEmail(IBankCustomer bankCustomer)
-        {
-            
-        }
+            dialog.RegionPlaceOfResidence = bankCustomer.Passport.Holder.PlaceOfResidence.Region;
+            dialog.CityPlaceOfResidence = bankCustomer.Passport.Holder.PlaceOfResidence.City;
+            dialog.DistrictPlaceOfResidence = bankCustomer.Passport.Holder.PlaceOfResidence.District;
+            dialog.StreetPlaceOfResidence = bankCustomer.Passport.Holder.PlaceOfResidence.Street;
+            dialog.HouseNumberPlaceOfResidence = bankCustomer.Passport.Holder.PlaceOfResidence.HouseNumber;
+            dialog.HousingPlaceOfResidence = bankCustomer.Passport.Holder.PlaceOfResidence.Housing;
+            dialog.ApartmentNumberPlaceOfResidence = bankCustomer.Passport.Holder.PlaceOfResidence.ApartmentNumber;
+            dialog.RegistrationDatePlaceOfResidence = bankCustomer.Passport.Holder.PlaceOfResidence.RegistrationDate;
 
-        public void AddPhoneNumber(IBankCustomer bankCustomer)
-        {
-           
-        }
-
-        public void ChangeReliability(IBankCustomer bankCustomer)
-        {
-            
+            if (bankCustomer.Passport.Holder.PlaceOfRegistration != null)
+            {
+                dialog.RegionRegistration = bankCustomer.Passport.Holder.PlaceOfRegistration.Region;
+                dialog.CityRegistration = bankCustomer.Passport.Holder.PlaceOfRegistration.City;
+                dialog.DistrictRegistration = bankCustomer.Passport.Holder.PlaceOfRegistration.District;
+                dialog.StreetRegistration = bankCustomer.Passport.Holder.PlaceOfRegistration.Street;
+                dialog.HouseNumberRegistration = bankCustomer.Passport.Holder.PlaceOfRegistration.HouseNumber;
+                dialog.HousingRegistration = bankCustomer.Passport.Holder.PlaceOfRegistration.Housing;
+                dialog.ApartmentNumberRegistration = bankCustomer.Passport.Holder.PlaceOfRegistration.ApartmentNumber;
+                dialog.RegistrationDateRegistration = bankCustomer.Passport.Holder.PlaceOfRegistration.RegistrationDate;
+            }
         }
 
         /// <summary>
@@ -253,12 +271,12 @@ namespace Services
         {
             try
             {
-                return new DivisionCode(left , right);
+                return new DivisionCode(left, right);
             }
             catch (Exception)
             {
                 return null;
             }
-        }
+        }        
     }
 }

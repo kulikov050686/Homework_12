@@ -31,6 +31,10 @@ namespace Models
             Right = right;
         }
 
+        /// <summary>
+        /// Метод сравнения
+        /// </summary>
+        /// <param name="obj"> Сравниваемй объект </param>
         public bool Equals(DivisionCode obj)
         {
             if (obj is null) 

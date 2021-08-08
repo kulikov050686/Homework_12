@@ -51,26 +51,6 @@ namespace ViewModels
 
         #endregion
 
-        #region Команда редактирования паспорта клиента банка
-
-        private ICommand _editPassportBankCustomer;
-        public ICommand EditPassportBankCustomer
-        {
-            get => _editPassportBankCustomer ??= new RelayCommand((obj) =>
-            {
-                var bankCustomer = (BankCustomer)obj;
-                var pasport = _bankCustomerDialog.ReplacePassport(bankCustomer);
-
-                if (pasport is null) return;
-
-                bankCustomer.Passport = pasport;
-                OnPropertyChanged(nameof(BankCustomers));
-
-            },(obj) => obj is BankCustomer);
-        }
-
-        #endregion
-
         #region Команда создания нового клиента банка
 
         private ICommand _createNewBankCustomer;
@@ -99,6 +79,22 @@ namespace ViewModels
         {
             get => _deleteBankCustomer ??= new RelayCommand((obj) =>
             {
+
+            }, (obj) => obj is BankCustomer);
+        }
+
+        #endregion
+
+        #region Команда редактирования данных клиента банка
+
+        private ICommand _editDataBankCustomer;
+        public ICommand EditDataBankCustomer
+        {
+            get => _editDataBankCustomer ??= new RelayCommand((obj) =>
+            {
+                var bankCustomer = (BankCustomer)obj;
+
+                _bankCustomerDialog.UpdateDataBankCustomer(bankCustomer);
 
             }, (obj) => obj is BankCustomer);
         }

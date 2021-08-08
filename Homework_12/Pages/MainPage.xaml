@@ -76,18 +76,9 @@
                         <MenuItem Header="Удалить" 
                                   Command="{Binding DeleteBankCustomer}"
                                   CommandParameter="{Binding SelectedBankCustomer}"/>
-                        <MenuItem Header="Редактировать(Добавить)">
-                            <MenuItem Header="Описание"/>
-                            
-                            <!--Редактировать паспорт-->
-                            <MenuItem Header="Паспорт" 
-                                      Command="{Binding EditPassportBankCustomer}"
-                                      CommandParameter="{Binding SelectedBankCustomer}"/>
-                            
-                            <MenuItem Header="Электронный адрес"/>
-                            <MenuItem Header="Телефон"/>
-                            <MenuItem Header="Надёжность"/>
-                        </MenuItem>
+                        <MenuItem Header="Редактировать"
+                                  Command="{Binding EditDataBankCustomer}"
+                                  CommandParameter="{Binding SelectedBankCustomer}"/>
                     </ContextMenu>
                 </ListBox.ContextMenu>
             </ListBox>

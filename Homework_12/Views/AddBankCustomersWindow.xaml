@@ -7,14 +7,32 @@
         xmlns:uc="clr-namespace:UserControls"
         xmlns:cmd="clr-namespace:Commands"
         mc:Ignorable="d"
-        MaxHeight="500"
-        MaxWidth="1085"
+        Height="530"
+        Width="1085"
         ResizeMode="NoResize"
         Title="Добавить клиента банка"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
     
     <StackPanel>
-        
+
+        <StackPanel Orientation="Horizontal">
+            <GroupBox Header="Телефон">
+                <TextBox Text="{Binding PhoneNumber, Mode=TwoWay}"/>
+            </GroupBox>
+
+            <GroupBox Header="Электронный адрес">
+                <TextBox Text="{Binding Email, Mode=TwoWay}"/>
+            </GroupBox>
+
+            <GroupBox Header="Рейтинг">
+                <TextBox Text="{Binding Reliability, Mode=TwoWay}"/>
+            </GroupBox>
+
+            <GroupBox Header="Описание">
+                <TextBox Text="{Binding Description, Mode=TwoWay}"/>
+            </GroupBox>
+        </StackPanel>
+
         <StackPanel Orientation="Horizontal">
             
             <!--Данные клиента-->
@@ -62,6 +80,7 @@
                     Height="50" 
                     HorizontalAlignment="Right">
 
+            <!--Кнопка применить-->
             <Button Content="Применить"
                     Margin="5 0 5 0"
                     Width="80"
@@ -70,7 +89,8 @@
                     <cmd:CloseDialogCommand DialogResult="True"/>
                 </Button.Command>
             </Button>
-
+            
+            <!--Кнопка отменить-->
             <Button Content="Отмена"
                     Margin=" 5 0 5 0"
                     Width="80"

@@ -15,27 +15,9 @@ namespace Interfaces
         BankCustomer CreateNewBankCustomer(ClientStatus clientStatus);
         
         /// <summary>
-        /// Заменить паспорт
+        /// Обновить данные клиента банка
         /// </summary>
-        /// <param name="bankCustomer"> Клиент банка </param>
-        Passport ReplacePassport(IBankCustomer bankCustomer);
-
-        /// <summary>
-        /// Добавить электронный адрес 
-        /// </summary>
-        /// <param name="bankCustomer"> Клиент банка </param>
-        void AddEmail(IBankCustomer bankCustomer);
-
-        /// <summary>
-        /// Добавить номер телефона
-        /// </summary>
-        /// <param name="bankCustomer"> Клиент банка </param>
-        void AddPhoneNumber(IBankCustomer bankCustomer);
-
-        /// <summary>
-        /// Изменить надёжность клиента банка
-        /// </summary>
-        /// <param name="bankCustomer"> Клиент банка </param>
-        void ChangeReliability(IBankCustomer bankCustomer);
+        /// <param name="bankCustomer"> Клиент банка </param>        
+        BankCustomer UpdateDataBankCustomer(IBankCustomer bankCustomer);
     }
 }

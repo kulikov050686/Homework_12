@@ -21,5 +21,19 @@ namespace Interfaces
         /// Статус счёта
         /// </summary>
         AccountStatus AccountStatus { get; }
+
+        /// <summary>
+        /// Метод сравнения
+        /// </summary>
+        /// <param name="obj"> Сравниваемый объект </param> 
+        bool Equals(IBankAccount obj)
+        {
+            if (obj is null) return false;
+
+            return (Id == obj.Id) && 
+                   (Amount == obj.Amount) &&
+                   (InterestRate == obj.InterestRate) &&
+                   (AccountStatus == obj.AccountStatus);
+        }
     }
 }

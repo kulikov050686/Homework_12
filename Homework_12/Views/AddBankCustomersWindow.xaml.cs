@@ -6,6 +6,86 @@ namespace Views
 {
     public partial class AddBankCustomersWindow : Window
     {
+        #region Телефон
+
+        public static readonly DependencyProperty PhoneNumberProperty =
+            DependencyProperty.Register(nameof(PhoneNumber),
+                                        typeof(string),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(string)));
+
+        /// <summary>
+        /// Телефон
+        /// </summary>
+        [Description("Телефон")]
+        public string PhoneNumber
+        {
+            get => (string)GetValue(PhoneNumberProperty);
+            set => SetValue(PhoneNumberProperty, value);
+        }
+
+        #endregion
+
+        #region Электронный адрес
+
+        public static readonly DependencyProperty EmailProperty =
+            DependencyProperty.Register(nameof(Email),
+                                        typeof(string),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(string)));
+
+        /// <summary>
+        /// Электронный адрес
+        /// </summary>
+        [Description("Электронный адрес")]
+        public string Email
+        {
+            get => (string)GetValue(EmailProperty);
+            set => SetValue(EmailProperty, value);
+        }
+
+        #endregion
+
+        #region Рейтинг
+
+        public static readonly DependencyProperty ReliabilityProperty =
+            DependencyProperty.Register(nameof(Reliability),
+                                        typeof(byte),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(byte)));
+
+        /// <summary>
+        /// Рейтинг
+        /// </summary>
+        [Description("Рейтинг")]
+        public byte Reliability
+        {
+            get => (byte)GetValue(ReliabilityProperty);
+            set => SetValue(ReliabilityProperty, value);
+        }
+
+        #endregion
+
+        #region Описание
+
+        public static readonly DependencyProperty DescriptionProperty =
+            DependencyProperty.Register(nameof(Description),
+                                        typeof(string),
+                                        typeof(AddBankCustomersWindow),
+                                        new PropertyMetadata(default(string)));
+
+        /// <summary>
+        /// Описание
+        /// </summary>
+        [Description("Описание")]
+        public string Description
+        {
+            get => (string)GetValue(DescriptionProperty);
+            set => SetValue(DescriptionProperty, value);
+        }
+
+        #endregion
+
         #region Имя
 
         public static readonly DependencyProperty NameBankCustomerProperty =
@@ -14,6 +94,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
+        /// <summary>
+        /// Имя
+        /// </summary>
         [Description("Имя")]
         public string NameBankCustomer
         {
@@ -31,6 +114,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
+        /// <summary>
+        /// Фамилия
+        /// </summary>
         [Description("Фамилия")]
         public string SurnameBankCustomer
         {
@@ -48,6 +134,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
+        /// <summary>
+        /// Отчество
+        /// </summary>
         [Description("Отчество")]
         public string PatronymicBankCustomer
         {
@@ -65,6 +154,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
+        /// <summary>
+        /// Пол
+        /// </summary>
         [Description("Пол")]
         public string GenderBankCustomer
         {
@@ -82,6 +174,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(DateTime)));
 
+        /// <summary>
+        /// Дата рождения
+        /// </summary>
         [Description("Дата рождения")]
         public DateTime BirthdayBankCustomer
         {
@@ -99,6 +194,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
+        /// <summary>
+        /// Место рождения
+        /// </summary>
         [Description("Место рождения")]
         public string PlaceOfBirthBankCustomer 
         {
@@ -116,6 +214,9 @@ namespace Views
                                        typeof(AddBankCustomersWindow),
                                        new PropertyMetadata(default(long)));
 
+        /// <summary>
+        /// Номер паспорта
+        /// </summary>
         [Description("Номер паспорта клиента банка")]
         public long NumberPassport
         {
@@ -133,6 +234,9 @@ namespace Views
                                        typeof(AddBankCustomersWindow),
                                        new PropertyMetadata(default(long)));
 
+        /// <summary>
+        /// Серия паспорта
+        /// </summary>
         [Description("Серия паспорта клиента банка")]
         public long SeriesPassport
         {
@@ -150,6 +254,9 @@ namespace Views
                                        typeof(AddBankCustomersWindow),
                                        new PropertyMetadata(default(int)));
 
+        /// <summary>
+        /// Код подразделения левый
+        /// </summary>
         [Description("Код подразделения лывый")]
         public int DivisionCodeLeftPassport
         {
@@ -167,6 +274,9 @@ namespace Views
                                        typeof(AddBankCustomersWindow),
                                        new PropertyMetadata(default(int)));
 
+        /// <summary>
+        /// Код подразделения правый
+        /// </summary>
         [Description("Код подразделения правый")]
         public int DivisionCodeRightPassport
         {
@@ -184,6 +294,9 @@ namespace Views
                                        typeof(AddBankCustomersWindow),
                                        new PropertyMetadata(default(DateTime)));
 
+        /// <summary>
+        /// Дата выдачи паспорта
+        /// </summary>
         [Description("Дата выдачи паспорта")]
         public DateTime DateOfIssuePassport
         {
@@ -201,6 +314,9 @@ namespace Views
                                        typeof(AddBankCustomersWindow),
                                        new PropertyMetadata(default(string)));
 
+        /// <summary>
+        /// Место выдачи паспорта
+        /// </summary>
         [Description("Место выдачи паспорта")]
         public string PlaceOfIssuePassport
         {
@@ -218,6 +334,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
+        /// <summary>
+        /// Регион или Область адреса прописки
+        /// </summary>
         [Description("Регион или область адреса прописки")]
         public string RegionPlaceOfResidence
         {
@@ -235,6 +354,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
+        /// <summary>
+        /// Город адреса прописки
+        /// </summary>
         [Description("Город адреса прописки")]
         public string CityPlaceOfResidence
         {
@@ -252,6 +374,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
+        /// <summary>
+        /// Район города адреса прописки
+        /// </summary>
         [Description("Район города адреса прописки")]
         public string DistrictPlaceOfResidence
         {
@@ -269,6 +394,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
+        /// <summary>
+        /// Название улицы адреса прописки
+        /// </summary>
         [Description("Название улицы адреса прописки")]
         public string StreetPlaceOfResidence
         {
@@ -286,6 +414,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(int)));
 
+        /// <summary>
+        /// Номер дома адреса прописки
+        /// </summary>
         [Description("Номер дома адреса прописки")]
         public int HouseNumberPlaceOfResidence
         {
@@ -303,6 +434,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
+        /// <summary>
+        /// Корпус дома адреса прописки
+        /// </summary>
         [Description("Корпус дома адреса прописки")]
         public string HousingPlaceOfResidence
         {
@@ -320,6 +454,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(int)));
 
+        /// <summary>
+        /// Номер квартиры адреса прописки
+        /// </summary>
         [Description("Номер квартиры адреса прописки")]
         public int ApartmentNumberPlaceOfResidence
         {
@@ -337,6 +474,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(DateTime)));
 
+        /// <summary>
+        /// Дата регистрации адреса прописки
+        /// </summary>
         [Description("Дата регистрации адреса прописки")]
         public DateTime RegistrationDatePlaceOfResidence
         {
@@ -354,6 +494,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
+        /// <summary>
+        /// Регион или Область адреса регистрации
+        /// </summary>
         [Description("Регион или область адреса регистрации")]
         public string RegionRegistration
         {
@@ -371,6 +514,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
+        /// <summary>
+        /// Город адреса регистрации
+        /// </summary>
         [Description("Город адреса регистрации")]
         public string CityRegistration
         {
@@ -388,6 +534,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
+        /// <summary>
+        /// Район города адреса регистрации
+        /// </summary>
         [Description("Район города адреса регистрации")]
         public string DistrictRegistration
         {
@@ -405,6 +554,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
+        /// <summary>
+        /// Название улицы адреса регистрации
+        /// </summary>
         [Description("Название улицы адреса регистрация")]
         public string StreetRegistration
         {
@@ -422,6 +574,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(int)));
 
+        /// <summary>
+        /// Номер дома адреса регистрации
+        /// </summary>
         [Description("Номер дома адреса регистрации")]
         public int HouseNumberRegistration
         {
@@ -439,6 +594,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(string)));
 
+        /// <summary>
+        /// Корпус дома адреса регистрации
+        /// </summary>
         [Description("Корпус дома адреса регистрации")]
         public string HousingRegistration
         {
@@ -456,6 +614,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(int)));
 
+        /// <summary>
+        /// Номер квартиры адреса регистрации
+        /// </summary>
         [Description("Номер квартиры адреса регистрации")]
         public int ApartmentNumberRegistration
         {
@@ -473,6 +634,9 @@ namespace Views
                                         typeof(AddBankCustomersWindow),
                                         new PropertyMetadata(default(DateTime)));
 
+        /// <summary>
+        /// Дата регистрации адреса регистрации
+        /// </summary>
         [Description("Дата регистрации адреса регистрации")]
         public DateTime RegistrationDateRegistration
         {
