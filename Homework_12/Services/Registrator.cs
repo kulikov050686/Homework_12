@@ -17,7 +17,10 @@ namespace Services
         {
             services.AddSingleton<BankCustomerRepository>();
             services.AddSingleton<DepartmentRepository>();
+            services.AddSingleton<BankAccountRepository>();
+
             services.AddSingleton<BankCustomersManager>();
+            services.AddSingleton<BankAccountManager>();
             
             services.AddTransient<IBankCustomerDialogService, BankCustomerDialog>();
 

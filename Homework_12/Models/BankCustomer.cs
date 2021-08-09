@@ -49,7 +49,7 @@ namespace Models
         /// <summary>
         /// Список счетов
         /// </summary>
-        public IList<BankAccount> BankAccounts { get; set; }
+        public IList<BankAccount> BankAccounts { get; set; } = new List<BankAccount>();
 
         /// <summary>
         /// Конструктор

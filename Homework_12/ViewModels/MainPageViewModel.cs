@@ -88,7 +88,6 @@ namespace ViewModels
                 {
                     OnPropertyChanged(nameof(BankCustomers));
                 }
-
             }, (obj) => obj is BankCustomer);
         }
 

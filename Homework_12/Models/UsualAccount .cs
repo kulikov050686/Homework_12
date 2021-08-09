@@ -11,5 +11,11 @@ namespace Models
         /// Конструктор
         /// </summary>        
         public UsualAccount() : base(AccountStatus.USUAL) {}
+
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="id"> Идентификатор </param>
+        public UsualAccount(int id) : base(id, AccountStatus.USUAL) {}
     }
 }

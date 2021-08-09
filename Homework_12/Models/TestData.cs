@@ -12,20 +12,25 @@ namespace Models
         /// <summary>
         /// Департаменты банка
         /// </summary>
-        public static Department[] Departments = Enumerable.Range(1, 3).Select(i => new Department($"Департамент {i}")).ToArray();
+        public static Department[] Departments = Enumerable.Range(1, 3).Select(i => new Department(i, $"Департамент {i}")).ToArray();
 
         /// <summary>
         /// Клиенты банка
         /// </summary>
         public static BankCustomer[] BankCustomers = CreateBankCustomers(Departments);
-        
+
+        /// <summary>
+        /// Счета клиентов банка
+        /// </summary>
+        public static BankAccount[] BankAccounts = CreateBankAccount(BankCustomers);
+
         /// <summary>
         /// Заполнение клиентами банка депортаментов
         /// </summary>
         /// <param name="departments"> Департаменты </param>        
         private static BankCustomer[] CreateBankCustomers(Department[] departments)
         {
-            var index = 1;            
+            var index = 1;
 
             foreach (var item in departments)
             {
@@ -41,8 +46,33 @@ namespace Models
                     index++;
                 }
             }
-           
+
             return departments.SelectMany(d => d.BankCustomers).ToArray();
+        }
+
+        /// <summary>
+        /// Заполнение счетами клиентов банка
+        /// </summary>
+        /// <param name="bankCustomers"> Клиенты банка </param>        
+        private static BankAccount[] CreateBankAccount(BankCustomer[] bankCustomers)
+        {
+            var index = 1;
+
+            foreach (var item in bankCustomers)
+            {
+                for(int i = 0; i < 3; i++)
+                {
+                    var bankAccount = new UsualAccount(index);
+
+                    bankAccount.Amount = 1000;
+                    bankAccount.InterestRate = 10;
+
+                    item.BankAccounts.Add(bankAccount);
+                    index++;
+                }
+            }
+
+            return bankCustomers.SelectMany(d => d.BankAccounts).ToArray();
         }
     }
 }
