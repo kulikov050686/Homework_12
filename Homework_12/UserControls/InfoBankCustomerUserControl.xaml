@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UserControls"
-             mc:Ignorable="d"
-             DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=local:InfoBankCustomerUserControl}}">
+             mc:Ignorable="d">
 
     <GroupBox Header="Информация">
         <Grid>
@@ -73,7 +72,7 @@
             
             <!--#endregion-->
             
-            <!--#region Отображение информации -->
+            <!--#region Отображение информации-->
             
             <TextBlock Grid.Row="0" 
                        Grid.Column="1"

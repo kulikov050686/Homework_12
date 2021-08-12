@@ -17,6 +17,7 @@
             <ColumnDefinition Width="200" MinWidth="200"/>
             <ColumnDefinition Width="200" MinWidth="200"/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         
         <!--Отдел банка-->
@@ -86,7 +87,10 @@
         
         <!--Информация о выбранном клиенте банка-->
         <uc:InfoBankCustomerUserControl Grid.Column="2"
-                                        DataContext="{Binding SelectedBankCustomer}"/>        
+                                        DataContext="{Binding SelectedBankCustomer}"/>
+
+        <uc:InfoBankAccountUserControl Grid.Column="3"
+                                       DataContext="{Binding SelectedBankCustomer}"/>
 
         <GridSplitter Grid.Column="0" 
                       HorizontalAlignment="Right" 
