@@ -1,23 +1,23 @@
 ﻿namespace Enums
 {
     /// <summary>
-    /// Статус клиента
+    /// Статус
     /// </summary>
-    public enum ClientStatus
+    public enum Status
     {
         /// <summary>
-        /// Обычнай клиент
+        /// Обычнай
         /// </summary>
         USUAL = 0,
 
         /// <summary>
-        /// Vip клиент
+        /// Vip
         /// </summary>
         VIP = 1,
 
         /// <summary>
-        /// Юридическое лицо
+        /// Юридический
         /// </summary>
-        LEGAL = 2
+        JURIDICAL = 2
     }
 }

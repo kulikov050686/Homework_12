@@ -13,8 +13,6 @@ namespace Converters
         {
             switch ((AccountStatus)value)
             {
-                case AccountStatus.USUAL:
-                    return "Обычный счёт";
                 case AccountStatus.DEPOSITORY:
                     return "Депозитный счёт";
                 case AccountStatus.CREDIT:
@@ -27,9 +25,7 @@ namespace Converters
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             switch ((string)value)
-            {
-                case "Обычный счёт":
-                    return AccountStatus.USUAL;
+            {                
                 case "Депозитный счёт":
                     return AccountStatus.DEPOSITORY;
                 case "Кредитный счёт":

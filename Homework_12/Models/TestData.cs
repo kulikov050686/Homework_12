@@ -12,7 +12,7 @@ namespace Models
         /// <summary>
         /// Департаменты банка
         /// </summary>
-        public static Department[] Departments = Enumerable.Range(1, 3).Select(i => new Department(i, $"Департамент {i}")).ToArray();
+        public static Department[] Departments = CreateDepartments();
 
         /// <summary>
         /// Клиенты банка
@@ -20,9 +20,29 @@ namespace Models
         public static BankCustomer[] BankCustomers = CreateBankCustomers(Departments);
 
         /// <summary>
-        /// Счета клиентов банка
+        /// Депозитарные счета клиентов банка
         /// </summary>
-        public static BankAccount[] BankAccounts = CreateBankAccount(BankCustomers);
+        public static DepositoryAccount[] DepositoryAccount = CreateDepositoryAccount(BankCustomers);               
+        
+        /// <summary>
+        /// Создание департаментов банка
+        /// </summary>        
+        private static Department[] CreateDepartments()
+        {
+            Department[] departments = new Department[3];
+
+            for(int i = 0; i < 3; i++)
+            {
+                if(i == 0)
+                    departments[i] = new Department(i, $"Департамент { i }", Status.USUAL);
+                if(i == 1)
+                    departments[i] = new Department(i, $"Департамент { i }", Status.VIP);
+                if(i == 2)
+                    departments[i] = new Department(i, $"Департамент { i }", Status.JURIDICAL);
+            }
+
+            return departments;
+        }
 
         /// <summary>
         /// Заполнение клиентами банка депортаментов
@@ -40,7 +60,8 @@ namespace Models
                     var person = new Person($"Фамилия {index}", $"Имя {index}", $"Отчество {index}", $"муж", DateTime.Today, $"Место рождения {index}", address);
                     var divisionCode = new DivisionCode(200 + index, 300 + index);
                     var pasport = new Passport(111, 222222, $"Место выдачи {index}", DateTime.Today, divisionCode, person);
-                    var bankCustomer = new BankCustomer(index, pasport, ClientStatus.LEGAL, $"0123-456-789");
+
+                    var bankCustomer = new BankCustomer(index, pasport, item.StatusDepartment, $"0123-456-789");
 
                     item.BankCustomers.Add(bankCustomer);
                     index++;
@@ -51,10 +72,10 @@ namespace Models
         }
 
         /// <summary>
-        /// Заполнение счетами клиентов банка
+        /// Заполнение депозитарными счетами клиентов банка
         /// </summary>
         /// <param name="bankCustomers"> Клиенты банка </param>        
-        private static BankAccount[] CreateBankAccount(BankCustomer[] bankCustomers)
+        private static DepositoryAccount[] CreateDepositoryAccount(BankCustomer[] bankCustomers)
         {
             var index = 1;
 
@@ -62,17 +83,17 @@ namespace Models
             {
                 for(int i = 0; i < 3; i++)
                 {
-                    var bankAccount = new UsualAccount(index);
+                    var bankAccount = new DepositoryAccount(index, DepositStatus.WITHOUTCAPITALIZATION);
 
                     bankAccount.Amount = 1000;
                     bankAccount.InterestRate = 10;
 
-                    item.BankAccounts.Add(bankAccount);
+                    item.DepositoryAccounts.Add(bankAccount);
                     index++;
                 }
             }
 
-            return bankCustomers.SelectMany(d => d.BankAccounts).ToArray();
+            return bankCustomers.SelectMany(d => d.DepositoryAccounts).ToArray();
         }
     }
 }

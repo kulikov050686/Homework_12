@@ -26,7 +26,8 @@ namespace Services
             destination.ClientStatus = source.ClientStatus;
             destination.Description = source.Description;
             destination.Email = source.Email;
-            destination.BankAccounts = source.BankAccounts;
+            destination.DepositoryAccounts = source.DepositoryAccounts;
+            destination.CreditAccounts = source.CreditAccounts;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using Enums;
+using Models;
 using System.Collections.Generic;
 
 namespace Interfaces
@@ -12,6 +13,11 @@ namespace Interfaces
         /// Название
         /// </summary>
         string Name { get; set; }
+
+        /// <summary>
+        /// Статус департамента
+        /// </summary>
+        Status StatusDepartment { get; set; }
 
         /// <summary>
         /// Лист клиентов банка

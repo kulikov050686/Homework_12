@@ -12,7 +12,7 @@ namespace Services
         /// Создать нового клиента банка
         /// </summary>
         /// <param name="clientStatus"> Статус </param>        
-        public BankCustomer CreateNewBankCustomer(ClientStatus clientStatus)
+        public BankCustomer CreateNewBankCustomer(Status clientStatus)
         {
             var dialog = new AddBankCustomersWindow();
 
@@ -48,7 +48,7 @@ namespace Services
         /// <param name="dialog"> Окно диалога </param>
         /// <param name="clientStatus"> Статус клиента </param>        
         private BankCustomer CreateBankCustomer(AddBankCustomersWindow dialog,
-                                                ClientStatus clientStatus)
+                                                Status clientStatus)
         {
             if (dialog is null)
                 throw new ArgumentNullException(nameof(dialog));
@@ -98,7 +98,8 @@ namespace Services
 
             if (passport is null) return null;
 
-            return new BankCustomer(passport,
+            return new BankCustomer(0,
+                                    passport,
                                     clientStatus,
                                     dialog.PhoneNumber,
                                     dialog.Reliability,

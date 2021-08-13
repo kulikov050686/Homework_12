@@ -59,7 +59,7 @@ namespace ViewModels
             get => _createNewBankCustomer ??= new RelayCommand((obj) =>
             {
                 var department = (Department)obj;
-                var bankCustomer = _bankCustomerDialog.CreateNewBankCustomer(ClientStatus.LEGAL);
+                var bankCustomer = _bankCustomerDialog.CreateNewBankCustomer(department.StatusDepartment);
 
                 if (bankCustomer is null) return;
 

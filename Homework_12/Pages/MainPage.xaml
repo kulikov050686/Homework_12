@@ -38,7 +38,6 @@
                         <DockPanel>
                             <TextBlock DockPanel.Dock="Right" 
                                        Text="{Binding BankCustomers.Count, StringFormat=({0})}"/>
-
                             <TextBlock Text="{Binding Name}"/>
                         </DockPanel>
                     </DataTemplate>
@@ -89,9 +88,8 @@
         <uc:InfoBankCustomerUserControl Grid.Column="2"
                                         DataContext="{Binding SelectedBankCustomer}"/>
 
-        <uc:InfoBankAccountUserControl Grid.Column="3"
-                                       DataContext="{Binding SelectedBankCustomer}"/>
-
+        <uc:InfoBankAccountUserControl Grid.Column="3"/>
+        
         <GridSplitter Grid.Column="0" 
                       HorizontalAlignment="Right" 
                       Width="3"/>

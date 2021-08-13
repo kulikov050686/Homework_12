@@ -12,7 +12,7 @@ namespace Interfaces
         /// Создание нового клиента банка
         /// </summary>
         /// <param name="clientStatus"> Статус клиента банка </param>        
-        BankCustomer CreateNewBankCustomer(ClientStatus clientStatus);
+        BankCustomer CreateNewBankCustomer(Status clientStatus);
         
         /// <summary>
         /// Обновить данные клиента банка

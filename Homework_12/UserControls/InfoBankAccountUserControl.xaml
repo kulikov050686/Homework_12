@@ -24,7 +24,7 @@
                 </Style>
             </Grid.Resources>
 
-            <ListBox ItemsSource="{Binding BankAccounts}">
+            <ListBox>
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -55,11 +55,11 @@
 
                             <TextBlock Grid.Row="0"
                                        Grid.Column="1"
-                                       Text="{Binding Amount}"/>
+                                       Text=""/>
 
                             <TextBlock Grid.Row="1"
                                        Grid.Column="1"
-                                       Text="{Binding InterestRate}"/>
+                                       Text=""/>
                         </Grid>                        
                     </DataTemplate>
                 </ListBox.ItemTemplate>

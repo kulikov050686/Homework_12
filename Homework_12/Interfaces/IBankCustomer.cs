@@ -17,7 +17,7 @@ namespace Interfaces
         /// <summary>
         /// Статус
         /// </summary>
-        ClientStatus ClientStatus { get; set; }
+        Status ClientStatus { get; set; }
 
         /// <summary>
         /// Надёжность
@@ -40,9 +40,14 @@ namespace Interfaces
         string Description { get; set; }
 
         /// <summary>
-        /// Лист счетов
+        /// Лист депозитарных счетов
         /// </summary>
-        IList<BankAccount> BankAccounts { get; set; }
+        IList<DepositoryAccount> DepositoryAccounts { get; set; }
+
+        /// <summary>
+        /// Лист кредитных счетов
+        /// </summary>
+        IList<CreditAccount> CreditAccounts { get; set; }
 
         /// <summary>
         /// Метод сравнения
@@ -54,19 +59,40 @@ namespace Interfaces
 
             bool key = true;
 
-            if((BankAccounts == null && obj.BankAccounts != null) ||
-               (BankAccounts != null && obj.BankAccounts == null))
+            if((DepositoryAccounts == null && obj.DepositoryAccounts != null) ||
+               (DepositoryAccounts != null && obj.DepositoryAccounts == null))
             {
                 key = false;
             }
 
-            if((BankAccounts != null) && (obj.BankAccounts != null) && key)
+            if((DepositoryAccounts != null) && (obj.DepositoryAccounts != null) && key)
             {
-                if(BankAccounts.Count == obj.BankAccounts.Count)
+                if(DepositoryAccounts.Count == obj.DepositoryAccounts.Count)
                 {
-                    for(int i = 0; i < BankAccounts.Count && key; i++)
+                    for(int i = 0; i < DepositoryAccounts.Count && key; i++)
                     {
-                        key = key && BankAccounts[i].Equals(obj.BankAccounts[i]);
+                        key = key && DepositoryAccounts[i].Equals(obj.DepositoryAccounts[i]);
+                    }
+                }
+                else
+                {
+                    key = false;
+                }
+            }
+
+            if((CreditAccounts == null && obj.CreditAccounts != null) ||
+               (CreditAccounts != null && obj.CreditAccounts == null))
+            {
+                key = false;
+            }
+
+            if ((CreditAccounts != null) && (obj.CreditAccounts != null) && key)
+            {
+                if (CreditAccounts.Count == obj.CreditAccounts.Count)
+                {
+                    for (int i = 0; i < CreditAccounts.Count && key; i++)
+                    {
+                        key = key && CreditAccounts[i].Equals(obj.CreditAccounts[i]);
                     }
                 }
                 else

@@ -15,9 +15,9 @@ namespace Models
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="bankCustomer"> Клиент банка </param>
+        /// <param name="id"> Идентификатор </param>
         /// <param name="depositStatus"> Статус депозита </param>
-        public DepositoryAccount(DepositStatus depositStatus) : base(AccountStatus.DEPOSITORY)
+        public DepositoryAccount(int id, DepositStatus depositStatus) : base(id, AccountStatus.DEPOSITORY)
         {
             DepositStatus = depositStatus;
         }

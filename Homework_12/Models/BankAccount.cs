@@ -27,26 +27,20 @@ namespace Models
         /// <summary>
         /// Статус счёта
         /// </summary>
-        public AccountStatus AccountStatus { get; set; }
-
-        /// <summary>
-        /// Конструктор
-        /// </summary>        
-        /// <param name="accountStatus"> Статус счёта </param>
-        public BankAccount(AccountStatus accountStatus)
-        {
-            AccountStatus = accountStatus;
-        }
+        public AccountStatus AccountStatus { get; set; }               
 
         /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="id"> Идентификатор </param>        
         /// <param name="accountStatus"> Статус счёта </param>
-        public BankAccount(int id, AccountStatus accountStatus) : this(accountStatus)
+        public BankAccount(int id, AccountStatus accountStatus)
         {
-            if (id < 0) throw new ArgumentException("Невозможный идентификатор!!!");
+            if (id < 0) 
+                throw new ArgumentException("Невозможный идентификатор!!!");
+
             Id = id;
+            AccountStatus = accountStatus;
         }
     }
 }

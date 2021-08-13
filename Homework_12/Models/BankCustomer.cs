@@ -23,7 +23,7 @@ namespace Models
         /// <summary>
         /// Статус
         /// </summary>
-        public ClientStatus ClientStatus { get; set; }
+        public Status ClientStatus { get; set; }
 
         /// <summary>
         /// Надёжность
@@ -46,32 +46,14 @@ namespace Models
         public string Description { get; set; }
 
         /// <summary>
-        /// Список счетов
+        /// Лист депозитарных счетов
         /// </summary>
-        public IList<BankAccount> BankAccounts { get; set; } = new List<BankAccount>();
+        public IList<DepositoryAccount> DepositoryAccounts { get; set; } = new List<DepositoryAccount>();
 
         /// <summary>
-        /// Конструктор
+        /// Лист кредитных счетов
         /// </summary>
-        /// <param name="passport"> Паспорт </param>
-        /// <param name="clientStatus"> Статус </param>
-        /// <param name="phoneNumber"> Номер телефона </param>
-        /// <param name="reliability"> Надёжность </param>
-        /// <param name="email"> Электронная почта </param>
-        public BankCustomer(IPassport passport,
-                            ClientStatus clientStatus,
-                            string phoneNumber = "",
-                            byte reliability = 0,
-                            string email = "")
-        {
-            if (passport is null) throw new ArgumentNullException("Паспорт не может быть null!!!");
-            Passport = passport;
-            ClientStatus = clientStatus;
-
-            PhoneNumber = phoneNumber;
-            Reliability = reliability;
-            Email = email;
-        }
+        public IList<CreditAccount> CreditAccounts { get; set; } = new List<CreditAccount>();             
 
         /// <summary>
         /// Конструктор
@@ -84,17 +66,23 @@ namespace Models
         /// <param name="email"> Электронная почта </param>
         public BankCustomer(int id,
                             IPassport passport,
-                            ClientStatus clientStatus,
+                            Status clientStatus,
                             string phoneNumber = "",
                             byte reliability = 0,
-                            string email = "") : this(passport,
-                                                 clientStatus,
-                                                 phoneNumber,
-                                                 reliability,
-                                                 email)
+                            string email = "")
         {
-            if(id < 0) throw new ArgumentException("Невозможный идентификатор!!!");
+            if(id < 0) 
+                throw new ArgumentException("Невозможный идентификатор!!!");
+            if (passport is null)
+                throw new ArgumentNullException("Паспорт не может быть null!!!");
+
             Id = id;
+            Passport = passport;
+            ClientStatus = clientStatus;
+
+            PhoneNumber = phoneNumber;
+            Reliability = reliability;
+            Email = email;
         }
     }
 }

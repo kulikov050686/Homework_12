@@ -68,10 +68,14 @@ namespace Models
                        string housing = "",
                        string district = "")
         {
-            if (string.IsNullOrWhiteSpace(region)) throw new ArgumentException("Регион или область не может быть пустым!!!");
-            if (string.IsNullOrWhiteSpace(city)) throw new ArgumentException("Город не может быть пустым!!!");
-            if (string.IsNullOrWhiteSpace(street)) throw new ArgumentException("Улица не может быть пустой!!!");
-            if (houseNumber <= 0) throw new ArgumentException("Номер дома не верен!!!");
+            if (string.IsNullOrWhiteSpace(region)) 
+                throw new ArgumentException("Регион или область не может быть пустым!!!");
+            if (string.IsNullOrWhiteSpace(city)) 
+                throw new ArgumentException("Город не может быть пустым!!!");
+            if (string.IsNullOrWhiteSpace(street)) 
+                throw new ArgumentException("Улица не может быть пустой!!!");
+            if (houseNumber <= 0) 
+                throw new ArgumentException("Номер дома не верен!!!");
 
             RegistrationDate = registrationDate;
             Region = region;
