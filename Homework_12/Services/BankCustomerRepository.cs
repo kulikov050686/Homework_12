@@ -1,4 +1,5 @@
 ﻿using Models;
+using System.Linq;
 
 namespace Services
 {
@@ -11,6 +12,15 @@ namespace Services
         /// Констрктор по умолчанию
         /// </summary>
         public BankCustomerRepository() : base(TestData.BankCustomers) { }
+
+        /// <summary>
+        /// Поиск клиента банка по идентификатору
+        /// </summary>
+        /// <param name="id"> Идентификатор </param>        
+        public BankCustomer Get(int id)
+        {
+            return GetAll().FirstOrDefault(d => d.Id == id);
+        }
 
         /// <summary>
         /// Обновление данных клиента банка

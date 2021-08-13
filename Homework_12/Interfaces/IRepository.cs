@@ -29,12 +29,12 @@ namespace Interfaces
         /// <summary>
         /// Получить сущность по идентификатору
         /// </summary>
-        /// <param name="id"> Идентификатор сущности </param>        
+        /// <param name="id"> Идентификатор сущности </param>
         T Get(int id) => GetAll().FirstOrDefault(item => item.Id == id);
 
         /// <summary>
         /// Получить все сущности
-        /// </summary>        
+        /// </summary>
         IEnumerable<T> GetAll();
     }
 }

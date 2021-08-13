@@ -7,7 +7,7 @@ namespace Services
     /// <summary>
     /// Базовый класс репозиторий 
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T"> Тип хранимых сущностей </typeparam>
     abstract public class RepositoryInMemory<T> : IRepository<T> where T : IEntity
     {
         #region Закрытые поля
@@ -64,17 +64,21 @@ namespace Services
         /// <param name="item"> Новые данные </param>
         public void Update(int id, T item)
         {
-            if (item is null) throw new ArgumentNullException(nameof(item));
-            if (id <= 0) throw new ArgumentOutOfRangeException(nameof(id), id, "Идентификатор неможет быть меньше 1");
-            if (_items.Contains(item)) return;
+            if (item is null) 
+                throw new ArgumentNullException(nameof(item));
+            if (id <= 0) 
+                throw new ArgumentOutOfRangeException(nameof(id), id, "Идентификатор неможет быть меньше 1");
+            if (_items.Contains(item)) 
+                return;
 
             var db_item = ((IRepository<T>)this).Get(id);
 
-            if (db_item is null) throw new InvalidOperationException("Редактируемый элемент не найден в репозитории");
+            if (db_item is null) 
+                throw new InvalidOperationException("Редактируемый элемент не найден в репозитории");
 
             Update(item, db_item);
         }
-
+        
         /// <summary>
         /// Обновление данных элемента
         /// </summary>
