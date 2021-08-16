@@ -17,7 +17,7 @@
             <ColumnDefinition Width="200" MinWidth="200"/>
             <ColumnDefinition Width="200" MinWidth="200"/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition/>            
         </Grid.ColumnDefinitions>
         
         <!--Отдел банка-->
@@ -34,7 +34,7 @@
                 </ListBox.ItemContainerStyle>
                 
                 <ListBox.ItemTemplate>
-                    <DataTemplate DataType="m:Department">
+                    <DataTemplate>
                         <DockPanel>
                             <TextBlock DockPanel.Dock="Right" 
                                        Text="{Binding BankCustomers.Count, StringFormat=({0})}"/>
@@ -87,9 +87,31 @@
         <!--Информация о выбранном клиенте банка-->
         <uc:InfoBankCustomerUserControl Grid.Column="2"
                                         DataContext="{Binding SelectedBankCustomer}"/>
-
-        <uc:InfoBankAccountUserControl Grid.Column="3"/>
         
+        <!--Депозитарные счета-->
+        <GroupBox Grid.Column="3" 
+                  Header="Депозитарные счета">
+            <ListBox ItemsSource="{Binding SelectedBankCustomer.DepositoryAccounts}"
+                     SelectedItem="{Binding SelectedDepositoryAccount}"
+                     SelectedIndex="0">
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Сумма "/>
+                                <TextBlock Text="{Binding Amount}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Процентная ставка "/>
+                                <TextBlock Text="{Binding InterestRate}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </GroupBox>
+
         <GridSplitter Grid.Column="0" 
                       HorizontalAlignment="Right" 
                       Width="3"/>

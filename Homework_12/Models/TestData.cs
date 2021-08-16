@@ -22,8 +22,8 @@ namespace Models
         /// <summary>
         /// Депозитарные счета клиентов банка
         /// </summary>
-        public static DepositoryAccount[] DepositoryAccount = CreateDepositoryAccount(BankCustomers);               
-        
+        public static DepositoryAccount[] DepositoryAccount = CreateDepositoryAccount(BankCustomers);
+
         /// <summary>
         /// Создание департаментов банка
         /// </summary>        
@@ -47,7 +47,7 @@ namespace Models
         /// <summary>
         /// Заполнение клиентами банка депортаментов
         /// </summary>
-        /// <param name="departments"> Департаменты </param>        
+        /// <param name="departments"> Департаменты </param>
         private static BankCustomer[] CreateBankCustomers(Department[] departments)
         {
             var index = 1;
@@ -78,15 +78,27 @@ namespace Models
         private static DepositoryAccount[] CreateDepositoryAccount(BankCustomer[] bankCustomers)
         {
             var index = 1;
+            bool key = false;
+            DepositoryAccount bankAccount;
 
             foreach (var item in bankCustomers)
             {
-                for(int i = 0; i < 3; i++)
+                for(int i = 0; i < 4; i++)
                 {
-                    var bankAccount = new DepositoryAccount(index, DepositStatus.WITHOUTCAPITALIZATION);
-
-                    bankAccount.Amount = 1000;
-                    bankAccount.InterestRate = 10;
+                    if (key)
+                    {
+                        bankAccount = new DepositoryAccount(index, DepositStatus.WITHOUTCAPITALIZATION);
+                        bankAccount.Amount = 1000;
+                        bankAccount.InterestRate = InterestRate(item.ClientStatus);
+                        key = !key;
+                    }
+                    else
+                    {
+                        bankAccount = new DepositoryAccount(index, DepositStatus.WITHCAPITALIZATION);
+                        bankAccount.Amount = 2000;
+                        bankAccount.InterestRate = InterestRate(item.ClientStatus);
+                        key = !key;
+                    }
 
                     item.DepositoryAccounts.Add(bankAccount);
                     index++;
@@ -94,6 +106,20 @@ namespace Models
             }
 
             return bankCustomers.SelectMany(d => d.DepositoryAccounts).ToArray();
+        }
+
+        /// <summary>
+        /// Процентная ставка депозитарного счёта
+        /// </summary>
+        /// <param name="status"> Статус </param>        
+        private static double InterestRate(Status status)
+        {
+            if (status == Status.VIP)
+                return 10;
+            if (status == Status.JURIDICAL)
+                return 8;
+            
+            return 12;
         }
     }
 }

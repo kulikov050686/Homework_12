@@ -31,7 +31,7 @@ namespace Services
         }
 
         /// <summary>
-        /// Добавить новый депозотарный счёт клиенту банка
+        /// Добавить новый депозотарный счёт
         /// </summary>
         /// <param name="depositoryAccount"> Депозитарный счёт </param>
         /// <param name="bankCustomer"> Клиент банка </param>        
@@ -49,6 +49,30 @@ namespace Services
             _depositoryAccounts.Add(depositoryAccount);
 
             return true;
+        }
+
+        /// <summary>
+        /// Удалить депозотарный счёт
+        /// </summary>
+        /// <param name="depositoryAccount"> Депозитарный счёт </param>
+        /// <param name="bankCustomer"> Клиент банка </param>        
+        public bool DeleteDepositoryAccount(DepositoryAccount depositoryAccount, BankCustomer bankCustomer)
+        {
+            if (bankCustomer is null)
+                throw new ArgumentNullException(nameof(bankCustomer), "Клиент банка не может быть null!!!");
+            if (depositoryAccount is null)
+                throw new ArgumentNullException(nameof(depositoryAccount), "Счёт не может быть null!!!");
+
+            var selectedBankCustomer = _bankCustomers.Get(bankCustomer.Id);
+            if (selectedBankCustomer is null) return false;
+
+            if(bankCustomer.DepositoryAccounts.Remove(depositoryAccount))
+            {
+                _depositoryAccounts.Remove(depositoryAccount);
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>

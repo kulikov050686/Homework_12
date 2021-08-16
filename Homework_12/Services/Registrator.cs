@@ -16,9 +16,11 @@ namespace Services
         public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
             services.AddSingleton<BankCustomerRepository>();
-            services.AddSingleton<DepartmentRepository>();            
+            services.AddSingleton<DepartmentRepository>();
+            services.AddSingleton<DepositoryAccountRepository>();
 
-            services.AddSingleton<BankCustomersManager>();           
+            services.AddSingleton<BankCustomersManager>();
+            services.AddSingleton<DepositoryAccountsManager>();
             
             services.AddTransient<IBankCustomerDialogService, BankCustomerDialog>();
 

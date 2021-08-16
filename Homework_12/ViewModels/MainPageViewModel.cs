@@ -12,8 +12,10 @@ namespace ViewModels
         #region Закрытые поля
 
         private readonly BankCustomersManager _bankCustomersManager;
+        private readonly DepositoryAccountsManager _depositoryAccountsManager;
         private Department _selectedDepartment;
         private BankCustomer _selectedBankCustomer;
+        private DepositoryAccount _selectedDepositoryAccount;
         private IBankCustomerDialogService _bankCustomerDialog;
 
         #endregion
@@ -31,6 +33,11 @@ namespace ViewModels
         public IEnumerable<Department> Departments => _bankCustomersManager.Departments;
 
         /// <summary>
+        /// Список всех депозитарных счетов
+        /// </summary>
+        public IEnumerable<DepositoryAccount> DepositoryAccounts => _depositoryAccountsManager.DepositoryAccounts;
+
+        /// <summary>
         /// Выбранный департамент
         /// </summary>
         public Department SelectedDepartment
@@ -46,6 +53,15 @@ namespace ViewModels
         {
             get => _selectedBankCustomer;
             set => Set(ref _selectedBankCustomer, value);
+        }
+
+        /// <summary>
+        /// Выбранный дпозитарный счёт
+        /// </summary>
+        public DepositoryAccount SelectedDepositoryAccount
+        {
+            get => _selectedDepositoryAccount;
+            set => Set(ref _selectedDepositoryAccount, value);
         }
 
         #endregion
@@ -114,11 +130,13 @@ namespace ViewModels
 
         #region Конструктор
 
-        public MainPageViewModel(BankCustomersManager bankCustomersManager,
+        public MainPageViewModel(BankCustomersManager bankCustomersManager, 
+                                 DepositoryAccountsManager depositoryAccountsManager, 
                                  IBankCustomerDialogService bankCustomerDialog)
         {
             _bankCustomersManager = bankCustomersManager;
             _bankCustomerDialog = bankCustomerDialog;
+            _depositoryAccountsManager = depositoryAccountsManager;
         }
 
         #endregion
