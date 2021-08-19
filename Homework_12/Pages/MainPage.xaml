@@ -3,10 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Pages"
       xmlns:m="clr-namespace:Models"
-      xmlns:cmd="clr-namespace:Commands"
-      xmlns:uc="clr-namespace:UserControls"
       mc:Ignorable="d" 
       d:DesignHeight="450" 
       d:DesignWidth="800"  
@@ -84,10 +81,106 @@
             </ListBox>
         </GroupBox>
         
-        <!--Информация о выбранном клиенте банка-->
-        <uc:InfoBankCustomerUserControl Grid.Column="2"
-                                        DataContext="{Binding SelectedBankCustomer}"/>
-        
+        <!--Информация о выбранном клиенте банка-->        
+        <GroupBox Grid.Column="2" 
+                  Header="Информация"
+                  DataContext="{Binding SelectedBankCustomer}">
+            <Grid>
+
+                <Grid.Resources>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <Trigger Property="Grid.Column"  Value="0">
+                                <Setter Property="HorizontalAlignment" Value="Right"/>
+                                <Setter Property="Margin" Value="0 0 2 0"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Trigger>
+
+                            <Trigger Property="Grid.Column"  Value="1">
+                                <Setter Property="Margin" Value="2 0 0 0"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Resources>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!--#region Название полей-->
+
+                <TextBlock Grid.Row="0" 
+                       Grid.Column="0"
+                       Text="Имя"/>
+
+                <TextBlock Grid.Row="1" 
+                       Grid.Column="0"
+                       Text="Фамилия"/>
+
+                <TextBlock Grid.Row="2" 
+                       Grid.Column="0"
+                       Text="Отчество"/>
+
+                <TextBlock Grid.Row="3" 
+                       Grid.Column="0"
+                       Text="Дата рождения"/>
+
+                <TextBlock Grid.Row="4" 
+                       Grid.Column="0"
+                       Text="Пол"/>
+
+                <TextBlock Grid.Row="5" 
+                       Grid.Column="0"
+                       Text="Место рождения"/>
+
+                <!--#endregion-->
+
+                <!--#region Отображение информации-->
+
+                <TextBlock Grid.Row="0" 
+                       Grid.Column="1"
+                       Text="{Binding Passport.Holder.Name}"/>
+
+                <TextBlock Grid.Row="1" 
+                       Grid.Column="1"
+                       Text="{Binding Passport.Holder.Surname}"/>
+
+                <TextBlock Grid.Row="2"
+                       Grid.Column="1"
+                       Text="{Binding Passport.Holder.Patronymic}"/>
+
+                <TextBlock Grid.Row="3"
+                       Grid.Column="1"
+                       Text="{Binding Passport.Holder.Birthday, StringFormat=dd.MM.yyyy}"/>
+
+                <TextBlock Grid.Row="4"
+                       Grid.Column="1"
+                       Text="{Binding Passport.Holder.Gender}"/>
+
+                <TextBlock Grid.Row="5"
+                       Grid.Column="1"
+                       Text="{Binding Passport.Holder.PlaceOfBirth}"/>
+
+                <!--#endregion-->
+
+            </Grid>
+        </GroupBox>
+
         <!--Депозитарные счета-->
         <GroupBox Grid.Column="3" 
                   Header="Депозитарные счета">
@@ -118,6 +211,10 @@
 
         <GridSplitter Grid.Column="1" 
                       HorizontalAlignment="Right" 
+                      Width="3"/>
+
+        <GridSplitter Grid.Column="2"
+                      HorizontalAlignment="Right"
                       Width="3"/>
     </Grid>
 </Page>
