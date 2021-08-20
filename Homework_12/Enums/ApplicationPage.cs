@@ -8,6 +8,11 @@
         /// <summary>
         /// Главная страница
         /// </summary>
-        MAINPAGE = 0
+        MAINPAGE = 0,
+
+        /// <summary>
+        /// Страница с меню
+        /// </summary>
+        MENUPAGE = 1
     }
 }

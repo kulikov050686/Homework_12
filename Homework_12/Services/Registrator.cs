@@ -36,6 +36,7 @@ namespace Services
             services.AddSingleton<MainWindowViewModel>();
             
             services.AddTransient<MainPageViewModel>();
+            services.AddTransient<MenuPageViewModel>();
 
             return services;
         }

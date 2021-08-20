@@ -2,11 +2,16 @@
 using Interfaces;
 using Models;
 using Services;
+using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Windows.Input;
 
 namespace ViewModels
 {
+    /// <summary>
+    /// Модель-представление главной страницы
+    /// </summary>
     public class MainPageViewModel : BaseClassViewModelINPC
     {
         #region Закрытые поля
@@ -17,20 +22,21 @@ namespace ViewModels
         private BankCustomer _selectedBankCustomer;
         private DepositoryAccount _selectedDepositoryAccount;
         private IBankCustomerDialogService _bankCustomerDialog;
+        private Timer _timer;
 
         #endregion
 
         #region Открытые свойства
+        
+        /// <summary>
+        /// Список всех департаментов банка
+        /// </summary>
+        public IEnumerable<Department> Departments => _bankCustomersManager.Departments;
 
         /// <summary>
         /// Список всех клиентов банка
         /// </summary>
         public IEnumerable<BankCustomer> BankCustomers => _bankCustomersManager.BankCustomers;
-
-        /// <summary>
-        /// Список всех департаментов банка
-        /// </summary>
-        public IEnumerable<Department> Departments => _bankCustomersManager.Departments;
 
         /// <summary>
         /// Список всех депозитарных счетов
@@ -77,11 +83,7 @@ namespace ViewModels
                 var bankCustomer = _bankCustomerDialog.CreateNewBankCustomer(department.StatusDepartment);
 
                 if (bankCustomer is null) return;
-
-                if(_bankCustomersManager.CreateNewBankCustomer(bankCustomer, department))
-                {
-                    OnPropertyChanged(nameof(BankCustomers));                    
-                }
+                _bankCustomersManager.CreateNewBankCustomer(bankCustomer, department);                
             }, (obj) => obj is Department);
         }
 
@@ -98,11 +100,7 @@ namespace ViewModels
                 var bankCustomer = SelectedBankCustomer;
 
                 if (department is null || bankCustomer is null) return;
-
-                if(_bankCustomersManager.DeleteBankCustomer(bankCustomer, department))
-                {
-                    OnPropertyChanged(nameof(BankCustomers));
-                }
+                _bankCustomersManager.DeleteBankCustomer(bankCustomer, department);                
             }, (obj) => obj is BankCustomer);
         }
 
@@ -121,8 +119,7 @@ namespace ViewModels
                 var tempBankCustomer = _bankCustomerDialog.UpdateDataBankCustomer(bankCustomer);
                 if (tempBankCustomer is null) return;
 
-                _bankCustomersManager.Update(tempBankCustomer);
-                OnPropertyChanged(nameof(BankCustomers));
+                _bankCustomersManager.Update(tempBankCustomer);                
             }, (obj) => obj is BankCustomer);
         }
 
@@ -137,8 +134,16 @@ namespace ViewModels
             _bankCustomersManager = bankCustomersManager;
             _bankCustomerDialog = bankCustomerDialog;
             _depositoryAccountsManager = depositoryAccountsManager;
+
+            TimerCallback tm = new TimerCallback(UpdatingData);
+            _timer = new Timer(tm, 0, 0, 2000);
         }
 
         #endregion
+
+        private void UpdatingData(object state)
+        {
+            
+        }
     }
 }

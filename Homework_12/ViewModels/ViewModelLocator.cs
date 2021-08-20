@@ -17,5 +17,10 @@ namespace ViewModels
         /// Модель-представление главной страницы
         /// </summary>
         public MainPageViewModel MainPageVM => App.Host.Services.GetRequiredService<MainPageViewModel>();
+
+        /// <summary>
+        /// Молель-представление страницы с меню
+        /// </summary>
+        public MenuPageViewModel MenuPageVM => App.Host.Services.GetRequiredService<MenuPageViewModel>();
     }
 }

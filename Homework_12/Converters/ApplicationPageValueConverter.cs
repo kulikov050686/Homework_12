@@ -16,7 +16,9 @@ namespace Converters
             {
                 case ApplicationPage.MAINPAGE:
                     return new MainPage();
-                default:                    
+                case ApplicationPage.MENUPAGE:
+                    return new MenuPage();
+                default:
                     return null;
             }
         }

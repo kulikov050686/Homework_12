@@ -7,11 +7,12 @@
         mc:Ignorable="d"        
         DataContext="{Binding MainWindowVM, Source={StaticResource Locator}}"
         Title="{Binding Title}" 
-        Height="850" 
+        Height="300" 
         Width="800">
 
-    <Grid>
-        <Frame Content="{Binding CurrentPage, Converter={c:ApplicationPageValueConverter}}"/>
-    </Grid>   
+    <StackPanel Orientation="Vertical">        
+        <Frame Content="{Binding MenuPage, Converter={c:ApplicationPageValueConverter}}"/>
+        <Frame Content="{Binding MainPage, Converter={c:ApplicationPageValueConverter}}"/>
+    </StackPanel>   
     
 </Window>

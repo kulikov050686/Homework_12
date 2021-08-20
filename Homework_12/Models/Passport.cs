@@ -54,10 +54,14 @@ namespace Models
                         DivisionCode divisionCode,
                         IPerson holder)
         {
-            if(holder is null) throw new ArgumentException("Владелец не может быть null!!!");
-            if (divisionCode is null) throw new ArgumentException("Код подразделения не может быть null!!!");
-            if(string.IsNullOrWhiteSpace(placeOfIssue)) throw new ArgumentException("Место выдачи не может быть null!!!");
-            if(series <= 0 || number <= 0) throw new ArgumentException("Номера не могут быть нулями или отрицательными!!!");
+            if(holder is null) 
+                throw new ArgumentException("Владелец не может быть null!!!");
+            if (divisionCode is null) 
+                throw new ArgumentException("Код подразделения не может быть null!!!");
+            if(string.IsNullOrWhiteSpace(placeOfIssue)) 
+                throw new ArgumentException("Место выдачи не может быть null!!!");
+            if(series <= 0 || number <= 0) 
+                throw new ArgumentException("Номера не могут быть нулями или отрицательными!!!");
             
             Series = series;
             Number = number;

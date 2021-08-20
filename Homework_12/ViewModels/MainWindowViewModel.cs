@@ -1,4 +1,5 @@
 ﻿using Enums;
+using System;
 
 namespace ViewModels
 {
@@ -15,8 +16,13 @@ namespace ViewModels
         /// <summary>
         /// Страница отображаемая на главном окне
         /// </summary>
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.MAINPAGE;
+        public ApplicationPage MainPage { get; set; } = ApplicationPage.MAINPAGE;
 
+        /// <summary>
+        /// Страница с меню отображаемая на главном окне 
+        /// </summary>
+        public ApplicationPage MenuPage { get; set; } = ApplicationPage.MENUPAGE;
+        
         #region Конструктор
 
         public MainWindowViewModel()
