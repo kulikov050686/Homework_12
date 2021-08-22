@@ -117,7 +117,7 @@ namespace ViewModels
                 if (bankCustomer is null) return;
 
                 var tempBankCustomer = _bankCustomerDialog.UpdateDataBankCustomer(bankCustomer);
-                if (tempBankCustomer is null) return;
+                if (tempBankCustomer is null) return;                
 
                 _bankCustomersManager.Update(tempBankCustomer);                
             }, (obj) => obj is BankCustomer);
@@ -141,9 +141,13 @@ namespace ViewModels
 
         #endregion
 
+        #region Закрытые методы
+
         private void UpdatingData(object state)
         {
             
         }
+
+        #endregion
     }
 }

@@ -10,10 +10,20 @@
     <Grid>
         <Menu>
             <MenuItem Header="Файл">
-                <MenuItem Header="Сохранить"/>
+                <MenuItem Header="Сохранить" 
+                          Command="{Binding SaveToFile}"/>
                 <MenuItem Header="Открыть"/>
                 <MenuItem Header="Выход"/>
             </MenuItem>
+
+            <MenuItem Header="Правка">
+                <MenuItem Header="Создать клиента банка" 
+                          Command="{Binding CreateNewBankCustomer}"/>
+                <MenuItem Header="Удалить клиента банка"
+                          Command="{Binding DeleteBankCustomer}"/>
+                <MenuItem Header="Редактировать клиента банка" 
+                          Command="{Binding EditDataBankCustomer}"/>
+            </MenuItem>            
         </Menu>
     </Grid>
 </Page>
