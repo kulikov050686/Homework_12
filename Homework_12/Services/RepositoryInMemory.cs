@@ -39,7 +39,8 @@ namespace Services
         /// <param name="item"> Добавляемый элемент </param>
         public void Add(T item)
         {
-            if (item is null) throw new ArgumentNullException(nameof(item));
+            if (item is null) 
+                throw new ArgumentNullException(nameof(item));
             if (_items.Contains(item)) return;
 
             item.Id = ++_lastId;

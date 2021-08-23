@@ -23,6 +23,7 @@ namespace Services
             services.AddSingleton<DepositoryAccountsManager>();
             
             services.AddTransient<IBankCustomerDialogService, BankCustomerDialog>();
+            services.AddTransient<IDepositoryAccountDialogService, DepositoryAccountDialog>();
 
             return services;
         }
@@ -34,8 +35,8 @@ namespace Services
         public static IServiceCollection RegisterViewModels(this IServiceCollection services)
         {
             services.AddSingleton<MainWindowViewModel>();
-            
             services.AddSingleton<MainPageViewModel>();
+
             services.AddTransient<MenuPageViewModel>();
 
             return services;

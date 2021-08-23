@@ -46,7 +46,7 @@ namespace Services
         /// Создать клиента банка
         /// </summary>
         /// <param name="dialog"> Окно диалога </param>
-        /// <param name="clientStatus"> Статус клиента </param>        
+        /// <param name="clientStatus"> Статус клиента </param>
         private BankCustomer CreateBankCustomer(AddBankCustomersWindow dialog,
                                                 Status clientStatus)
         {

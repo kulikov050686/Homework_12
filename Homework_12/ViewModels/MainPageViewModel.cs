@@ -23,6 +23,7 @@ namespace ViewModels
         private BankCustomer _selectedBankCustomer;
         private DepositoryAccount _selectedDepositoryAccount;
         private IBankCustomerDialogService _bankCustomerDialog;
+        private IDepositoryAccountDialogService _depositoryAccountDialog;
         private int _k = 1;
         private Timer _timer;
 
@@ -127,15 +128,35 @@ namespace ViewModels
 
         #endregion
 
+        #region Команда создание нового депозитарного счёта
+
+        private ICommand _createNewDepositoryAccount;
+        public ICommand CreateNewDepositoryAccount
+        {
+            get => _createNewDepositoryAccount ??= new RelayCommand((obj) =>
+            {
+                var bankCustomer = (BankCustomer)obj;
+                var depositoryAccount = _depositoryAccountDialog.CreateNewDepositoryAccount();
+
+                if (depositoryAccount is null) return;
+                _depositoryAccountsManager.CreateNewDepositoryAccount(depositoryAccount, bankCustomer);
+
+            }, (obj) => obj is BankCustomer);
+        }
+
+        #endregion
+
         #region Конструктор
 
         public MainPageViewModel(BankCustomersManager bankCustomersManager, 
                                  DepositoryAccountsManager depositoryAccountsManager, 
-                                 IBankCustomerDialogService bankCustomerDialog)
+                                 IBankCustomerDialogService bankCustomerDialog,
+                                 IDepositoryAccountDialogService depositoryAccountDialogService)
         {
             _bankCustomersManager = bankCustomersManager;
             _bankCustomerDialog = bankCustomerDialog;
             _depositoryAccountsManager = depositoryAccountsManager;
+            _depositoryAccountDialog = depositoryAccountDialogService;
 
             TimerCallback tm = new TimerCallback(UpdatingData);
             _timer = new Timer(tm, 0, 0, 2000);

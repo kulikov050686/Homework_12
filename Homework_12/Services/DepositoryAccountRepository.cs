@@ -1,4 +1,5 @@
 ﻿using Models;
+using System.Linq;
 
 namespace Services
 {
@@ -8,6 +9,15 @@ namespace Services
         /// Конструктор по умолчанию
         /// </summary>
         public DepositoryAccountRepository() : base(TestData.DepositoryAccount) { }
+
+        /// <summary>
+        /// Поиск депозитарного счёта по идентификатору
+        /// </summary>
+        /// <param name="id"> Идентификатор </param>        
+        public DepositoryAccount Get(int id)
+        {
+            return GetAll().FirstOrDefault(d => d.Id == id);
+        }
 
         /// <summary>
         /// Обновление данных 

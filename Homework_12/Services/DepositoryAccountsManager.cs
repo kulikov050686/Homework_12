@@ -35,7 +35,8 @@ namespace Services
         /// </summary>
         /// <param name="depositoryAccount"> Депозитарный счёт </param>
         /// <param name="bankCustomer"> Клиент банка </param>        
-        public bool CreateNewDepositoryAccount(DepositoryAccount depositoryAccount, BankCustomer bankCustomer)
+        public bool CreateNewDepositoryAccount(DepositoryAccount depositoryAccount, 
+                                               BankCustomer bankCustomer)
         {
             if (bankCustomer is null)
                 throw new ArgumentNullException(nameof(bankCustomer), "Клиент банка не может быть null!!!");
@@ -56,7 +57,8 @@ namespace Services
         /// </summary>
         /// <param name="depositoryAccount"> Депозитарный счёт </param>
         /// <param name="bankCustomer"> Клиент банка </param>        
-        public bool DeleteDepositoryAccount(DepositoryAccount depositoryAccount, BankCustomer bankCustomer)
+        public bool DeleteDepositoryAccount(DepositoryAccount depositoryAccount, 
+                                            BankCustomer bankCustomer)
         {
             if (bankCustomer is null)
                 throw new ArgumentNullException(nameof(bankCustomer), "Клиент банка не может быть null!!!");
@@ -73,6 +75,42 @@ namespace Services
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Объединение депозитарных счетов
+        /// </summary>
+        /// <param name="depositoryAccount1"> Депозитарный счёт 1 </param>
+        /// <param name="depositoryAccount2"> Депозитарный счёт 2 </param>
+        /// <param name="bankCustomer"> Клиент банка </param>        
+        public bool CombiningDepositoryAccounts(DepositoryAccount depositoryAccount1, 
+                                                DepositoryAccount depositoryAccount2, 
+                                                BankCustomer bankCustomer)
+        {
+            if(depositoryAccount1 is null)
+                throw new ArgumentNullException(nameof(depositoryAccount1), "Счёт не может быть null!!!");
+            if(depositoryAccount2 is null)
+                throw new ArgumentNullException(nameof(depositoryAccount2), "Счёт не может быть null!!!");
+            if (bankCustomer is null)
+                throw new ArgumentNullException(nameof(bankCustomer), "Клиент банка не может быть null!!!");
+
+            var selectedBankCustomer = _bankCustomers.Get(bankCustomer.Id);
+            if (selectedBankCustomer is null) return false;            
+
+            var selectedDepositoryAccount1 = _depositoryAccounts.Get(depositoryAccount1.Id);
+            if (selectedDepositoryAccount1 is null) return false;
+
+            var selectedDepositoryAccount2 = _depositoryAccounts.Get(depositoryAccount2.Id);
+            if (selectedDepositoryAccount2 is null) return false;
+
+            if (selectedDepositoryAccount1.Id == selectedDepositoryAccount2.Id) return false;
+
+            selectedDepositoryAccount1.Amount += selectedDepositoryAccount2.Amount;
+
+            _depositoryAccounts.Remove(selectedDepositoryAccount2);
+            Update(selectedDepositoryAccount1);            
+
+            return true;
         }
 
         /// <summary>

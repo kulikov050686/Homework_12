@@ -202,6 +202,14 @@
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
+
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Добавить" 
+                                  Command="{Binding CreateNewDepositoryAccount}" 
+                                  CommandParameter="{Binding SelectedBankCustomer}"/>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
             </ListBox>
         </GroupBox>
 
