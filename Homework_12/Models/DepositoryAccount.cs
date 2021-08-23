@@ -10,7 +10,7 @@ namespace Models
         /// <summary>
         /// Статус депозита
         /// </summary>
-        DepositStatus DepositStatus { get; }
+        public DepositStatus DepositStatus { get; }
 
         /// <summary>
         /// Конструктор

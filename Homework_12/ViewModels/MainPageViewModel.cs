@@ -1,4 +1,5 @@
 ﻿using Commands;
+using Enums;
 using Interfaces;
 using Models;
 using Services;
@@ -22,6 +23,7 @@ namespace ViewModels
         private BankCustomer _selectedBankCustomer;
         private DepositoryAccount _selectedDepositoryAccount;
         private IBankCustomerDialogService _bankCustomerDialog;
+        private int _k = 1;
         private Timer _timer;
 
         #endregion
@@ -145,7 +147,27 @@ namespace ViewModels
 
         private void UpdatingData(object state)
         {
-            
+            foreach (var item in DepositoryAccounts)
+            {
+                if(item.DepositStatus == DepositStatus.WITHOUTCAPITALIZATION && _k == 12)
+                {
+                    item.Amount = item.Amount * (1 + item.InterestRate / 100);                                       
+                }
+
+                if(item.DepositStatus == DepositStatus.WITHCAPITALIZATION)
+                {                  
+                    item.Amount = item.Amount * (1 + item.InterestRate / 1200);
+                }
+            }
+
+            if(_k == 12)
+            {
+                _k = 1;
+            }
+            else
+            {
+                _k++;
+            }
         }
 
         #endregion

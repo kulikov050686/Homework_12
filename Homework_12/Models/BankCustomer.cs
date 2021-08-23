@@ -53,7 +53,7 @@ namespace Models
         /// <summary>
         /// Лист кредитных счетов
         /// </summary>
-        public IList<CreditAccount> CreditAccounts { get; set; } = new List<CreditAccount>();             
+        public IList<CreditAccount> CreditAccounts { get; set; } = new List<CreditAccount>();
 
         /// <summary>
         /// Конструктор
