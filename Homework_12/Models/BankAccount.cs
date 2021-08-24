@@ -27,7 +27,7 @@ namespace Models
         /// <summary>
         /// Статус счёта
         /// </summary>
-        public AccountStatus AccountStatus { get; set; }               
+        public AccountStatus AccountStatus { get; set; }
 
         /// <summary>
         /// Конструктор

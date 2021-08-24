@@ -108,7 +108,7 @@ namespace Services
             selectedDepositoryAccount1.Amount += selectedDepositoryAccount2.Amount;
 
             _depositoryAccounts.Remove(selectedDepositoryAccount2);
-            Update(selectedDepositoryAccount1);            
+            Update(selectedDepositoryAccount1);
 
             return true;
         }

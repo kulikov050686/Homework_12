@@ -207,7 +207,13 @@
                     <ContextMenu>
                         <MenuItem Header="Добавить" 
                                   Command="{Binding CreateNewDepositoryAccount}" 
-                                  CommandParameter="{Binding SelectedBankCustomer}"/>
+                                  CommandParameter="{Binding SelectedBankCustomer}"/>                        
+                        <MenuItem Header="Удалить"
+                                  Command="{Binding DeleteDepositoryAccount}"
+                                  CommandParameter="{Binding SelectedDepositoryAccount}"/>
+                        <MenuItem Header="Редактировать"
+                                  Command="{Binding EditDepositoryAccount}"
+                                  CommandParameter="{Binding SelectedDepositoryAccount}"/>
                     </ContextMenu>
                 </ListBox.ContextMenu>
             </ListBox>

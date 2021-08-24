@@ -146,6 +146,42 @@ namespace ViewModels
 
         #endregion
 
+        #region Команда удаления депозитарного счёта
+
+        private ICommand _deleteDepositoryAccount;
+        public ICommand DeleteDepositoryAccount
+        {
+            get => _deleteDepositoryAccount ??= new RelayCommand((obj) => 
+            {
+                var bankCustomer = SelectedBankCustomer;
+                var depositoryAccount = SelectedDepositoryAccount;
+
+                if (bankCustomer is null || depositoryAccount is null) return;
+                _depositoryAccountsManager.DeleteDepositoryAccount(depositoryAccount, bankCustomer);
+            }, (obj) => obj is DepositoryAccount);
+        }
+
+        #endregion
+
+        #region Команда редактирования депозитарного счёта
+
+        private ICommand _editDepositoryAccount;
+        public ICommand EditDepositoryAccount
+        {
+            get => _editDepositoryAccount ??= new RelayCommand((obj) =>
+            {
+                var depositoryAccount = (DepositoryAccount)obj;
+                if (depositoryAccount is null) return;
+
+                var tempDepositoryAccount = _depositoryAccountDialog.UpdateDataDepositoryAccount(depositoryAccount);
+                if (tempDepositoryAccount is null) return;
+
+                _depositoryAccountsManager.Update(tempDepositoryAccount);
+            }, (obj) => obj is DepositoryAccount);
+        }
+
+        #endregion
+
         #region Конструктор
 
         public MainPageViewModel(BankCustomersManager bankCustomersManager, 

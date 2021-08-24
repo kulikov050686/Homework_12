@@ -11,5 +11,11 @@ namespace Interfaces
         /// Создание нового депозитарного счёта
         /// </summary>             
         DepositoryAccount CreateNewDepositoryAccount();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="depositoryAccount"></param>        
+        DepositoryAccount UpdateDataDepositoryAccount(DepositoryAccount depositoryAccount);
     }
 }
