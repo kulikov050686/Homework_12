@@ -2,6 +2,7 @@
 using Interfaces;
 using Models;
 using System;
+using System.Collections.Generic;
 using Views;
 
 namespace Services
@@ -49,6 +50,23 @@ namespace Services
             tempDepositoryAccount.DepositStatus = dialog.SelectedDepositStatus;
 
             return tempDepositoryAccount;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="depositoryAccounts"></param>        
+        public DepositoryAccount CombiningDepositoryAccounts(IEnumerable<DepositoryAccount> depositoryAccounts)
+        {
+            if(depositoryAccounts is null)
+                throw new ArgumentNullException("Список счетов не может быть null!!!");
+
+            var dialog = new SelectedBankAccountWindow();
+            dialog.BankAccounts = depositoryAccounts;
+
+            if (dialog.ShowDialog() != true) return null;
+
+            return (DepositoryAccount)dialog.SelectedBankAccount;
         }
     }
 }

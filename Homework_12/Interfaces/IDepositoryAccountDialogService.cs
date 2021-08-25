@@ -1,4 +1,5 @@
 ﻿using Models;
+using System.Collections.Generic;
 
 namespace Interfaces
 {
@@ -17,5 +18,11 @@ namespace Interfaces
         /// </summary>
         /// <param name="depositoryAccount"></param>        
         DepositoryAccount UpdateDataDepositoryAccount(DepositoryAccount depositoryAccount);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="depositoryAccounts"></param>        
+        public DepositoryAccount CombiningDepositoryAccounts(IEnumerable<DepositoryAccount> depositoryAccounts);
     }
 }

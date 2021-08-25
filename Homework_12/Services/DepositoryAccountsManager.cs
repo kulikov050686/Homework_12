@@ -106,11 +106,8 @@ namespace Services
             if (selectedDepositoryAccount1.Id == selectedDepositoryAccount2.Id) return false;
 
             selectedDepositoryAccount1.Amount += selectedDepositoryAccount2.Amount;
-
-            _depositoryAccounts.Remove(selectedDepositoryAccount2);
-            Update(selectedDepositoryAccount1);
-
-            return true;
+            
+            return DeleteDepositoryAccount(depositoryAccount2, bankCustomer);
         }
 
         /// <summary>

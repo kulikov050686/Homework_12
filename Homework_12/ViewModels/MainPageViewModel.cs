@@ -182,6 +182,26 @@ namespace ViewModels
 
         #endregion
 
+        #region Команда объединения депозитарных счетов
+
+        private ICommand _combiningDepositoryAccounts;
+        public ICommand CombiningDepositoryAccounts
+        {
+            get => _combiningDepositoryAccounts ??= new RelayCommand((obj) => 
+            {
+                var depositoryAccount = (DepositoryAccount)obj;
+                if (depositoryAccount is null) return;
+
+                var tempDepositoryAccount = _depositoryAccountDialog.CombiningDepositoryAccounts(SelectedBankCustomer.DepositoryAccounts);
+                if (tempDepositoryAccount is null) return;
+
+                if (!_depositoryAccountsManager.CombiningDepositoryAccounts(depositoryAccount, tempDepositoryAccount, SelectedBankCustomer)) return;
+
+            }, (obj) => obj is DepositoryAccount);
+        }
+
+        #endregion
+
         #region Конструктор
 
         public MainPageViewModel(BankCustomersManager bankCustomersManager, 

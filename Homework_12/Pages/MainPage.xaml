@@ -81,7 +81,7 @@
             </ListBox>
         </GroupBox>
         
-        <!--Информация о выбранном клиенте банка-->        
+        <!--Информация о выбранном клиенте банка-->
         <GroupBox Grid.Column="2" 
                   Header="Информация"
                   DataContext="{Binding SelectedBankCustomer}">
@@ -213,6 +213,9 @@
                                   CommandParameter="{Binding SelectedDepositoryAccount}"/>
                         <MenuItem Header="Редактировать"
                                   Command="{Binding EditDepositoryAccount}"
+                                  CommandParameter="{Binding SelectedDepositoryAccount}"/>
+                        <MenuItem Header="Объединить"
+                                  Command="{Binding CombiningDepositoryAccounts}"
                                   CommandParameter="{Binding SelectedDepositoryAccount}"/>
                     </ContextMenu>
                 </ListBox.ContextMenu>
