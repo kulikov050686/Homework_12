@@ -38,6 +38,8 @@ namespace Services
 
             var tempBankCustomer = CreateBankCustomer(dialog, bankCustomer.ClientStatus);
             tempBankCustomer.Id = bankCustomer.Id;
+            tempBankCustomer.DepositoryAccounts = bankCustomer.DepositoryAccounts;
+            tempBankCustomer.CreditAccounts = bankCustomer.CreditAccounts;
 
             return tempBankCustomer;
         }
