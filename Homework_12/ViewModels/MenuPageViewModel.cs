@@ -1,6 +1,5 @@
 ﻿using Commands;
 using Models;
-using Services;
 using System.Collections.Generic;
 using System.Windows.Input;
 
@@ -70,6 +69,45 @@ namespace ViewModels
             {
                 _mainPageViewModel.EditDataBankCustomer.Execute(_mainPageViewModel.SelectedBankCustomer);
             }, (obj) => _mainPageViewModel.SelectedBankCustomer != null);
+        }
+
+        #endregion
+
+        #region Команда создание нового депозитарного счёта
+
+        private ICommand _createNewDepositoryAccount;
+        public ICommand CreateNewDepositoryAccount
+        {
+            get => _createNewDepositoryAccount ??= new RelayCommand((obj) =>
+            {
+                _mainPageViewModel.CreateNewDepositoryAccount.Execute(_mainPageViewModel.SelectedBankCustomer);
+            }, (obj) => _mainPageViewModel.SelectedBankCustomer != null);
+        }
+
+        #endregion
+
+        #region Команда удаления депозитарного счёта
+
+        private ICommand _deleteDepositoryAccount;
+        public ICommand DeleteDepositoryAccount
+        {
+            get => _deleteDepositoryAccount ??= new RelayCommand((obj) =>
+            {
+                _mainPageViewModel.DeleteDepositoryAccount.Execute(_mainPageViewModel.SelectedDepositoryAccount);
+            }, (obj) => _mainPageViewModel.SelectedDepositoryAccount != null);
+        }
+
+        #endregion
+
+        #region Команда редактирования депозитарного счёта
+
+        private ICommand _editDepositoryAccount;
+        public ICommand EditDepositoryAccount
+        {
+            get => _editDepositoryAccount ??= new RelayCommand((obj) =>
+            {
+                _mainPageViewModel.EditDepositoryAccount.Execute(_mainPageViewModel.SelectedDepositoryAccount);
+            }, (obj) => _mainPageViewModel.SelectedDepositoryAccount != null);
         }
 
         #endregion

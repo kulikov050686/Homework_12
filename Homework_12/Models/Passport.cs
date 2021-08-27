@@ -11,12 +11,12 @@ namespace Models
         /// <summary>
         /// Номер
         /// </summary>
-        public long Number { get; }
+        public long? Number { get; }
         
         /// <summary>
         /// Серия
         /// </summary>
-        public long Series { get; }
+        public long? Series { get; }
 
         /// <summary>
         /// Место выдачи
@@ -26,7 +26,7 @@ namespace Models
         /// <summary>
         /// Дата выпуска
         /// </summary>
-        public DateTime DateOfIssue { get; }
+        public DateTime? DateOfIssue { get; }
 
         /// <summary>
         /// Код подразделения
@@ -47,10 +47,10 @@ namespace Models
         /// <param name="dateOfIssue"> Дата выпуска </param>
         /// <param name="divisionCode"> Код подразделения </param>
         /// <param name="holder"> Владелец </param>
-        public Passport(long series,
-                        long number,
+        public Passport(long? series,
+                        long? number,
                         string placeOfIssue,
-                        DateTime dateOfIssue,
+                        DateTime? dateOfIssue,
                         DivisionCode divisionCode,
                         IPerson holder)
         {

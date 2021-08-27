@@ -11,12 +11,12 @@ namespace Interfaces
         /// <summary>
         /// Номер
         /// </summary>
-        long Number { get; }
+        long? Number { get; }
 
         /// <summary>
         /// Серия
         /// </summary>
-        long Series { get; }
+        long? Series { get; }
 
         /// <summary>
         /// Место выдачи
@@ -26,7 +26,7 @@ namespace Interfaces
         /// <summary>
         /// Дата выпуска
         /// </summary>
-        DateTime DateOfIssue { get; }
+        DateTime? DateOfIssue { get; }
 
         /// <summary>
         /// Код подразделения

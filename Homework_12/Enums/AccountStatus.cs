@@ -3,7 +3,7 @@
     /// <summary>
     /// Стаус счёта
     /// </summary>
-    public enum AccountStatus
+    public enum AccountStatus : byte
     {
         /// <summary>
         /// Депозитный счёт

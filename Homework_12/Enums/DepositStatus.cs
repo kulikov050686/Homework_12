@@ -3,7 +3,7 @@
     /// <summary>
     /// Статус Депозита
     /// </summary>
-    public enum DepositStatus
+    public enum DepositStatus : byte
     {
         /// <summary>
         /// Без капитализации

@@ -96,14 +96,14 @@ namespace UserControls
 
         public static readonly DependencyProperty HouseNumberUCProperty =
             DependencyProperty.Register(nameof(HouseNumberUC),
-                                        typeof(int),
+                                        typeof(int?),
                                         typeof(AddressUserControl),
-                                        new PropertyMetadata(default(int)));
+                                        new PropertyMetadata(default(int?)));
 
         [Description("Номер дома")]
-        public int HouseNumberUC
+        public int? HouseNumberUC
         {
-            get => (int)GetValue(HouseNumberUCProperty);
+            get => (int?)GetValue(HouseNumberUCProperty);
             set => SetValue(HouseNumberUCProperty, value);
         }
 
@@ -130,14 +130,14 @@ namespace UserControls
 
         public static readonly DependencyProperty ApartmentNumberUCProperty =
             DependencyProperty.Register(nameof(ApartmentNumberUC),
-                                        typeof(int),
+                                        typeof(int?),
                                         typeof(AddressUserControl),
-                                        new PropertyMetadata(default(int)));
+                                        new PropertyMetadata(default(int?)));
 
         [Description("Номер квартиры")]
-        public int ApartmentNumberUC
+        public int? ApartmentNumberUC
         {
-            get => (int)GetValue(ApartmentNumberUCProperty);
+            get => (int?)GetValue(ApartmentNumberUCProperty);
             set => SetValue(ApartmentNumberUCProperty, value);
         }
 
@@ -147,14 +147,14 @@ namespace UserControls
 
         public static readonly DependencyProperty RegistrationDateUCProperty =
             DependencyProperty.Register(nameof(RegistrationDateUC),
-                                        typeof(DateTime),
+                                        typeof(DateTime?),
                                         typeof(AddressUserControl),
-                                        new PropertyMetadata(default(DateTime)));
+                                        new PropertyMetadata(default(DateTime?)));
 
         [Description("Дата регистрации")]
-        public DateTime RegistrationDateUC
+        public DateTime? RegistrationDateUC
         {
-            get => (DateTime)GetValue(RegistrationDateUCProperty);
+            get => (DateTime?)GetValue(RegistrationDateUCProperty);
             set => SetValue(RegistrationDateUCProperty, value);
         }
 

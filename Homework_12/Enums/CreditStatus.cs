@@ -3,7 +3,7 @@
     /// <summary>
     /// Статус кредита
     /// </summary>
-    public enum CreditStatus
+    public enum CreditStatus : byte
     {
         /// <summary>
         /// Ануитет

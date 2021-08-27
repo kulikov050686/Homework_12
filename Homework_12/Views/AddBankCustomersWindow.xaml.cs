@@ -50,17 +50,17 @@ namespace Views
 
         public static readonly DependencyProperty ReliabilityProperty =
             DependencyProperty.Register(nameof(Reliability),
-                                        typeof(byte),
+                                        typeof(byte?),
                                         typeof(AddBankCustomersWindow),
-                                        new PropertyMetadata(default(byte)));
+                                        new PropertyMetadata(default(byte?)));
 
         /// <summary>
         /// Рейтинг
         /// </summary>
         [Description("Рейтинг")]
-        public byte Reliability
+        public byte? Reliability
         {
-            get => (byte)GetValue(ReliabilityProperty);
+            get => (byte?)GetValue(ReliabilityProperty);
             set => SetValue(ReliabilityProperty, value);
         }
 
@@ -170,17 +170,17 @@ namespace Views
 
         public static readonly DependencyProperty BirthdayBankCustomerProperty =
             DependencyProperty.Register(nameof(BirthdayBankCustomer),
-                                        typeof(DateTime),
+                                        typeof(DateTime?),
                                         typeof(AddBankCustomersWindow),
-                                        new PropertyMetadata(default(DateTime)));
+                                        new PropertyMetadata(default(DateTime?)));
 
         /// <summary>
         /// Дата рождения
         /// </summary>
         [Description("Дата рождения")]
-        public DateTime BirthdayBankCustomer
+        public DateTime? BirthdayBankCustomer
         {
-            get => (DateTime)GetValue(BirthdayBankCustomerProperty);
+            get => (DateTime?)GetValue(BirthdayBankCustomerProperty);
             set => SetValue(BirthdayBankCustomerProperty, value);
         }
 
@@ -210,17 +210,17 @@ namespace Views
 
         public static readonly DependencyProperty NumberPassportProperty =
            DependencyProperty.Register(nameof(NumberPassport),
-                                       typeof(long),
+                                       typeof(long?),
                                        typeof(AddBankCustomersWindow),
-                                       new PropertyMetadata(default(long)));
+                                       new PropertyMetadata(default(long?)));
 
         /// <summary>
         /// Номер паспорта
         /// </summary>
         [Description("Номер паспорта клиента банка")]
-        public long NumberPassport
+        public long? NumberPassport
         {
-            get => (long)GetValue(NumberPassportProperty);
+            get => (long?)GetValue(NumberPassportProperty);
             set => SetValue(NumberPassportProperty, value);
         }
 
@@ -230,17 +230,17 @@ namespace Views
 
         public static readonly DependencyProperty SeriesPassportProperty =
            DependencyProperty.Register(nameof(SeriesPassport),
-                                       typeof(long),
+                                       typeof(long?),
                                        typeof(AddBankCustomersWindow),
-                                       new PropertyMetadata(default(long)));
+                                       new PropertyMetadata(default(long?)));
 
         /// <summary>
         /// Серия паспорта
         /// </summary>
         [Description("Серия паспорта клиента банка")]
-        public long SeriesPassport
+        public long? SeriesPassport
         {
-            get => (long)GetValue(SeriesPassportProperty);
+            get => (long?)GetValue(SeriesPassportProperty);
             set => SetValue(SeriesPassportProperty, value);
         }
 
@@ -250,17 +250,17 @@ namespace Views
 
         public static readonly DependencyProperty DivisionCodeLeftPassportProperty =
            DependencyProperty.Register(nameof(DivisionCodeLeftPassport),
-                                       typeof(int),
+                                       typeof(int?),
                                        typeof(AddBankCustomersWindow),
-                                       new PropertyMetadata(default(int)));
+                                       new PropertyMetadata(default(int?)));
 
         /// <summary>
         /// Код подразделения левый
         /// </summary>
         [Description("Код подразделения лывый")]
-        public int DivisionCodeLeftPassport
+        public int? DivisionCodeLeftPassport
         {
-            get => (int)GetValue(DivisionCodeLeftPassportProperty);
+            get => (int?)GetValue(DivisionCodeLeftPassportProperty);
             set => SetValue(DivisionCodeLeftPassportProperty, value);
         }
 
@@ -270,17 +270,17 @@ namespace Views
 
         public static readonly DependencyProperty DivisionCodeRightPassportProperty =
            DependencyProperty.Register(nameof(DivisionCodeRightPassport),
-                                       typeof(int),
+                                       typeof(int?),
                                        typeof(AddBankCustomersWindow),
-                                       new PropertyMetadata(default(int)));
+                                       new PropertyMetadata(default(int?)));
 
         /// <summary>
         /// Код подразделения правый
         /// </summary>
         [Description("Код подразделения правый")]
-        public int DivisionCodeRightPassport
+        public int? DivisionCodeRightPassport
         {
-            get => (int)GetValue(DivisionCodeRightPassportProperty);
+            get => (int?)GetValue(DivisionCodeRightPassportProperty);
             set => SetValue(DivisionCodeRightPassportProperty, value);
         }
 
@@ -290,17 +290,17 @@ namespace Views
 
         public static readonly DependencyProperty DateOfIssuePassportProperty =
            DependencyProperty.Register(nameof(DateOfIssuePassport),
-                                       typeof(DateTime),
+                                       typeof(DateTime?),
                                        typeof(AddBankCustomersWindow),
-                                       new PropertyMetadata(default(DateTime)));
+                                       new PropertyMetadata(default(DateTime?)));
 
         /// <summary>
         /// Дата выдачи паспорта
         /// </summary>
         [Description("Дата выдачи паспорта")]
-        public DateTime DateOfIssuePassport
+        public DateTime? DateOfIssuePassport
         {
-            get => (DateTime)GetValue(DateOfIssuePassportProperty);
+            get => (DateTime?)GetValue(DateOfIssuePassportProperty);
             set => SetValue(DateOfIssuePassportProperty, value);
         }
 
@@ -410,17 +410,17 @@ namespace Views
 
         public static readonly DependencyProperty HouseNumberPlaceOfResidenceProperty =
             DependencyProperty.Register(nameof(HouseNumberPlaceOfResidence),
-                                        typeof(int),
+                                        typeof(int?),
                                         typeof(AddBankCustomersWindow),
-                                        new PropertyMetadata(default(int)));
+                                        new PropertyMetadata(default(int?)));
 
         /// <summary>
         /// Номер дома адреса прописки
         /// </summary>
         [Description("Номер дома адреса прописки")]
-        public int HouseNumberPlaceOfResidence
+        public int? HouseNumberPlaceOfResidence
         {
-            get => (int)GetValue(HouseNumberPlaceOfResidenceProperty);
+            get => (int?)GetValue(HouseNumberPlaceOfResidenceProperty);
             set => SetValue(HouseNumberPlaceOfResidenceProperty, value);
         }
 
@@ -450,17 +450,17 @@ namespace Views
 
         public static readonly DependencyProperty ApartmentNumberPlaceOfResidenceProperty =
             DependencyProperty.Register(nameof(ApartmentNumberPlaceOfResidence),
-                                        typeof(int),
+                                        typeof(int?),
                                         typeof(AddBankCustomersWindow),
-                                        new PropertyMetadata(default(int)));
+                                        new PropertyMetadata(default(int?)));
 
         /// <summary>
         /// Номер квартиры адреса прописки
         /// </summary>
         [Description("Номер квартиры адреса прописки")]
-        public int ApartmentNumberPlaceOfResidence
+        public int? ApartmentNumberPlaceOfResidence
         {
-            get => (int)GetValue(ApartmentNumberPlaceOfResidenceProperty);
+            get => (int?)GetValue(ApartmentNumberPlaceOfResidenceProperty);
             set => SetValue(ApartmentNumberPlaceOfResidenceProperty, value);
         }
 
@@ -470,17 +470,17 @@ namespace Views
 
         public static readonly DependencyProperty RegistrationDatePlaceOfResidenceProperty =
             DependencyProperty.Register(nameof(RegistrationDatePlaceOfResidence),
-                                        typeof(DateTime),
+                                        typeof(DateTime?),
                                         typeof(AddBankCustomersWindow),
-                                        new PropertyMetadata(default(DateTime)));
+                                        new PropertyMetadata(default(DateTime?)));
 
         /// <summary>
         /// Дата регистрации адреса прописки
         /// </summary>
         [Description("Дата регистрации адреса прописки")]
-        public DateTime RegistrationDatePlaceOfResidence
+        public DateTime? RegistrationDatePlaceOfResidence
         {
-            get => (DateTime)GetValue(RegistrationDatePlaceOfResidenceProperty);
+            get => (DateTime?)GetValue(RegistrationDatePlaceOfResidenceProperty);
             set => SetValue(RegistrationDatePlaceOfResidenceProperty, value);
         }
 
@@ -570,17 +570,17 @@ namespace Views
 
         public static readonly DependencyProperty HouseNumberRegistrationProperty =
             DependencyProperty.Register(nameof(HouseNumberRegistration),
-                                        typeof(int),
+                                        typeof(int?),
                                         typeof(AddBankCustomersWindow),
-                                        new PropertyMetadata(default(int)));
+                                        new PropertyMetadata(default(int?)));
 
         /// <summary>
         /// Номер дома адреса регистрации
         /// </summary>
         [Description("Номер дома адреса регистрации")]
-        public int HouseNumberRegistration
+        public int? HouseNumberRegistration
         {
-            get => (int)GetValue(HouseNumberRegistrationProperty);
+            get => (int?)GetValue(HouseNumberRegistrationProperty);
             set => SetValue(HouseNumberRegistrationProperty, value);
         }
 
@@ -610,17 +610,17 @@ namespace Views
 
         public static readonly DependencyProperty ApartmentNumberRegistrationProperty =
             DependencyProperty.Register(nameof(ApartmentNumberRegistration),
-                                        typeof(int),
+                                        typeof(int?),
                                         typeof(AddBankCustomersWindow),
-                                        new PropertyMetadata(default(int)));
+                                        new PropertyMetadata(default(int?)));
 
         /// <summary>
         /// Номер квартиры адреса регистрации
         /// </summary>
         [Description("Номер квартиры адреса регистрации")]
-        public int ApartmentNumberRegistration
+        public int? ApartmentNumberRegistration
         {
-            get => (int)GetValue(ApartmentNumberRegistrationProperty);
+            get => (int?)GetValue(ApartmentNumberRegistrationProperty);
             set => SetValue(ApartmentNumberRegistrationProperty, value);
         }
 
@@ -630,17 +630,17 @@ namespace Views
 
         public static readonly DependencyProperty RegistrationDateRegistrationProperty =
             DependencyProperty.Register(nameof(RegistrationDateRegistration),
-                                        typeof(DateTime),
+                                        typeof(DateTime?),
                                         typeof(AddBankCustomersWindow),
-                                        new PropertyMetadata(default(DateTime)));
+                                        new PropertyMetadata(default(DateTime?)));
 
         /// <summary>
         /// Дата регистрации адреса регистрации
         /// </summary>
         [Description("Дата регистрации адреса регистрации")]
-        public DateTime RegistrationDateRegistration
+        public DateTime? RegistrationDateRegistration
         {
-            get => (DateTime)GetValue(RegistrationDateRegistrationProperty);
+            get => (DateTime?)GetValue(RegistrationDateRegistrationProperty);
             set => SetValue(RegistrationDateRegistrationProperty, value);
         }
 

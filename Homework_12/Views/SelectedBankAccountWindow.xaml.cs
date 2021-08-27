@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Collections;
 
 namespace Views
-{    
+{
     public partial class SelectedBankAccountWindow : Window
     {
         #region Список счетов

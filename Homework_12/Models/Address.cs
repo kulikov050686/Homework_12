@@ -11,7 +11,7 @@ namespace Models
         /// <summary>
         /// Дата регистрации
         /// </summary>
-        public DateTime RegistrationDate { get; }
+        public DateTime? RegistrationDate { get; }
 
         /// <summary>
         /// Область или регион
@@ -36,7 +36,7 @@ namespace Models
         /// <summary>
         /// Номер дома
         /// </summary>
-        public int HouseNumber { get; }
+        public int? HouseNumber { get; }
         
         /// <summary>
         /// Корпус дома
@@ -46,7 +46,7 @@ namespace Models
         /// <summary>
         /// Номер квартиры
         /// </summary>
-        public int ApartmentNumber { get; }
+        public int? ApartmentNumber { get; }
 
         /// <summary>
         /// Конструктор
@@ -59,14 +59,14 @@ namespace Models
         /// <param name="apartmentNumber"> Номер квартиры </param>
         /// <param name="housing"> Корпус дома </param>
         /// <param name="district"> Район города </param>
-        public Address(DateTime registrationDate,
+        public Address(DateTime? registrationDate,
                        string region,
                        string city,
                        string street,
-                       int houseNumber,
-                       int apartmentNumber = 0,
-                       string housing = "",
-                       string district = "")
+                       int? houseNumber,
+                       int? apartmentNumber = null,
+                       string housing = null,
+                       string district = null)
         {
             if (string.IsNullOrWhiteSpace(region)) 
                 throw new ArgumentException("Регион или область не может быть пустым!!!");

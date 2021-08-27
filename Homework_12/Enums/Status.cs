@@ -3,7 +3,7 @@
     /// <summary>
     /// Статус
     /// </summary>
-    public enum Status
+    public enum Status : byte
     {
         /// <summary>
         /// Обычнай

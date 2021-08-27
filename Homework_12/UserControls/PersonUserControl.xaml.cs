@@ -96,7 +96,7 @@ namespace UserControls
         #region Пол
 
         [Description("Пол")]
-        public List<string> GenderUC { get; set; }
+        public List<string> GenderUC { get; set; } = new List<string> { "муж", "жен" };
 
         #endregion
 
@@ -138,23 +138,19 @@ namespace UserControls
 
         public static readonly DependencyProperty DateOfBirthrUCProperty =
             DependencyProperty.Register(nameof(DateOfBirthrUC),
-                                        typeof(DateTime),
+                                        typeof(DateTime?),
                                         typeof(PersonUserControl),
-                                        new PropertyMetadata(default(DateTime)));
+                                        new PropertyMetadata(default(DateTime?)));
 
         [Description("Дата рождения")]
-        public DateTime DateOfBirthrUC
+        public DateTime? DateOfBirthrUC
         {
-            get => (DateTime)GetValue(DateOfBirthrUCProperty);
+            get => (DateTime?)GetValue(DateOfBirthrUCProperty);
             set => SetValue(DateOfBirthrUCProperty, value);
         }
 
         #endregion
 
-        public PersonUserControl()
-        {
-            InitializeComponent();
-            GenderUC = new List<string> { "муж", "жен" };
-        }
+        public PersonUserControl() => InitializeComponent();        
     }
 }

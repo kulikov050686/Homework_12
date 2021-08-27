@@ -17,12 +17,12 @@ namespace Models
         /// <summary>
         /// Сумма на счёте
         /// </summary>
-        public double Amount { get; set; }
+        public double? Amount { get; set; }
 
         /// <summary>
         /// Процентная ставка
         /// </summary>
-        public double InterestRate { get; set; }
+        public double? InterestRate { get; set; }
 
         /// <summary>
         /// Статус счёта

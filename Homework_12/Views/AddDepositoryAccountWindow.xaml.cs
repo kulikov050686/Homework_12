@@ -11,17 +11,17 @@ namespace Views
 
         public static readonly DependencyProperty AmountProperty =
             DependencyProperty.Register(nameof(Amount),
-                                        typeof(double),
+                                        typeof(double?),
                                         typeof(AddDepositoryAccountWindow),
-                                        new PropertyMetadata(default(double)));
+                                        new PropertyMetadata(default(double?)));
 
         /// <summary>
         /// Сумма
         /// </summary>
         [Description("Сумма")]
-        public double Amount
+        public double? Amount
         {
-            get => (double)GetValue(AmountProperty);
+            get => (double?)GetValue(AmountProperty);
             set => SetValue(AmountProperty, value);
         }
 
@@ -31,17 +31,17 @@ namespace Views
 
         public static readonly DependencyProperty InterestRateProperty =
             DependencyProperty.Register(nameof(InterestRate),
-                                        typeof(double),
+                                        typeof(double?),
                                         typeof(AddDepositoryAccountWindow),
-                                        new PropertyMetadata(default(double)));
+                                        new PropertyMetadata(default(double?)));
 
         /// <summary>
         /// Процентная ставка
         /// </summary>
         [Description("Процентная ставка")]
-        public double InterestRate
+        public double? InterestRate
         {
-            get => (double)GetValue(InterestRateProperty);
+            get => (double?)GetValue(InterestRateProperty);
             set => SetValue(InterestRateProperty, value);
         }
 

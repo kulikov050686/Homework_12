@@ -3,7 +3,7 @@
     /// <summary>
     /// Страница
     /// </summary>
-    public enum ApplicationPage
+    public enum ApplicationPage : byte
     {
         /// <summary>
         /// Главная страница

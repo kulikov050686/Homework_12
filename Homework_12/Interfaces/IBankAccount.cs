@@ -10,12 +10,12 @@ namespace Interfaces
         /// <summary>
         /// Сумма на счёте
         /// </summary>
-        double Amount { get; set; }
+        double? Amount { get; set; }
 
         /// <summary>
         /// Процентная ставка
         /// </summary>
-        double InterestRate { get; set; }
+        double? InterestRate { get; set; }
 
         /// <summary>
         /// Статус счёта

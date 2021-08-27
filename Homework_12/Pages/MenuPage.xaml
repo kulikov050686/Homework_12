@@ -23,6 +23,12 @@
                           Command="{Binding DeleteBankCustomer}"/>
                 <MenuItem Header="Редактировать клиента банка" 
                           Command="{Binding EditDataBankCustomer}"/>
+                <MenuItem Header="Создать депозитарный счёт"
+                          Command="{Binding CreateNewDepositoryAccount}"/>
+                <MenuItem Header="Удалить депозитарный счёт"
+                          Command="{Binding DeleteDepositoryAccount}"/>
+                <MenuItem Header="Редактировать депозитарный счёт"
+                          Command="{Binding EditDepositoryAccount}"/>
             </MenuItem>            
         </Menu>
     </Grid>

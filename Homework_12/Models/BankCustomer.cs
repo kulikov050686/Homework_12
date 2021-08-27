@@ -28,7 +28,7 @@ namespace Models
         /// <summary>
         /// Надёжность
         /// </summary>
-        public byte Reliability { get; set; }
+        public byte? Reliability { get; set; }
 
         /// <summary>
         /// Номер телефона
@@ -67,9 +67,9 @@ namespace Models
         public BankCustomer(int id,
                             IPassport passport,
                             Status clientStatus,
-                            string phoneNumber = "",
-                            byte reliability = 0,
-                            string email = "")
+                            string phoneNumber = null,
+                            byte? reliability = null,
+                            string email = null)
         {
             if(id < 0) 
                 throw new ArgumentException("Невозможный идентификатор!!!");

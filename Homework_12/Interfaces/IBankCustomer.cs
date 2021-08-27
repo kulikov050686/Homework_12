@@ -22,7 +22,7 @@ namespace Interfaces
         /// <summary>
         /// Надёжность
         /// </summary>
-        byte Reliability { get; set; }
+        byte? Reliability { get; set; }
 
         /// <summary>
         /// Номер телефона

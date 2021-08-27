@@ -31,7 +31,7 @@ namespace Models
         /// <summary>
         /// День рождения
         /// </summary>
-        public DateTime Birthday { get; }
+        public DateTime? Birthday { get; }
 
         /// <summary>
         /// Место рождения
@@ -63,7 +63,7 @@ namespace Models
                       string name,
                       string patronymic,
                       string gender,
-                      DateTime birthday,
+                      DateTime? birthday,
                       string placeOfBirth,
                       IAddress placeOfResidence,
                       IAddress placeOfRegistration = null)

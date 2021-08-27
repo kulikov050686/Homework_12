@@ -6,6 +6,9 @@ using Views;
 
 namespace Services
 {
+    /// <summary>
+    /// Класс сервиса диалоговых окон по работе с клиентом банка
+    /// </summary>
     public class BankCustomerDialog : IBankCustomerDialogService
     {
         /// <summary>
@@ -174,12 +177,12 @@ namespace Services
         /// <param name="apartmentNumber"> Номер квартиры </param>
         /// <param name="housing"> Корпус дома </param>
         /// <param name="district"> Район города </param>        
-        private IAddress CreateAddress(DateTime registrationDate,
+        private IAddress CreateAddress(DateTime? registrationDate,
                                        string region,
                                        string city,
                                        string street,
-                                       int houseNumber,
-                                       int apartmentNumber,
+                                       int? houseNumber,
+                                       int? apartmentNumber,
                                        string housing,
                                        string district)
         {
@@ -215,7 +218,7 @@ namespace Services
                                       string name,
                                       string patronymic,
                                       string gender,
-                                      DateTime birthday,
+                                      DateTime? birthday,
                                       string placeOfBirth,
                                       IAddress placeOfResidence,
                                       IAddress placeOfRegistration)
@@ -246,10 +249,10 @@ namespace Services
         /// <param name="dateOfIssue"> Дата выпуска </param>
         /// <param name="divisionCode"> Код подразделения </param>
         /// <param name="holder"> Владелец </param>
-        private Passport CreatePassport(long series,
-                                        long number,
+        private Passport CreatePassport(long? series,
+                                        long? number,
                                         string placeOfIssue,
-                                        DateTime dateOfIssue,
+                                        DateTime? dateOfIssue,
                                         DivisionCode divisionCode,
                                         IPerson holder)
         {
@@ -273,7 +276,7 @@ namespace Services
         /// </summary>
         /// <param name="left"> Левая чать кода </param>
         /// <param name="right"> Правая часть кода </param>        
-        private DivisionCode CreateDivisionCode(int left, int right)
+        private DivisionCode CreateDivisionCode(int? left, int? right)
         {
             try
             {

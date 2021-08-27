@@ -30,7 +30,7 @@ namespace Interfaces
         /// <summary>
         /// День рождения
         /// </summary>
-        DateTime Birthday { get; }
+        DateTime? Birthday { get; }
 
         /// <summary>
         /// Место рождения

@@ -28,14 +28,14 @@ namespace UserControls
 
         public static readonly DependencyProperty NumberUCProperty =
            DependencyProperty.Register(nameof(NumberUC),
-                                       typeof(long),
+                                       typeof(long?),
                                        typeof(PassportUserControl),
-                                       new PropertyMetadata(default(long)));
+                                       new PropertyMetadata(default(long?)));
 
         [Description("Номер паспорта")]
-        public long NumberUC 
+        public long? NumberUC
         {
-            get => (long)GetValue(NumberUCProperty);
+            get => (long?)GetValue(NumberUCProperty);
             set => SetValue(NumberUCProperty, value);
         }
 
@@ -45,14 +45,14 @@ namespace UserControls
 
         public static readonly DependencyProperty SeriesUCProperty =
            DependencyProperty.Register(nameof(SeriesUC),
-                                       typeof(long),
+                                       typeof(long?),
                                        typeof(PassportUserControl),
-                                       new PropertyMetadata(default(long)));
+                                       new PropertyMetadata(default(long?)));
 
         [Description("Серия паспорта")]
-        public long SeriesUC
+        public long? SeriesUC
         {
-            get => (long)GetValue(SeriesUCProperty);
+            get => (long?)GetValue(SeriesUCProperty);
             set => SetValue(SeriesUCProperty, value);
         }
 
@@ -62,14 +62,14 @@ namespace UserControls
 
         public static readonly DependencyProperty DivisionCodeLeftUCProperty =
            DependencyProperty.Register(nameof(DivisionCodeLeftUC),
-                                       typeof(int),
+                                       typeof(int?),
                                        typeof(PassportUserControl),
-                                       new PropertyMetadata(default(int)));
+                                       new PropertyMetadata(default(int?)));
 
         [Description("Код подразделения левый")]
-        public int DivisionCodeLeftUC
+        public int? DivisionCodeLeftUC
         {
-            get => (int)GetValue(DivisionCodeLeftUCProperty);
+            get => (int?)GetValue(DivisionCodeLeftUCProperty);
             set => SetValue(DivisionCodeLeftUCProperty, value);
         }
 
@@ -79,14 +79,14 @@ namespace UserControls
 
         public static readonly DependencyProperty DivisionCodeRightUCProperty =
            DependencyProperty.Register(nameof(DivisionCodeRightUC),
-                                       typeof(int),
+                                       typeof(int?),
                                        typeof(PassportUserControl),
-                                       new PropertyMetadata(default(int)));
+                                       new PropertyMetadata(default(int?)));
 
         [Description("Код подразделения правый")]
-        public int DivisionCodeRightUC
+        public int? DivisionCodeRightUC
         {
-            get => (int)GetValue(DivisionCodeRightUCProperty);
+            get => (int?)GetValue(DivisionCodeRightUCProperty);
             set => SetValue(DivisionCodeRightUCProperty, value);
         }
 
@@ -96,14 +96,14 @@ namespace UserControls
 
         public static readonly DependencyProperty DateOfIssueUCProperty =
            DependencyProperty.Register(nameof(DateOfIssueUC),
-                                       typeof(DateTime),
+                                       typeof(DateTime?),
                                        typeof(PassportUserControl),
-                                       new PropertyMetadata(default(DateTime)));
+                                       new PropertyMetadata(default(DateTime?)));
 
         [Description("Дата выдачи паспорта")]
-        public DateTime DateOfIssueUC
+        public DateTime? DateOfIssueUC
         {
-            get => (DateTime)GetValue(DateOfIssueUCProperty);
+            get => (DateTime?)GetValue(DateOfIssueUCProperty);
             set => SetValue(DateOfIssueUCProperty, value);
         }
 

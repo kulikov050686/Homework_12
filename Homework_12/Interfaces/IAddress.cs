@@ -10,7 +10,7 @@ namespace Interfaces
         /// <summary>
         /// Дата регистрации
         /// </summary>
-        DateTime RegistrationDate { get; }
+        DateTime? RegistrationDate { get; }
 
         /// <summary>
         /// Область или регион
@@ -35,7 +35,7 @@ namespace Interfaces
         /// <summary>
         /// Номер дома
         /// </summary>
-        int HouseNumber { get; }
+        int? HouseNumber { get; }
 
         /// <summary>
         /// Корпус дома
@@ -45,7 +45,7 @@ namespace Interfaces
         /// <summary>
         /// Номер квартиры
         /// </summary>
-        int ApartmentNumber { get; }
+        int? ApartmentNumber { get; }
 
         /// <summary>
         /// Метод сравнения

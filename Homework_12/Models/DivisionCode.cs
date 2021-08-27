@@ -10,24 +10,26 @@ namespace Models
         /// <summary>
         /// Левая часть кода подразделения
         /// </summary>
-        public int Left { get; }
+        public int? Left { get; }
         
         /// <summary>
         /// Правая часть кода подразделения
         /// </summary>
-        public int Right { get; }
+        public int? Right { get; }
         
         /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="left"> Левая часть кода </param>
         /// <param name="right"> Правая часть кода </param>
-        public DivisionCode(int left, int right)
+        public DivisionCode(int? left, int? right)
         {
-            if (left <= 0) throw new ArgumentException("Невозможное значение!!!");
+            if (left <= 0) 
+                throw new ArgumentException("Невозможное значение!!!");
             Left = left;
 
-            if (right <= 0) throw new ArgumentException("Невозможное значение!!!");
+            if (right <= 0) 
+                throw new ArgumentException("Невозможное значение!!!");
             Right = right;
         }
 

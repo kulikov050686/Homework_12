@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace Services
 {
+    /// <summary>
+    /// Хранилище депозитарных счетов
+    /// </summary>
     public class DepositoryAccountRepository : RepositoryInMemory<DepositoryAccount>
     {
         /// <summary>

@@ -1,5 +1,4 @@
-﻿using Enums;
-using Interfaces;
+﻿using Interfaces;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -7,10 +6,13 @@ using Views;
 
 namespace Services
 {
+    /// <summary>
+    /// Класс сервиса диалоговых окон по работе с депозитарным счётом
+    /// </summary>
     public class DepositoryAccountDialog : IDepositoryAccountDialogService
     {
         /// <summary>
-        /// 
+        /// Создание нового депозитарного счёта
         /// </summary>        
         public DepositoryAccount CreateNewDepositoryAccount()
         {
@@ -29,9 +31,9 @@ namespace Services
         }
 
         /// <summary>
-        /// 
+        /// Обновить данные депозитарного счёта
         /// </summary>
-        /// <param name="depositoryAccount"></param>        
+        /// <param name="depositoryAccount"> Депозитарный счёт </param>        
         public DepositoryAccount UpdateDataDepositoryAccount(DepositoryAccount depositoryAccount)
         {
             if(depositoryAccount is null)
@@ -53,9 +55,9 @@ namespace Services
         }
 
         /// <summary>
-        /// 
+        /// Объединить депозитарные счета в один счёт
         /// </summary>
-        /// <param name="depositoryAccounts"></param>        
+        /// <param name="depositoryAccounts"> Список депозитарных счетов </param>        
         public DepositoryAccount CombiningDepositoryAccounts(IEnumerable<DepositoryAccount> depositoryAccounts)
         {
             if(depositoryAccounts is null)
