@@ -2,8 +2,10 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       xmlns:local="clr-namespace:Pages"
+      xmlns:bihaviors="clr-namespace:Behaviors"
       mc:Ignorable="d"
       DataContext="{Binding MenuPageVM,Source={StaticResource Locator}}">
 
@@ -13,7 +15,11 @@
                 <MenuItem Header="Сохранить" 
                           Command="{Binding SaveToFile}"/>
                 <MenuItem Header="Открыть"/>
-                <MenuItem Header="Выход"/>
+                <MenuItem Header="Выход">
+                    <i:Interaction.Behaviors>
+                        <bihaviors:CloseWindowItemMenu/>
+                    </i:Interaction.Behaviors>
+                </MenuItem>
             </MenuItem>
 
             <MenuItem Header="Правка">
