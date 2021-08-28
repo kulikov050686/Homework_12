@@ -16,15 +16,15 @@ namespace ViewModels
     {
         #region Закрытые поля
 
-        private readonly BankCustomersManager _bankCustomersManager;
-        private readonly DepositoryAccountsManager _depositoryAccountsManager;
-        private Department _selectedDepartment;
-        private BankCustomer _selectedBankCustomer;
-        private DepositoryAccount _selectedDepositoryAccount;
-        private IBankCustomerDialogService _bankCustomerDialog;
-        private IDepositoryAccountDialogService _depositoryAccountDialog;
+        private readonly BankCustomersManager _bankCustomersManager = default!;
+        private readonly DepositoryAccountsManager _depositoryAccountsManager = default!;
+        private Department _selectedDepartment = default!;
+        private BankCustomer _selectedBankCustomer = default!;
+        private DepositoryAccount _selectedDepositoryAccount =  default!;
+        private IBankCustomerDialogService _bankCustomerDialog = default!;
+        private IDepositoryAccountDialogService _depositoryAccountDialog =  default!;
         private int _k = 1;
-        private Timer _timer;
+        private Timer _timer = default!;
 
         #endregion
 
@@ -76,7 +76,7 @@ namespace ViewModels
 
         #region Команда создания нового клиента банка
 
-        private ICommand _createNewBankCustomer;
+        private ICommand _createNewBankCustomer = default!;
         public ICommand CreateNewBankCustomer
         {
             get => _createNewBankCustomer ??= new RelayCommand((obj) =>
@@ -93,7 +93,7 @@ namespace ViewModels
 
         #region Команда удаления клиента банка
 
-        private ICommand _deleteBankCustomer;
+        private ICommand _deleteBankCustomer = default!;
         public ICommand DeleteBankCustomer
         {
             get => _deleteBankCustomer ??= new RelayCommand((obj) =>
@@ -110,7 +110,7 @@ namespace ViewModels
 
         #region Команда редактирования данных клиента банка
 
-        private ICommand _editDataBankCustomer;
+        private ICommand _editDataBankCustomer = default!;
         public ICommand EditDataBankCustomer
         {
             get => _editDataBankCustomer ??= new RelayCommand((obj) =>
@@ -129,7 +129,7 @@ namespace ViewModels
 
         #region Команда создание нового депозитарного счёта
 
-        private ICommand _createNewDepositoryAccount;
+        private ICommand _createNewDepositoryAccount = default!;
         public ICommand CreateNewDepositoryAccount
         {
             get => _createNewDepositoryAccount ??= new RelayCommand((obj) =>
@@ -147,7 +147,7 @@ namespace ViewModels
 
         #region Команда удаления депозитарного счёта
 
-        private ICommand _deleteDepositoryAccount;
+        private ICommand _deleteDepositoryAccount = default!;
         public ICommand DeleteDepositoryAccount
         {
             get => _deleteDepositoryAccount ??= new RelayCommand((obj) => 
@@ -164,7 +164,7 @@ namespace ViewModels
 
         #region Команда редактирования депозитарного счёта
 
-        private ICommand _editDepositoryAccount;
+        private ICommand _editDepositoryAccount = default!;
         public ICommand EditDepositoryAccount
         {
             get => _editDepositoryAccount ??= new RelayCommand((obj) =>
@@ -183,7 +183,7 @@ namespace ViewModels
 
         #region Команда объединения депозитарных счетов
 
-        private ICommand _combiningDepositoryAccounts;
+        private ICommand _combiningDepositoryAccounts = default!;
         public ICommand CombiningDepositoryAccounts
         {
             get => _combiningDepositoryAccounts ??= new RelayCommand((obj) => 

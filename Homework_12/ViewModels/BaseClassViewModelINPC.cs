@@ -16,7 +16,7 @@ namespace ViewModels
         /// <summary>
         /// Событие для извещения об изменения свойства
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged = default!;
 
         /// <summary>
         /// Метод для вызова события извещения об изменении свойства

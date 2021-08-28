@@ -83,8 +83,8 @@ namespace Services
         /// <param name="depositoryAccount1"> Депозитарный счёт 1 </param>
         /// <param name="depositoryAccount2"> Депозитарный счёт 2 </param>
         /// <param name="bankCustomer"> Клиент банка </param>        
-        public bool CombiningDepositoryAccounts(DepositoryAccount depositoryAccount1, 
-                                                DepositoryAccount depositoryAccount2, 
+        public bool CombiningDepositoryAccounts(DepositoryAccount depositoryAccount1,
+                                                DepositoryAccount depositoryAccount2,
                                                 BankCustomer bankCustomer)
         {
             if(depositoryAccount1 is null)

@@ -5,6 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <StartupObject>Homework_12.Program</StartupObject>
+	  <LangVersion>9.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

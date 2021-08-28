@@ -12,7 +12,7 @@ namespace ViewModels
     {
         #region Закрытые поля
 
-        private readonly MainPageViewModel _mainPageViewModel;
+        private readonly MainPageViewModel _mainPageViewModel = default!;
 
         #endregion
 
@@ -23,7 +23,7 @@ namespace ViewModels
 
         #region Команда сохранить в файл
 
-        private ICommand _saveToFile;
+        private ICommand _saveToFile = default!;
         public ICommand SaveToFile
         {
             get => _saveToFile ??= new RelayCommand((obj) =>
@@ -36,7 +36,7 @@ namespace ViewModels
 
         #region Команда создания нового клиента банка
 
-        private ICommand _createNewBankCustomer;
+        private ICommand _createNewBankCustomer = default!;
         public ICommand CreateNewBankCustomer
         {
             get => _createNewBankCustomer ??= new RelayCommand((obj) =>
@@ -49,7 +49,7 @@ namespace ViewModels
 
         #region Команда удаления клиента банка
 
-        private ICommand _deleteBankCustomer;
+        private ICommand _deleteBankCustomer = default!;
         public ICommand DeleteBankCustomer
         {
             get => _deleteBankCustomer ??= new RelayCommand((obj) =>
@@ -62,7 +62,7 @@ namespace ViewModels
 
         #region Команда редактирования данных клиента банка
 
-        private ICommand _editDataBankCustomer;
+        private ICommand _editDataBankCustomer = default!;
         public ICommand EditDataBankCustomer
         {
             get => _editDataBankCustomer ??= new RelayCommand((obj) =>
@@ -75,7 +75,7 @@ namespace ViewModels
 
         #region Команда создание нового депозитарного счёта
 
-        private ICommand _createNewDepositoryAccount;
+        private ICommand _createNewDepositoryAccount = default!;
         public ICommand CreateNewDepositoryAccount
         {
             get => _createNewDepositoryAccount ??= new RelayCommand((obj) =>
@@ -88,7 +88,7 @@ namespace ViewModels
 
         #region Команда удаления депозитарного счёта
 
-        private ICommand _deleteDepositoryAccount;
+        private ICommand _deleteDepositoryAccount = default!;
         public ICommand DeleteDepositoryAccount
         {
             get => _deleteDepositoryAccount ??= new RelayCommand((obj) =>
@@ -101,7 +101,7 @@ namespace ViewModels
 
         #region Команда редактирования депозитарного счёта
 
-        private ICommand _editDepositoryAccount;
+        private ICommand _editDepositoryAccount = default!;
         public ICommand EditDepositoryAccount
         {
             get => _editDepositoryAccount ??= new RelayCommand((obj) =>
